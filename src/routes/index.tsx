@@ -27,19 +27,6 @@ const Router = () => {
         <Route path="/" element={<Layout />}>
           <Route element={isLoggedIn ? <MainLayout /> : <LandingPage />}>
             <Route
-              path="login"
-              element={
-                <RestrictedRoute redirectTo="/" component={<LoginPage />} />
-              }
-            />
-            <Route
-              path="register"
-              element={
-                <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
-              }
-            />
-
-            <Route
               index
               element={
                 <PrivateRoute redirectTo="/" component={<ProjectListPage />} />
@@ -76,6 +63,19 @@ const Router = () => {
               }
             />
           </Route>
+
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute redirectTo="/" component={<LoginPage />} />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+            }
+          />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
