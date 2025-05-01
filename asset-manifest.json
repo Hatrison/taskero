@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/taskero/static/css/main.db317afe.css",
-    "main.js": "/taskero/static/js/main.11d4070c.js",
+    "main.js": "/taskero/static/js/main.419fec44.js",
     "static/js/480.1d894911.chunk.js": "/taskero/static/js/480.1d894911.chunk.js",
     "static/js/637.08e4f707.chunk.js": "/taskero/static/js/637.08e4f707.chunk.js",
     "static/js/657.61b6c8f5.chunk.js": "/taskero/static/js/657.61b6c8f5.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/579.3b53cd97.chunk.js": "/taskero/static/js/579.3b53cd97.chunk.js",
     "index.html": "/taskero/index.html",
     "main.db317afe.css.map": "/taskero/static/css/main.db317afe.css.map",
-    "main.11d4070c.js.map": "/taskero/static/js/main.11d4070c.js.map",
+    "main.419fec44.js.map": "/taskero/static/js/main.419fec44.js.map",
     "480.1d894911.chunk.js.map": "/taskero/static/js/480.1d894911.chunk.js.map",
     "637.08e4f707.chunk.js.map": "/taskero/static/js/637.08e4f707.chunk.js.map",
     "657.61b6c8f5.chunk.js.map": "/taskero/static/js/657.61b6c8f5.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.db317afe.css",
-    "static/js/main.11d4070c.js"
+    "static/js/main.419fec44.js"
   ]
 }
