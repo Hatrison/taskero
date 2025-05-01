@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 // import Header from "@/components/Header";
 // import Sidebar from "@/components/SideBar";
 import Loader from "@/components/Loader";
@@ -13,20 +13,20 @@ import {
 } from "./MainLayout.styled";
 
 const MainLayout = () => {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
-  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
+  // const [sidebarVisible, setSidebarVisible] = useState(false);
+  // const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
 
-  useEffect(() => {
-    if (sidebarVisible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [sidebarVisible]);
+  // useEffect(() => {
+  //   if (sidebarVisible) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+  // }, [sidebarVisible]);
 
-  const onSidebarToggle = () => {
-    setSidebarVisible((state) => !state);
-  };
+  // const onSidebarToggle = () => {
+  //   setSidebarVisible((state) => !state);
+  // };
 
   return (
     <MainWrap>
