@@ -38,44 +38,44 @@ const Router = () => {
                 <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
               }
             />
-          </Route>
 
-          <Route
-            index
-            element={
-              <PrivateRoute redirectTo="/" component={<ProjectListPage />} />
-            }
-          />
-          <Route
-            path="account"
-            element={
-              <PrivateRoute redirectTo="/" component={<AccountPage />} />
-            }
-          />
-          <Route
-            path="companies/:id"
-            element={
-              <PrivateRoute redirectTo="/" component={<CompanyPage />} />
-            }
-          />
-          <Route
-            path="projects/:id"
-            element={
-              <PrivateRoute redirectTo="/" component={<ProjectBoardPage />} />
-            }
-          />
-          <Route
-            path="projects/:id/edit"
-            element={
-              <PrivateRoute redirectTo="/" component={<ProjectEditPage />} />
-            }
-          />
-          <Route
-            path="reviews"
-            element={
-              <PrivateRoute redirectTo="/" component={<ReviewsPage />} />
-            }
-          />
+            <Route
+              index
+              element={
+                <PrivateRoute redirectTo="/" component={<ProjectListPage />} />
+              }
+            />
+            <Route
+              path="account"
+              element={
+                <PrivateRoute redirectTo="/" component={<AccountPage />} />
+              }
+            />
+            <Route
+              path="companies/:id"
+              element={
+                <PrivateRoute redirectTo="/" component={<CompanyPage />} />
+              }
+            />
+            <Route
+              path="projects/:id"
+              element={
+                <PrivateRoute redirectTo="/" component={<ProjectBoardPage />} />
+              }
+            />
+            <Route
+              path="projects/:id/edit"
+              element={
+                <PrivateRoute redirectTo="/" component={<ProjectEditPage />} />
+              }
+            />
+            <Route
+              path="reviews"
+              element={
+                <PrivateRoute redirectTo="/" component={<ReviewsPage />} />
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
