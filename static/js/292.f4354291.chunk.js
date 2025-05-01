@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[292],{292:(e,s,a)=>{a.r(s),a.d(s,{default:()=>t});var c=a(579);const t=()=>(0,c.jsx)("div",{children:"AccountPage"})}}]);
+//# sourceMappingURL=292.f4354291.chunk.js.map
