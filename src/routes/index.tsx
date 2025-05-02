@@ -13,7 +13,6 @@ const RegisterPage = lazy(() => import("@/pages/RegisterPage"));
 const AccountPage = lazy(() => import("@/pages/AccountPage"));
 const ProjectListPage = lazy(() => import("@/pages/ProjectListPage"));
 const ProjectBoardPage = lazy(() => import("@/pages/ProjectBoardPage"));
-const ProjectEditPage = lazy(() => import("@/pages/ProjectEditPage"));
 const CompanyPage = lazy(() => import("@/pages/CompanyPage"));
 const ReviewsPage = lazy(() => import("@/pages/ReviewsPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
@@ -48,12 +47,6 @@ const Router = () => {
               path="projects/:id"
               element={
                 <PrivateRoute redirectTo="/" component={<ProjectBoardPage />} />
-              }
-            />
-            <Route
-              path="projects/:id/edit"
-              element={
-                <PrivateRoute redirectTo="/" component={<ProjectEditPage />} />
               }
             />
             <Route
