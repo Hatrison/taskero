@@ -63,7 +63,6 @@ const Router = () => {
               }
             />
           </Route>
-
           <Route
             path="login"
             element={
@@ -77,7 +76,6 @@ const Router = () => {
             }
           />
         </Route>
-
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
