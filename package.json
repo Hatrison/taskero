@@ -44,10 +44,10 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "craco build && cp build/index.html build/404.html",
     "test": "craco test",
     "eject": "craco eject",
-    "lint:ts": "eslint src/**/*.{ts,tsx}",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
