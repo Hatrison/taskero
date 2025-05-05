@@ -1,5 +1,27 @@
 {
-  "login": "Login",
-  "logout": "Logout",
-  "welcome": "Welcome to Taskero"
+  "LandingPage": {
+    "Header": {
+      "features": "Features",
+      "howItWorks": "How it works",
+      "reviews": "Reviews",
+      "login": "Login",
+      "getStarted": "Get Started"
+    },
+    "MainSection": {},
+    "KeyFeatures": {
+      "title": "Key Features",
+      "feature1": {
+        "title": "Flexible Columns",
+        "description": "Add unlimited custom stages to match your workflow perfectly."
+      },
+      "feature2": {
+        "title": "Multi-role Permissions",
+        "description": "Granular access control with Owners, Editors, and Viewers roles."
+      },
+      "feature3": {
+        "title": "Drag & Drop Interface",
+        "description": "Intuitive task management with smooth drag and drop functionality."
+      }
+    }
+  }
 }

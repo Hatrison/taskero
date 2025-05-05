@@ -1,7 +1,7 @@
 export const theme = {
   light: {
     // Text
-    primaryText: "#111111",
+    primaryText: "#1A1A1A",
     secondaryText: "#666666",
     invertedText: "#ffffff",
 
@@ -40,6 +40,9 @@ export const theme = {
     buttonText: "#ffffff",
     buttonBackground: "#3e85f3",
     buttonBackgroundHover: "#2c73d2",
+
+    // Animations
+    animation: "250ms linear 0s",
   },
 
   dark: {
@@ -83,5 +86,8 @@ export const theme = {
     buttonText: "#ffffff",
     buttonBackground: "#3e85f3",
     buttonBackgroundHover: "#5aa6f6",
+
+    // Animations
+    animation: "250ms linear 0s",
   },
 };

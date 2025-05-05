@@ -4,8 +4,7 @@ import { useEffect } from "react";
 
 import Theme from "@/components/Theme";
 import GlobalStyle from "@/components/Theme/GlobalStyle.styled";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { useAppSelector } from "@/hooks/useAppSelector";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 import { fetchCurrentUser } from "@/redux/user/operations";
 import { selectIsRefreshing } from "@/redux/auth/selectors";
 

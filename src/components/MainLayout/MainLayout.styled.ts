@@ -19,7 +19,7 @@ export const PageContainer = styled.div`
   height: 100vh;
   padding: 24px 20px 20px;
 
-  transition: 250ms ease-in-out;
+  transition: ${({ theme }) => theme.animation};
 
   @media screen and (min-width: 768px) {
     padding: 40px 32px 32px;

@@ -42,5 +42,8 @@ declare module "styled-components" {
     buttonText: string;
     buttonBackground: string;
     buttonBackgroundHover: string;
+
+    // Animations
+    animation: string;
   }
 }

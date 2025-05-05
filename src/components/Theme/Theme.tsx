@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import { useAppSelector } from "@/hooks/useAppSelector";
-import { selectUser } from "@/redux/user/selectors";
+import { useAppSelector } from "@/hooks";
+import { selectTheme } from "@/redux/theme/selectors";
 import { theme as themeObject } from "./Theme.styled";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Theme = ({ children }: Props) => {
-  const { theme } = useAppSelector(selectUser);
+  const theme = useAppSelector(selectTheme);
   const { light, dark } = themeObject;
 
   return (

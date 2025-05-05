@@ -31,10 +31,6 @@ export const updateUser = createAsyncThunk(
       const res = await instance.patch("/api/auth/update", data);
       const updated = res.data;
 
-      if (updated?.language) {
-        i18n.changeLanguage(updated.language);
-      }
-
       return updated;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);

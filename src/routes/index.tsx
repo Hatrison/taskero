@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import MainLayout from "@/components/MainLayout";
 import PrivateRoute from "@/components/Route/PrivateRoute";
 import RestrictedRoute from "@/components/Route/RestrictedRoute";
-import { useAppSelector } from "@/hooks/useAppSelector";
+import { useAppSelector } from "@/hooks";
 import { selectIsLoggedIn } from "@/redux/auth/selectors";
 
 const LandingPage = lazy(() => import("@/pages/LandingPage"));

@@ -46,5 +46,6 @@ export const MyCloseIcon = styled(CloseIcon)`
   stroke: ${({ theme }) => theme.modalCloseIconColor};
   width: 24px;
   height: 24px;
-  transition: stroke 250ms linear 0s, scale 250ms linear 0s;
+  transition: stroke ${({ theme }) => theme.animation},
+    scale ${({ theme }) => theme.animation};
 `;
