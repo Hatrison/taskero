@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[579],{9579:(e,s,a)=>{a.r(s),a.d(s,{default:()=>k});var t=a(579);const k=()=>(0,t.jsx)("div",{children:"NotFoundPage"})}}]);
+//# sourceMappingURL=579.e03a4a48.chunk.js.map

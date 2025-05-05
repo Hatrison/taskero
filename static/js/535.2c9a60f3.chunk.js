@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[535],{535:(e,s,a)=>{a.r(s),a.d(s,{default:()=>r});var k=a(579);const r=()=>(0,k.jsx)("div",{children:"ReviewsPage"})}}]);
-//# sourceMappingURL=535.2c9a60f3.chunk.js.map
