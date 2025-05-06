@@ -5,6 +5,8 @@ import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router-dom";
 import "@/i18n";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import App from "./components/App";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

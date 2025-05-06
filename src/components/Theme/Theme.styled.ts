@@ -43,6 +43,10 @@ export const theme = {
 
     // Animations
     animation: "250ms linear 0s",
+
+    // Stars
+    starColor: "#FFC107",
+    starColorInactive: "#E0E0E0",
   },
 
   dark: {
@@ -89,5 +93,9 @@ export const theme = {
 
     // Animations
     animation: "250ms linear 0s",
+
+    // Stars
+    starColor: "#FFC107",
+    starColorInactive: "#E0E0E0",
   },
 };

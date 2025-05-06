@@ -1,17 +1,17 @@
 import { useTranslation } from "react-i18next";
+import { useTheme } from "styled-components";
 import FeatureCard from "@/components/FeatureCard";
 import { FiMenu, FiUsers } from "react-icons/fi";
 import { TbDragDrop2 } from "react-icons/tb";
 import { CardContainer } from "./KeyFeaturesSection.styled";
-import MainSection from "@/components/MainSection";
-import { useTheme } from "styled-components";
+import Section from "@/components/Section";
 
 const KeyFeaturesSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
 
   return (
-    <MainSection
+    <Section
       title={t("LandingPage.KeyFeatures.title")}
       backgroundColor={theme.backgroundSecondary}
       id="features"
@@ -35,7 +35,7 @@ const KeyFeaturesSection = () => {
           description={t("LandingPage.KeyFeatures.feature3.description")}
         />
       </CardContainer>
-    </MainSection>
+    </Section>
   );
 };
 

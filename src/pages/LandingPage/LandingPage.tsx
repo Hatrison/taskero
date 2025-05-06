@@ -1,11 +1,19 @@
 import Header from "@/components/Header";
 import KeyFeaturesSection from "./KeyFeaturesSection";
+import MainSection from "./MainSection";
+import HowItWorksSection from "./HowItWorksSection";
+import ReviewsSection from "./ReviewsSection";
+import Footer from "./Footer";
 
 const LandingPage = () => {
   return (
     <>
       <Header />
+      <MainSection />
       <KeyFeaturesSection />
+      <HowItWorksSection />
+      <ReviewsSection />
+      <Footer />
     </>
   );
 };

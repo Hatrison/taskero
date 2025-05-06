@@ -1,4 +1,4 @@
-import { Container, Title } from "./MainSection.styled";
+import { Container, Title } from "./Section.styled";
 
 type Props = {
   title: string;
@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const MainSection = ({ title, backgroundColor, id, children }: Props) => {
+const Section = ({ title, backgroundColor, id, children }: Props) => {
   return (
     <Container $background={backgroundColor} id={id}>
       <Title>{title}</Title>
@@ -16,4 +16,4 @@ const MainSection = ({ title, backgroundColor, id, children }: Props) => {
   );
 };
 
-export default MainSection;
+export default Section;

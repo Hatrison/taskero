@@ -45,5 +45,9 @@ declare module "styled-components" {
 
     // Animations
     animation: string;
+
+    // Stars
+    starColor: string;
+    starColorInactive: string;
   }
 }

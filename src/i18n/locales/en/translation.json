@@ -7,7 +7,11 @@
       "login": "Login",
       "getStarted": "Get Started"
     },
-    "MainSection": {},
+    "MainSection": {
+      "title": "Manage your IT projects, your way.",
+      "description": "Flexible boards, multi-role access, and real-time collaboration — all in one platform.",
+      "try": "Try Taskero for Free"
+    },
     "KeyFeatures": {
       "title": "Key Features",
       "feature1": {
@@ -22,6 +26,29 @@
         "title": "Drag & Drop Interface",
         "description": "Intuitive task management with smooth drag and drop functionality."
       }
+    },
+    "HowItWorks": {
+      "title": "How It Works",
+      "steps": [
+        {
+          "title": "Create Company",
+          "description": "Set up your organization and customize your workspace."
+        },
+        {
+          "title": "Invite Team",
+          "description": "Add team members and assign roles for collaboration."
+        },
+        {
+          "title": "Start Managing",
+          "description": "Create boards, add tasks, and track progress in real-time."
+        }
+      ]
+    },
+    "Reviews": {
+      "title": "What Teams Say"
+    },
+    "Footer": {
+      "copyright": "© {{year}} Taskero. All rights reserved."
     }
   }
 }

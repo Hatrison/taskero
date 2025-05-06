@@ -15,6 +15,7 @@ import logger from "redux-logger";
 import { authReducer } from "./auth/authSlice";
 import { userReducer } from "./user/userSlice";
 import { themeReducer } from "./theme/themeSlice";
+import { reviewsReducer } from "./reviews/reviewsSlice";
 
 const themePersistConfig = {
   key: "theme",
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   user: userReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
+  reviews: reviewsReducer,
 });
 
 export const store = configureStore({
