@@ -10,6 +10,9 @@ export const registerUser = createAsyncThunk(
         "/api/auth/register",
         credentials
       );
+      const { accessToken } = res.data;
+      setAuthHeader(accessToken);
+      localStorage.setItem("accessToken", accessToken);
       return res.data;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);

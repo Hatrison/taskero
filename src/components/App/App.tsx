@@ -29,7 +29,7 @@ const App = () => {
         <Router />
       )}
       <GlobalStyle />
-      <ToastContainer autoClose={1500} />
+      <ToastContainer autoClose={3000} />
     </Theme>
   );
 };

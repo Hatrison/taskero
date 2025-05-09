@@ -1,5 +1,12 @@
+import AuthLayout from "@/components/AuthLayout";
+import RegisterForm from "@/components/RegisterForm";
+
 const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return (
+    <AuthLayout>
+      <RegisterForm />
+    </AuthLayout>
+  );
 };
 
 export default RegisterPage;
