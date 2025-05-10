@@ -70,5 +70,14 @@
     "terms": "Умовами використання",
     "singin": "Увійти",
     "createAccount": "Створити акаунт"
+  },
+  "Sidebar": {
+    "dashboard": "Проєкти",
+    "myCompanies": "Мої компанії",
+    "account": "Акаунт",
+    "logout": "Вийти"
+  },
+  "Header": {
+    "selectCompany": "Оберіть компанію"
   }
 }

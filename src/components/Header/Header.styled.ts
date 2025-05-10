@@ -1,78 +1,33 @@
-import { Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px;
-  background-color: ${({ theme }) => theme.headerBackground};
+  height: 56px;
+  padding: 0 16px;
   border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+  background-color: ${({ theme }) => theme.background};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const NavWrapper = styled.div`
+export const LeftGroup = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 12px;
 `;
 
-export const Nav = styled.nav`
-  @media screen and (max-width: 1280px) {
-    display: none;
-  }
-`;
-
-export const NavList = styled.ul`
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
-
-export const Link = styled(RouterLink)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.primaryText};
-  font-weight: 500;
-  transition: color ${({ theme }) => theme.animation};
-
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-`;
-
-export const Controls = styled.div`
+export const RightGroup = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 `;
 
-export const LinkButton = styled(RouterLink)`
-  display: none;
-
-  @media screen and (min-width: 1280px) {
-    display: flex;
-    background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.buttonText};
-    padding: 8px 20px;
-    border-radius: 4px;
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color ${({ theme }) => theme.animation};
-
-    &:hover {
-      background-color: ${({ theme }) => theme.primaryHover};
-    }
-  }
-`;
-
-export const Burger = styled.button`
-  display: block;
+export const BurgerButton = styled.button`
   background: none;
   border: none;
-
-  @media screen and (min-width: 1280px) {
-    display: none;
-  }
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;

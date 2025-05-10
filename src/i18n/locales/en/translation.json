@@ -68,5 +68,14 @@
     "terms": "Terms and Conditions",
     "signin": "Sign In",
     "createAccount": "Create Account"
+  },
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "myCompanies": "My Companies",
+    "account": "Account",
+    "logout": "Log out"
+  },
+  "Header": {
+    "selectCompany": "Select company"
   }
 }

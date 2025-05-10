@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/LandingPageHeader";
 import KeyFeaturesSection from "./KeyFeaturesSection";
 import MainSection from "./MainSection";
 import HowItWorksSection from "./HowItWorksSection";

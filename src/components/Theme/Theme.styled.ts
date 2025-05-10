@@ -10,7 +10,7 @@ export const theme = {
     backgroundSecondary: "#f7f8fa",
     cardBackground: "#ffffff",
     headerBackground: "#ffffff",
-    sidebarBackground: "#f1f1f1",
+    sidebarBackground: "#ffffff",
 
     // Scrollbar
     scrollbarBackground: "#f0f0f0",
@@ -60,7 +60,7 @@ export const theme = {
     backgroundSecondary: "#2a2a2a",
     cardBackground: "#2b2b2b",
     headerBackground: "#1f1f1f",
-    sidebarBackground: "#292929",
+    sidebarBackground: "#1f1f1f",
 
     // Scrollbar
     scrollbarBackground: "#333333",

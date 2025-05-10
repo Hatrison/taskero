@@ -38,7 +38,7 @@ const Router = () => {
               }
             />
             <Route
-              path="companies/:id"
+              path="companies"
               element={
                 <PrivateRoute redirectTo="/" component={<CompanyPage />} />
               }

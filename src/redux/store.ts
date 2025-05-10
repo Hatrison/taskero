@@ -15,6 +15,11 @@ import logger from "redux-logger";
 import { authReducer } from "./auth/authSlice";
 import { userReducer } from "./user/userSlice";
 import { themeReducer } from "./theme/themeSlice";
+import { companiesReducer } from "./companies/companiesSlice";
+import { projectsReducer } from "./projects/projectsSlice";
+import { columnsReducer } from "./columns/columnsSlice";
+import { tasksReducer } from "./tasks/tasksSlice";
+import { commentsReducer } from "./comments/commentsSlice";
 import { reviewsReducer } from "./reviews/reviewsSlice";
 
 const themePersistConfig = {
@@ -22,10 +27,21 @@ const themePersistConfig = {
   storage,
 };
 
+const companiesPersistConfig = {
+  key: "companies",
+  storage,
+  whitelist: ["current"],
+};
+
 const rootReducer = combineReducers({
   auth: authReducer,
   user: userReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
+  companies: persistReducer(companiesPersistConfig, companiesReducer),
+  projects: projectsReducer,
+  columns: columnsReducer,
+  tasks: tasksReducer,
+  comments: commentsReducer,
   reviews: reviewsReducer,
 });
 

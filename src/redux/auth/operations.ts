@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance, setAuthHeader } from "@/utils/axiosInstance";
+import { clearCurrentCompany } from "@/redux/companies/companiesSlice";
 import { TLoginAction, TRegisterAction, TAuthResponse } from "./auth.types";
 
 export const registerUser = createAsyncThunk(
@@ -50,6 +51,7 @@ export const logoutUser = createAsyncThunk(
       await instance.post("/api/auth/logout");
       setAuthHeader("");
       localStorage.removeItem("accessToken");
+      thunkAPI.dispatch(clearCurrentCompany());
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);
     }

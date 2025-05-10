@@ -1,70 +1,51 @@
-import { useState } from "react";
+import { useAppSelector } from "@/hooks";
+import { selectUserAvatar } from "@/redux/user/selectors";
 import { useMediaQuery } from "react-responsive";
-import Logo from "@/components/Logo";
-import { useTranslation } from "react-i18next";
+import { useTheme } from "styled-components";
+import CompanySelect from "./CompanySelect";
+import LangToggle from "@/components/LanguageSwitcher";
+import ThemeToggle from "@/components/ThemeToggle";
+import UserAvatar from "@/components/UserAvatar";
 import {
   HeaderWrapper,
-  Nav,
-  Link,
-  NavList,
-  Burger,
-  LinkButton,
-  NavWrapper,
-  Controls,
+  LeftGroup,
+  RightGroup,
+  BurgerButton,
 } from "./Header.styled";
-import { FiMenu, FiX } from "react-icons/fi";
-import MobileMenu from "./MobileMenu";
-import ThemeToggle from "@/components/ThemeToggle";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { useTheme } from "styled-components";
+import { FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const isDesktop = useMediaQuery({ query: "(min-width: 1280px)" });
+type Props = {
+  onSidebarToggle: () => void;
+};
+
+const Header = ({ onSidebarToggle }: Props) => {
+  const avatarSrc = useAppSelector(selectUserAvatar);
+  const isMobile = useMediaQuery({ query: "(max-width: 1279px)" });
   const theme = useTheme();
-  const { t } = useTranslation();
-
-  const handleMenuToggle = () => {
-    setMenuOpen((prev) => !prev);
-  };
 
   return (
     <HeaderWrapper>
-      <Logo />
+      <LeftGroup>
+        {isMobile && (
+          <BurgerButton onClick={onSidebarToggle}>
+            <FiMenu size={24} color={theme.primaryText} />
+          </BurgerButton>
+        )}
+        <CompanySelect />
+      </LeftGroup>
 
-      <NavWrapper>
-        <Nav>
-          <NavList>
-            <Link to="#features">{t("LandingPage.Header.features")}</Link>
-            <Link to="#how-it-works">{t("LandingPage.Header.howItWorks")}</Link>
-            <Link to="#reviews">{t("LandingPage.Header.reviews")}</Link>
-          </NavList>
-        </Nav>
-
-        <Controls>
-          {isDesktop && (
-            <>
-              <LanguageSwitcher />
-              <ThemeToggle />
-
-              <Link to="/login">{t("LandingPage.Header.login")}</Link>
-              <LinkButton to="/register">
-                {t("LandingPage.Header.getStarted")}
-              </LinkButton>
-            </>
-          )}
-
-          <Burger onClick={() => handleMenuToggle()}>
-            {menuOpen ? (
-              <FiX size={24} color={theme.primaryText} />
-            ) : (
-              <FiMenu size={24} color={theme.primaryText} />
-            )}
-          </Burger>
-
-          {menuOpen && <MobileMenu onClose={() => handleMenuToggle()} />}
-        </Controls>
-      </NavWrapper>
+      <RightGroup>
+        {!isMobile && (
+          <>
+            <LangToggle />
+            <ThemeToggle />
+          </>
+        )}
+        <Link to="/account">
+          <UserAvatar src={avatarSrc} size={40} />
+        </Link>
+      </RightGroup>
     </HeaderWrapper>
   );
 };
