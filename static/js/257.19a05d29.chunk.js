@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[257],{279:(e,r,t)=>{t.d(r,{A:()=>l});var o=t(5200),n=t(9867),i=t(5464);const a=i.Ay.button`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[257],{279:(e,r,t)=>{t.d(r,{A:()=>s});var o=t(5200),n=t(9867),i=t(5464);const a=i.Ay.button`
   background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   border: none;
   border-radius: 8px;
@@ -6,7 +6,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-`;var s=t(579);const l=()=>{const e=(0,n.GV)((e=>e.theme.current)),r=(0,n.H1)(),t=(0,i.DP)();return(0,s.jsx)(a,{onClick:r,children:"light"===e?(0,s.jsx)(o.Wh$,{size:20,color:t.primaryText}):(0,s.jsx)(o.hkc,{size:20,color:t.primaryText})})}},3168:(e,r,t)=>{t.d(r,{A:()=>c});var o=t(5180),n=t(5464);const i=(0,n.Ay)(o.N_)`
+`;var l=t(579);const s=()=>{const e=(0,n.GV)((e=>e.theme.current)),r=(0,n.H1)(),t=(0,i.DP)();return(0,l.jsx)(a,{onClick:r,children:"light"===e?(0,l.jsx)(o.Wh$,{size:20,color:t.primaryText}):(0,l.jsx)(o.hkc,{size:20,color:t.primaryText})})}},3168:(e,r,t)=>{t.d(r,{A:()=>c});var o=t(5180),n=t(5464);const i=(0,n.Ay)(o.N_)`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -14,18 +14,18 @@
 `,a=n.Ay.img`
   width: 40px;
   height: 40px;
-`,s=n.Ay.h1`
+`,l=n.Ay.h1`
   font-size: 24px;
   font-weight: 700;
   color: ${e=>{let{theme:r}=e;return r.primary}};
   text-decoration: none;
-`,l=t.p+"static/media/logo.f9f20538470db5fa4750.png";var d=t(579);const c=()=>(0,d.jsxs)(i,{to:"/",children:[(0,d.jsx)(a,{src:l,alt:"Taskero Logo"}),(0,d.jsx)(s,{children:"Taskero"})]})},3633:(e,r,t)=>{t.d(r,{A0:()=>l,Gg:()=>u,JU:()=>d,K_:()=>h,ZD:()=>x,b7:()=>y,mO:()=>a,oX:()=>b,oi:()=>p,pd:()=>c,q:()=>s,ql:()=>m,yn:()=>g});var o=t(5464),n=t(3892),i=t(5180);const a=o.Ay.div`
+`,s=t.p+"static/media/logo.f9f20538470db5fa4750.png";var d=t(579);const c=()=>(0,d.jsxs)(i,{to:"/",children:[(0,d.jsx)(a,{src:s,alt:"Taskero Logo"}),(0,d.jsx)(l,{children:"Taskero"})]})},3633:(e,r,t)=>{t.d(r,{A0:()=>s,Gg:()=>u,JU:()=>d,K_:()=>h,ZD:()=>x,b7:()=>y,mO:()=>a,oX:()=>b,oi:()=>p,pd:()=>c,q:()=>l,ql:()=>m,yn:()=>g});var o=t(5464),n=t(3892),i=t(5180);const a=o.Ay.div`
   width: 100%;
-`,s=(0,o.Ay)(n.lV)`
+`,l=(0,o.Ay)(n.lV)`
   display: flex;
   flex-direction: column;
   gap: 24px;
-`,l=o.Ay.div`
+`,s=o.Ay.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -146,9 +146,9 @@
   &:hover {
     color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
-`},3875:(e,r,t)=>{t.d(r,{A:()=>h});var o=t(5043),n=t(4961),i=t(9867),a=t(5464);const s=a.Ay.div`
+`},3875:(e,r,t)=>{t.d(r,{A:()=>h});var o=t(5043),n=t(4961),i=t(9867),a=t(5464);const l=a.Ay.div`
   position: relative;
-`,l=a.Ay.button`
+`,s=a.Ay.button`
   border: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
   background-color: ${e=>{let{theme:r}=e;return r.background}};
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
@@ -184,14 +184,14 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   }
-`;var p=t(579);const h=()=>{const{i18n:e}=(0,n.B)(),r=(0,i.Ym)(),[t,a]=(0,o.useState)(!1),h=(0,o.useRef)(null),u=e.language.toUpperCase(),x=e=>{r(e),a(!1)};return(0,o.useEffect)((()=>{const e=e=>{h.current&&!h.current.contains(e.target)&&a(!1)};return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)}),[]),(0,p.jsxs)(s,{ref:h,children:[(0,p.jsx)(l,{onClick:()=>a((e=>!e)),children:u}),t&&(0,p.jsxs)(d,{children:[(0,p.jsx)(c,{onClick:()=>x("en"),children:"EN"}),(0,p.jsx)(c,{onClick:()=>x("uk"),children:"UK"})]})]})}},5554:(e,r,t)=>{t.d(r,{A:()=>f});var o=t(3168),n=t(3875),i=t(279),a=t(6058),s=t(5464),l=t(5180);const d=s.Ay.div`
+`;var p=t(579);const h=()=>{const{i18n:e}=(0,n.B)(),r=(0,i.Ym)(),[t,a]=(0,o.useState)(!1),h=(0,o.useRef)(null),u=e.language.toUpperCase(),x=e=>{r(e),a(!1)};return(0,o.useEffect)((()=>{const e=e=>{h.current&&!h.current.contains(e.target)&&a(!1)};return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)}),[]),(0,p.jsxs)(l,{ref:h,children:[(0,p.jsx)(s,{onClick:()=>a((e=>!e)),children:u}),t&&(0,p.jsxs)(d,{children:[(0,p.jsx)(c,{onClick:()=>x("en"),children:"EN"}),(0,p.jsx)(c,{onClick:()=>x("uk"),children:"UK"})]})]})}},5554:(e,r,t)=>{t.d(r,{A:()=>j});var o=t(4961),n=t(3168),i=t(3875),a=t(279),l=t(6058),s=t(5464),d=t(5180);const c=s.Ay.div`
   min-height: 100vh;
   background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 24px;
-`,c=s.Ay.div`
+`,p=s.Ay.div`
   background-color: ${e=>{let{theme:r}=e;return r.background}};
   border-radius: 8px;
   padding: 32px;
@@ -201,14 +201,14 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-`,p=s.Ay.div`
+`,h=s.Ay.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`,h=s.Ay.div`
+`,u=s.Ay.div`
   display: flex;
   border-bottom: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
-`,u=(0,s.Ay)(l.k2)`
+`,x=(0,s.Ay)(d.k2)`
   font-weight: 600;
   font-size: 16px;
   padding: 8px 16px;
@@ -230,18 +230,18 @@
       background-color: ${e=>{let{theme:r}=e;return r.primary}};
     }
   }
-`,x=s.Ay.div`
+`,m=s.Ay.div`
   display: flex;
   align-items: center;
   gap: 12px;
-`,m=s.Ay.div`
+`,y=s.Ay.div`
   flex: 1;
   height: 1px;
   background-color: ${e=>{let{theme:r}=e;return r.borderColor}};
-`,y=s.Ay.span`
+`,g=s.Ay.span`
   font-size: 14px;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
-`,g=s.Ay.button`
+`,b=s.Ay.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,5 +260,5 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   }
-`;var b=t(579);const f=e=>{let{children:r}=e;return(0,b.jsx)(d,{children:(0,b.jsxs)(c,{children:[(0,b.jsxs)(p,{children:[(0,b.jsx)(o.A,{}),(0,b.jsxs)("div",{style:{display:"flex",gap:"8px"},children:[(0,b.jsx)(n.A,{}),(0,b.jsx)(i.A,{})]})]}),(0,b.jsxs)(h,{children:[(0,b.jsx)(u,{to:"/login",children:"Login"}),(0,b.jsx)(u,{to:"/register",children:"Register"})]}),r,(0,b.jsxs)(x,{children:[(0,b.jsx)(m,{}),(0,b.jsx)(y,{children:"or continue with"}),(0,b.jsx)(m,{})]}),(0,b.jsxs)(g,{type:"button",children:[(0,b.jsx)(a.F4b,{size:20}),"Continue with Google"]})]})})}},6806:(e,r,t)=>{t.r(r),t.d(r,{default:()=>g});var o=t(5554),n=t(3892),i=t(5043),a=t(5180),s=t(4262),l=t(9867),d=t(2115),c=t(5200),p=t(899);const h=p.Ik().shape({name:p.Yj().required("Full name is required"),email:p.Yj().email("Invalid email").required("Email is required"),password:p.Yj().min(6,"Minimum 6 characters").required("Password is required"),terms:p.zM().oneOf([!0],"You must accept the terms")});var u=t(3633),x=t(579);const m={name:"",email:"",password:"",terms:!1},y=()=>{const e=(0,l.jL)(),[r,t]=(0,i.useState)(!1),o=(0,a.Zp)();return(0,x.jsx)(u.mO,{children:(0,x.jsx)(n.l1,{initialValues:m,validationSchema:h,onSubmit:async(r,t)=>{try{const{terms:n,...i}=r;await e((0,s.DY)(i)).unwrap(),t.resetForm(),o("/",{replace:!0})}catch{d.oR.error("Registration failed. Please try again.")}},children:e=>{let{values:o,handleChange:n,handleSubmit:i,touched:a,errors:s}=e;return(0,x.jsxs)(u.q,{onSubmit:i,children:[(0,x.jsxs)(u.A0,{children:[(0,x.jsx)(u.JU,{htmlFor:"name",children:"Full Name"}),(0,x.jsx)(u.pd,{id:"name",name:"name",type:"text",placeholder:"Enter your full name",$hasError:a.name&&!!s.name}),a.name&&s.name&&(0,x.jsx)(u.yn,{children:s.name})]}),(0,x.jsxs)(u.A0,{children:[(0,x.jsx)(u.JU,{htmlFor:"email",children:"Email"}),(0,x.jsx)(u.pd,{id:"email",name:"email",type:"email",placeholder:"Enter your email",$hasError:a.email&&!!s.email}),a.email&&s.email&&(0,x.jsx)(u.yn,{children:s.email})]}),(0,x.jsxs)(u.A0,{children:[(0,x.jsx)(u.JU,{htmlFor:"password",children:"Password"}),(0,x.jsxs)(u.oi,{children:[(0,x.jsx)(u.pd,{id:"password",name:"password",type:r?"text":"password",placeholder:"Enter your password",$hasError:a.password&&!!s.password}),(0,x.jsx)(u.K_,{type:"button",onClick:()=>t((e=>!e)),children:r?(0,x.jsx)(c._NO,{size:18}):(0,x.jsx)(c.Vap,{size:18})})]}),a.password&&s.password&&(0,x.jsx)(u.yn,{children:s.password})]}),(0,x.jsxs)(u.A0,{children:[(0,x.jsx)(u.Gg,{children:(0,x.jsxs)(u.ZD,{children:[(0,x.jsx)("input",{type:"checkbox",name:"terms",checked:o.terms,onChange:n}),(0,x.jsx)("span",{id:"custom-checkbox"}),(0,x.jsxs)("p",{children:["I agree to the\xa0",(0,x.jsx)(u.oX,{to:"/terms",children:"Terms and Conditions"})]})]})}),a.terms&&s.terms&&(0,x.jsx)(u.yn,{children:s.terms})]}),(0,x.jsx)(u.b7,{type:"submit",children:"Create Account"})]})}})})},g=()=>(0,x.jsx)(o.A,{children:(0,x.jsx)(y,{})})}}]);
-//# sourceMappingURL=257.5e1c21a1.chunk.js.map
+`;var f=t(579);const j=e=>{let{children:r}=e;const{t:t}=(0,o.B)();return(0,f.jsx)(c,{children:(0,f.jsxs)(p,{children:[(0,f.jsxs)(h,{children:[(0,f.jsx)(n.A,{}),(0,f.jsxs)("div",{style:{display:"flex",gap:"8px"},children:[(0,f.jsx)(i.A,{}),(0,f.jsx)(a.A,{})]})]}),(0,f.jsxs)(u,{children:[(0,f.jsx)(x,{to:"/login",children:t("Auth.login")}),(0,f.jsx)(x,{to:"/register",children:t("Auth.register")})]}),r,(0,f.jsxs)(m,{children:[(0,f.jsx)(y,{}),(0,f.jsx)(g,{children:t("Auth.orWith")}),(0,f.jsx)(y,{})]}),(0,f.jsxs)(b,{type:"button",children:[(0,f.jsx)(l.F4b,{size:20}),t("Auth.continueWithGoogle")]})]})})}},6806:(e,r,t)=>{t.r(r),t.d(r,{default:()=>b});var o=t(5554),n=t(3892),i=t(5043),a=t(5180),l=t(4262),s=t(9867),d=t(2115),c=t(5200),p=t(899);const h=p.Ik().shape({name:p.Yj().required("Full name is required"),email:p.Yj().email("Invalid email").required("Email is required"),password:p.Yj().min(6,"Minimum 6 characters").required("Password is required"),terms:p.zM().oneOf([!0],"You must accept the terms")});var u=t(4961),x=t(3633),m=t(579);const y={name:"",email:"",password:"",terms:!1},g=()=>{const e=(0,s.jL)(),[r,t]=(0,i.useState)(!1),o=(0,a.Zp)(),{t:p}=(0,u.B)();return(0,m.jsx)(x.mO,{children:(0,m.jsx)(n.l1,{initialValues:y,validationSchema:h,onSubmit:async(r,t)=>{try{const{terms:n,...i}=r;await e((0,l.DY)(i)).unwrap(),t.resetForm(),o("/",{replace:!0})}catch{d.oR.error("Registration failed. Please try again.")}},children:e=>{let{values:o,handleChange:n,handleSubmit:i,touched:a,errors:l}=e;return(0,m.jsxs)(x.q,{onSubmit:i,children:[(0,m.jsxs)(x.A0,{children:[(0,m.jsx)(x.JU,{htmlFor:"name",children:p("Auth.fullName")}),(0,m.jsx)(x.pd,{id:"name",name:"name",type:"text",placeholder:p("Auth.fullNamePlaceholder"),$hasError:a.name&&!!l.name}),a.name&&l.name&&(0,m.jsx)(x.yn,{children:l.name})]}),(0,m.jsxs)(x.A0,{children:[(0,m.jsx)(x.JU,{htmlFor:"email",children:p("Auth.email")}),(0,m.jsx)(x.pd,{id:"email",name:"email",type:"email",placeholder:p("Auth.emailPlaceholder"),$hasError:a.email&&!!l.email}),a.email&&l.email&&(0,m.jsx)(x.yn,{children:l.email})]}),(0,m.jsxs)(x.A0,{children:[(0,m.jsx)(x.JU,{htmlFor:"password",children:p("Auth.password")}),(0,m.jsxs)(x.oi,{children:[(0,m.jsx)(x.pd,{id:"password",name:"password",type:r?"text":"password",placeholder:p("Auth.passwordPlaceholder"),$hasError:a.password&&!!l.password}),(0,m.jsx)(x.K_,{type:"button",onClick:()=>t((e=>!e)),children:r?(0,m.jsx)(c._NO,{size:18}):(0,m.jsx)(c.Vap,{size:18})})]}),a.password&&l.password&&(0,m.jsx)(x.yn,{children:l.password})]}),(0,m.jsxs)(x.A0,{children:[(0,m.jsx)(x.Gg,{children:(0,m.jsxs)(x.ZD,{children:[(0,m.jsx)("input",{type:"checkbox",name:"terms",checked:o.terms,onChange:n}),(0,m.jsx)("span",{id:"custom-checkbox"}),(0,m.jsxs)("p",{children:[p("Auth.agree")," ",(0,m.jsx)(x.oX,{to:"/terms",children:p("Auth.terms")})]})]})}),a.terms&&l.terms&&(0,m.jsx)(x.yn,{children:l.terms})]}),(0,m.jsx)(x.b7,{type:"submit",children:p("Auth.createAccount")})]})}})})},b=()=>(0,m.jsx)(o.A,{children:(0,m.jsx)(g,{})})}}]);
+//# sourceMappingURL=257.19a05d29.chunk.js.map
