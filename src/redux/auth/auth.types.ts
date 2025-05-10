@@ -7,6 +7,7 @@ export type TRegisterAction = {
 export type TLoginAction = {
   email: string;
   password: string;
+  remember: boolean;
 };
 
 export type TAuthResponse = {

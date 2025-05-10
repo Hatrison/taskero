@@ -4,6 +4,7 @@ import { loginFormSchema } from "./loginFormSchema";
 import { useAppDispatch } from "@/hooks";
 import { loginUser } from "@/redux/auth/operations";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import {
   Wrapper,
@@ -29,12 +30,11 @@ const initialValues = {
 const LoginForm = () => {
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const { t } = useTranslation();
 
   const handleSubmit = async (values: typeof initialValues, actions: any) => {
     try {
-      await dispatch(
-        loginUser({ email: values.email, password: values.password })
-      ).unwrap();
+      await dispatch(loginUser(values)).unwrap();
       actions.resetForm();
     } catch {
       toast.error("Invalid email or password");
@@ -51,12 +51,12 @@ const LoginForm = () => {
         {({ values, handleChange, handleSubmit, touched, errors }) => (
           <StyledForm onSubmit={handleSubmit}>
             <InputContainer>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("Auth.email")}</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("Auth.emailPlaceholder")}
                 $hasError={touched.email && !!errors.email}
               />
               {touched.email && errors.email && (
@@ -65,13 +65,13 @@ const LoginForm = () => {
             </InputContainer>
 
             <InputContainer>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t("Auth.password")}</Label>
               <InputWrapper>
                 <Input
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
+                  placeholder={t("Auth.passwordPlaceholder")}
                   $hasError={touched.password && !!errors.password}
                 />
                 <TogglePassword
@@ -95,13 +95,13 @@ const LoginForm = () => {
                   onChange={handleChange}
                 />
                 <span />
-                Remember me
+                {t("Auth.rememberMe")}
               </CustomCheckbox>
 
-              <ForgotLink to="/password">Forgot password?</ForgotLink>
+              <ForgotLink to="/password">{t("Auth.forgotPassword")}</ForgotLink>
             </CheckboxRow>
 
-            <SubmitButton type="submit">Sign In</SubmitButton>
+            <SubmitButton type="submit">{t("Auth.signin")}</SubmitButton>
           </StyledForm>
         )}
       </Formik>

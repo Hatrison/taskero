@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Logo from "@/components/Logo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -19,6 +20,8 @@ type Props = {
 };
 
 const AuthLayout = ({ children }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <Card>
@@ -29,21 +32,23 @@ const AuthLayout = ({ children }: Props) => {
             <ThemeToggle />
           </div>
         </TopRow>
+
         <Tabs>
-          <TabLink to="/login">Login</TabLink>
-          <TabLink to="/register">Register</TabLink>
+          <TabLink to="/login">{t("Auth.login")}</TabLink>
+          <TabLink to="/register">{t("Auth.register")}</TabLink>
         </Tabs>
 
         {children}
 
         <Divider>
           <DividerLine />
-          <DividerText>or continue with</DividerText>
+          <DividerText>{t("Auth.orWith")}</DividerText>
           <DividerLine />
         </Divider>
+
         <GoogleButton type="button">
           <FcGoogle size={20} />
-          Continue with Google
+          {t("Auth.continueWithGoogle")}
         </GoogleButton>
       </Card>
     </Wrapper>

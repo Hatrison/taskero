@@ -24,13 +24,18 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (credentials: TLoginAction, thunkAPI) => {
     try {
-      const res = await instance.post<TAuthResponse>(
-        "/api/auth/login",
-        credentials
-      );
+      const { remember, ...rest } = credentials;
+
+      const res = await instance.post<TAuthResponse>("/api/auth/login", rest);
       const { accessToken } = res.data;
       setAuthHeader(accessToken);
-      localStorage.setItem("accessToken", accessToken);
+
+      if (remember) {
+        localStorage.setItem("accessToken", accessToken);
+      } else {
+        sessionStorage.setItem("accessToken", accessToken);
+      }
+
       return res.data;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);

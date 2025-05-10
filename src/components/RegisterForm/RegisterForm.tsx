@@ -6,6 +6,7 @@ import { useAppDispatch } from "@/hooks";
 import { toast } from "react-toastify";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { registerFormSchema } from "./registerFormSchema";
+import { useTranslation } from "react-i18next";
 import {
   Wrapper,
   StyledForm,
@@ -32,6 +33,7 @@ const RegisterForm = () => {
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleSubmit = async (values: typeof initialValues, actions: any) => {
     try {
@@ -54,12 +56,12 @@ const RegisterForm = () => {
         {({ values, handleChange, handleSubmit, touched, errors }) => (
           <StyledForm onSubmit={handleSubmit}>
             <InputContainer>
-              <Label htmlFor="name">Full Name</Label>
+              <Label htmlFor="name">{t("Auth.fullName")}</Label>
               <Input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Enter your full name"
+                placeholder={t("Auth.fullNamePlaceholder")}
                 $hasError={touched.name && !!errors.name}
               />
               {touched.name && errors.name && (
@@ -68,12 +70,12 @@ const RegisterForm = () => {
             </InputContainer>
 
             <InputContainer>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("Auth.email")}</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("Auth.emailPlaceholder")}
                 $hasError={touched.email && !!errors.email}
               />
               {touched.email && errors.email && (
@@ -82,13 +84,13 @@ const RegisterForm = () => {
             </InputContainer>
 
             <InputContainer>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t("Auth.password")}</Label>
               <InputWrapper>
                 <Input
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
+                  placeholder={t("Auth.passwordPlaceholder")}
                   $hasError={touched.password && !!errors.password}
                 />
                 <TogglePassword
@@ -114,8 +116,8 @@ const RegisterForm = () => {
                   />
                   <span id="custom-checkbox" />
                   <p>
-                    I agree to the&nbsp;
-                    <TermsLink to="/terms">Terms and Conditions</TermsLink>
+                    {t("Auth.agree")}{" "}
+                    <TermsLink to="/terms">{t("Auth.terms")}</TermsLink>
                   </p>
                 </CustomCheckbox>
               </CheckboxRow>
@@ -124,7 +126,7 @@ const RegisterForm = () => {
               )}
             </InputContainer>
 
-            <SubmitButton type="submit">Create Account</SubmitButton>
+            <SubmitButton type="submit">{t("Auth.createAccount")}</SubmitButton>
           </StyledForm>
         )}
       </Formik>

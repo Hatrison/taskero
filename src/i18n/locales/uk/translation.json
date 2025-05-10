@@ -52,5 +52,23 @@
     "Footer": {
       "copyright": "© {{year}} Taskero. Усі права захищено."
     }
+  },
+  "Auth": {
+    "orWith": "або продовжити через",
+    "continueWithGoogle": "Продовжити через Google",
+    "login": "Увійти",
+    "register": "Зареєструватися",
+    "email": "Ел. пошта",
+    "emailPlaceholder": "Введіть свою ел. пошту",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введіть свій пароль",
+    "fullName": "Повне ім’я",
+    "fullNamePlaceholder": "Введіть своє повне ім’я",
+    "rememberMe": "Запам’ятати мене",
+    "forgotPassword": "Забули пароль?",
+    "agree": "Я погоджуюсь з",
+    "terms": "Умовами використання",
+    "singin": "Увійти",
+    "createAccount": "Створити акаунт"
   }
 }

@@ -50,5 +50,23 @@
     "Footer": {
       "copyright": "© {{year}} Taskero. All rights reserved."
     }
+  },
+  "Auth": {
+    "orWith": "or continue with",
+    "continueWithGoogle": "Continue with Google",
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "agree": "I agree to the",
+    "terms": "Terms and Conditions",
+    "signin": "Sign In",
+    "createAccount": "Create Account"
   }
 }
