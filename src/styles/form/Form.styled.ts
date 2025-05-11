@@ -6,6 +6,11 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
+export const WrapperModal = styled.div`
+  width: 100%;
+  padding: 24px;
+`;
+
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -138,6 +143,38 @@ export const SubmitButton = styled.button`
   }
 `;
 
+export const SubmitButtonModal = styled.button`
+  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.buttonText};
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color ${({ theme }) => theme.animation};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primaryHover};
+  }
+`;
+
+export const CancelButtonModal = styled.button`
+  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.secondaryText};
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color ${({ theme }) => theme.animation};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.backgroundSecondary};
+  }
+`;
+
 export const ErrorText = styled.p`
   color: #e74a3b;
   font-size: 12px;
@@ -153,4 +190,9 @@ export const TermsLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.primaryHover};
   }
+`;
+
+export const Textarea = styled(Input).attrs({ as: "textarea" })`
+  resize: vertical;
+  min-height: 100px;
 `;

@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
   position: relative;
 `;
 
-export const Button = styled.button`
-  padding: 4px 10px;
+export const Trigger = styled.button`
+  padding: 8px 8px 8px 16px;
   font-size: 14px;
   border: 1px solid ${({ theme }) => theme.borderColor};
   border-radius: 6px;
@@ -14,22 +17,13 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
-  max-width: 300px;
-  min-width: 140px;
   width: 100%;
+  height: 100%;
   cursor: pointer;
   overflow: hidden;
-
-  @media screen and (max-width: 480px) {
-    max-width: 250px;
-  }
-
-  @media screen and (max-width: 430px) {
-    max-width: 200px;
-  }
 `;
 
-export const CompanyName = styled.span`
+export const Label = styled.span`
   flex-grow: 1;
   white-space: nowrap;
   overflow: hidden;
@@ -48,7 +42,7 @@ export const Dropdown = styled.ul`
   padding: 4px 0;
   margin: 0;
   z-index: 10;
-  width: 160px;
+  width: 100%;
 `;
 
 export const Option = styled.li`

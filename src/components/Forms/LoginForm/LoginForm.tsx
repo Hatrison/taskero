@@ -1,48 +1,43 @@
 import { Formik } from "formik";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { registerUser } from "@/redux/auth/operations";
+import { loginFormSchema } from "./loginFormSchema";
 import { useAppDispatch } from "@/hooks";
+import { loginUser } from "@/redux/auth/operations";
 import { toast } from "react-toastify";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import { registerFormSchema } from "./registerFormSchema";
 import { useTranslation } from "react-i18next";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import {
   Wrapper,
   StyledForm,
   InputContainer,
   Label,
-  Input,
   InputWrapper,
+  Input,
   TogglePassword,
   SubmitButton,
   CheckboxRow,
   CustomCheckbox,
+  ForgotLink,
   ErrorText,
-  TermsLink,
-} from "@/components/AuthLayout/AuthForm.styled";
+} from "@/styles/form/Form.styled";
 
 const initialValues = {
-  name: "",
   email: "",
   password: "",
-  terms: false,
+  remember: true,
 };
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const handleSubmit = async (values: typeof initialValues, actions: any) => {
     try {
-      const { terms, ...payload } = values;
-      await dispatch(registerUser(payload)).unwrap();
+      await dispatch(loginUser(values)).unwrap();
       actions.resetForm();
-      navigate("/", { replace: true });
     } catch {
-      toast.error("Registration failed. Please try again.");
+      toast.error("Invalid email or password");
     }
   };
 
@@ -50,25 +45,11 @@ const RegisterForm = () => {
     <Wrapper>
       <Formik
         initialValues={initialValues}
-        validationSchema={registerFormSchema}
         onSubmit={handleSubmit}
+        validationSchema={loginFormSchema}
       >
         {({ values, handleChange, handleSubmit, touched, errors }) => (
           <StyledForm onSubmit={handleSubmit}>
-            <InputContainer>
-              <Label htmlFor="name">{t("Auth.fullName")}</Label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                placeholder={t("Auth.fullNamePlaceholder")}
-                $hasError={touched.name && !!errors.name}
-              />
-              {touched.name && errors.name && (
-                <ErrorText>{errors.name}</ErrorText>
-              )}
-            </InputContainer>
-
             <InputContainer>
               <Label htmlFor="email">{t("Auth.email")}</Label>
               <Input
@@ -94,8 +75,8 @@ const RegisterForm = () => {
                   $hasError={touched.password && !!errors.password}
                 />
                 <TogglePassword
-                  type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
+                  type="button"
                 >
                   {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
                 </TogglePassword>
@@ -105,28 +86,22 @@ const RegisterForm = () => {
               )}
             </InputContainer>
 
-            <InputContainer>
-              <CheckboxRow>
-                <CustomCheckbox>
-                  <input
-                    type="checkbox"
-                    name="terms"
-                    checked={values.terms}
-                    onChange={handleChange}
-                  />
-                  <span id="custom-checkbox" />
-                  <p>
-                    {t("Auth.agree")}{" "}
-                    <TermsLink to="/terms">{t("Auth.terms")}</TermsLink>
-                  </p>
-                </CustomCheckbox>
-              </CheckboxRow>
-              {touched.terms && errors.terms && (
-                <ErrorText>{errors.terms}</ErrorText>
-              )}
-            </InputContainer>
+            <CheckboxRow>
+              <CustomCheckbox>
+                <input
+                  type="checkbox"
+                  name="remember"
+                  checked={values.remember}
+                  onChange={handleChange}
+                />
+                <span />
+                {t("Auth.rememberMe")}
+              </CustomCheckbox>
 
-            <SubmitButton type="submit">{t("Auth.createAccount")}</SubmitButton>
+              <ForgotLink to="/password">{t("Auth.forgotPassword")}</ForgotLink>
+            </CheckboxRow>
+
+            <SubmitButton type="submit">{t("Auth.signin")}</SubmitButton>
           </StyledForm>
         )}
       </Formik>
@@ -134,4 +109,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

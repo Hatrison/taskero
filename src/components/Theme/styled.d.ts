@@ -35,6 +35,12 @@ declare module "styled-components" {
     warning: string;
     info: string;
 
+    // Roles
+    roleOwner: string;
+    roleEditor: string;
+    roleViewer: string;
+    roleTextColor: string;
+
     // Shadows and Effects
     shadow: string;
 
@@ -49,5 +55,8 @@ declare module "styled-components" {
     // Stars
     starColor: string;
     starColorInactive: string;
+
+    // Members
+    membersAvatarBackground: string;
   }
 }

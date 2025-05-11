@@ -79,5 +79,16 @@
   },
   "Header": {
     "selectCompany": "Оберіть компанію"
+  },
+  "Projects": {
+    "title": "Мої проєкти",
+    "create": "Створити проєкт",
+    "searchPlaceholder": "Пошук проєктів...",
+    "filters": {
+      "All Projects": "Усі проєкти",
+      "Owner": "Власник",
+      "Editor": "Редактор",
+      "Viewer": "Глядач"
+    }
   }
 }

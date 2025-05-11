@@ -28,6 +28,7 @@ export interface Project {
   company: ProjectCompany;
   members: ProjectMember[];
   deadline?: string;
+  createdAt: string;
 }
 
 export interface ProjectsState {

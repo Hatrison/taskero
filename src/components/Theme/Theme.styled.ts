@@ -33,6 +33,12 @@ export const theme = {
     warning: "#ffa726",
     info: "#29b6f6",
 
+    // Roles
+    roleOwner: "#3e85f3",
+    roleEditor: "#4caf50",
+    roleViewer: "#9E9E9E",
+    roleTextColor: "#ffffff",
+
     // Shadows and Effects
     shadow: "0px 4px 16px 0px rgba(17, 17, 17, 0.1)",
 
@@ -47,6 +53,9 @@ export const theme = {
     // Stars
     starColor: "#FFC107",
     starColorInactive: "#E0E0E0",
+
+    // Members
+    membersAvatarBackground: "#f0f0f0",
   },
 
   dark: {
@@ -83,6 +92,12 @@ export const theme = {
     warning: "#ffa726",
     info: "#29b6f6",
 
+    // Roles
+    roleOwner: "#3e85f3",
+    roleEditor: "#4caf50",
+    roleViewer: "#9E9E9E",
+    roleTextColor: "#ffffff",
+
     // Shadows and Effects
     shadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.2)",
 
@@ -97,5 +112,8 @@ export const theme = {
     // Stars
     starColor: "#FFC107",
     starColorInactive: "#E0E0E0",
+
+    // Members
+    membersAvatarBackground: "#f0f0f0",
   },
 };

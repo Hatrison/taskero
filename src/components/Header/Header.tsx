@@ -1,8 +1,15 @@
-import { useAppSelector } from "@/hooks";
-import { selectUserAvatar } from "@/redux/user/selectors";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import { useTheme } from "styled-components";
-import CompanySelect from "./CompanySelect";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import {
+  selectCompanies,
+  selectCurrentCompany,
+} from "@/redux/companies/selectors";
+import { setCurrentCompany } from "@/redux/companies/companiesSlice";
+import { selectUserAvatar } from "@/redux/user/selectors";
+import CustomSelect from "@/components/CustomSelect";
 import LangToggle from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
 import UserAvatar from "@/components/UserAvatar";
@@ -11,18 +18,22 @@ import {
   LeftGroup,
   RightGroup,
   BurgerButton,
+  SelectWrapper,
 } from "./Header.styled";
 import { FiMenu } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 type Props = {
   onSidebarToggle: () => void;
 };
 
 const Header = ({ onSidebarToggle }: Props) => {
+  const dispatch = useAppDispatch();
+  const companies = useAppSelector(selectCompanies);
+  const currentCompany = useAppSelector(selectCurrentCompany);
   const avatarSrc = useAppSelector(selectUserAvatar);
   const isMobile = useMediaQuery({ query: "(max-width: 1279px)" });
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <HeaderWrapper>
@@ -32,7 +43,16 @@ const Header = ({ onSidebarToggle }: Props) => {
             <FiMenu size={24} color={theme.primaryText} />
           </BurgerButton>
         )}
-        <CompanySelect />
+        <SelectWrapper>
+          <CustomSelect
+            options={companies}
+            value={currentCompany}
+            onChange={(c) => dispatch(setCurrentCompany(c))}
+            getLabel={(c) => c.name}
+            getKey={(c) => c._id}
+            placeholder={t("header.selectCompany")}
+          />
+        </SelectWrapper>
       </LeftGroup>
 
       <RightGroup>

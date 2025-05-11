@@ -1,11 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
-import {
-  Backdrop,
-  CloseButton,
-  ModalContainer,
-  MyCloseIcon,
-} from "./Modal.styled";
+import { Backdrop, ModalContainer } from "./Modal.styled";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -38,12 +33,7 @@ export const Modal = ({ children, handlerCloseModal }: Props) => {
 
   return createPortal(
     <Backdrop onClick={handleBackdropClick}>
-      <ModalContainer>
-        <CloseButton onClick={handlerCloseModal}>
-          <MyCloseIcon></MyCloseIcon>
-        </CloseButton>
-        {children}
-      </ModalContainer>
+      <ModalContainer>{children}</ModalContainer>
     </Backdrop>,
     modalRoot as HTMLElement
   );

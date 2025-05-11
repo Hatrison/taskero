@@ -77,5 +77,27 @@
   },
   "Header": {
     "selectCompany": "Select company"
+  },
+  "Projects": {
+    "title": "My Projects",
+    "create": "Create Project",
+    "searchPlaceholder": "Search projects...",
+    "filters": {
+      "All Projects": "All Projects",
+      "Owner": "Owner",
+      "Editor": "Editor",
+      "Viewer": "Viewer"
+    }
+  },
+  "Modals": {
+    "common": {
+      "cancel": "Cancel",
+      "save": "Save Changes"
+    },
+    "createProject": {
+      "title": "Create Project",
+      "name": "Project Name",
+      "description": "Description"
+    }
   }
 }

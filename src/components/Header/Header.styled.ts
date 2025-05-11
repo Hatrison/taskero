@@ -16,6 +16,19 @@ export const LeftGroup = styled.div`
   gap: 12px;
 `;
 
+export const SelectWrapper = styled.div`
+  max-width: 300px;
+  min-width: 140px;
+
+  @media screen and (max-width: 480px) {
+    max-width: 250px;
+  }
+
+  @media screen and (max-width: 430px) {
+    max-width: 200px;
+  }
+`;
+
 export const RightGroup = styled.div`
   display: flex;
   align-items: center;
