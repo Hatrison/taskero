@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[364],{6364:(e,r,t)=>{t.r(r),t.d(r,{default:()=>pe});var o=t(5043),n=t(4961),i=t(9867),l=t(377),a=t(9006);const d=e=>e.projects.items;var s=t(3289),c=t(5464),p=t(1643),u=t(6511),x=t(2911),h=t(2998);const m=c.Ay.div`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[364],{6364:(e,r,t)=>{t.r(r),t.d(r,{default:()=>pe});var o=t(5043),n=t(4961),i=t(9867),l=t(377),a=t(9006);const d=e=>e.projects.items;var s=t(3289),c=t(5464),p=t(1643),u=t(6511),h=t(2911),x=t(2998);const m=c.Ay.div`
   position: relative;
   height: 28px;
   width: fit-content;
@@ -18,7 +18,7 @@
   font-size: 12px;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
   font-weight: 500;
-`;var b=t(579);const f=e=>{let{members:r,maxVisible:t=4,size:o=28}=e;const n=r.slice(0,t),i=r.length-t;return(0,b.jsxs)(m,{children:[n.map(((e,r)=>{var t;let{user:n}=e;return(0,b.jsx)(y,{index:r,children:(0,b.jsx)(h.A,{src:null!==(t=n.avatar)&&void 0!==t&&t.startsWith("http")?n.avatar:`https:${n.avatar}`,size:o})},n._id)})),i>0&&(0,b.jsx)(y,{index:t,children:(0,b.jsxs)(g,{size:o,children:["+",i]})})]})};var j=t(5180);const v=(0,c.Ay)(j.N_)`
+`;var b=t(579);const f=e=>{let{members:r,maxVisible:t=4,size:o=28}=e;const n=r.slice(0,t),i=r.length-t;return(0,b.jsxs)(m,{children:[n.map(((e,r)=>{var t;let{user:n}=e;return(0,b.jsx)(y,{index:r,children:(0,b.jsx)(x.A,{src:null!==(t=n.avatar)&&void 0!==t&&t.startsWith("http")?n.avatar:`https:${n.avatar}`,size:o})},n._id)})),i>0&&(0,b.jsx)(y,{index:t,children:(0,b.jsxs)(g,{size:o,children:["+",i]})})]})};var j=t(5180);const v=(0,c.Ay)(j.N_)`
   background-color: ${e=>{let{theme:r}=e;return r.cardBackground}};
   border-radius: 8px;
   padding: 24px;
@@ -64,7 +64,7 @@
 `,T=c.Ay.p`
   font-size: 12px;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
-`,E=e=>{let{project:r,role:t}=e;const{name:o,company:i,members:l,createdAt:a}=r,{i18n:d,t:s}=(0,n.B)(),h=(0,c.DP)(),m={en:u.c,uk:x.uk}[d.language]||u.c,y={owner:h.roleOwner,editor:h.roleEditor,viewer:h.roleViewer};return(0,b.jsxs)(v,{to:`/projects/${r._id}`,children:[(0,b.jsxs)($,{children:[(0,b.jsx)(w,{children:o}),(0,b.jsx)(k,{children:i.name})]}),(0,b.jsxs)(A,{children:[(0,b.jsx)(f,{members:[...l].reverse()}),(0,b.jsxs)(C,{children:[(0,b.jsx)(z,{color:y[t],children:s(`Projects.filters.${t.charAt(0).toUpperCase()+t.slice(1)}`)}),(0,b.jsx)(T,{children:(0,p.GP)(new Date(a),"dd MMM yyyy",{locale:m})})]})]})]})};var M=t(1308),P=t(7950);const L=c.Ay.div`
+`,E=e=>{let{project:r,role:t}=e;const{name:o,company:i,members:l,createdAt:a}=r,{i18n:d,t:s}=(0,n.B)(),x=(0,c.DP)(),m={en:u.c,uk:h.uk}[d.language]||u.c,y={owner:x.roleOwner,editor:x.roleEditor,viewer:x.roleViewer};return(0,b.jsxs)(v,{to:`/projects/${r._id}`,children:[(0,b.jsxs)($,{children:[(0,b.jsx)(w,{children:o}),(0,b.jsx)(k,{children:i.name})]}),(0,b.jsxs)(A,{children:[(0,b.jsx)(f,{members:[...l].reverse()}),(0,b.jsxs)(C,{children:[(0,b.jsx)(z,{color:y[t],children:s(`Projects.filters.${t.charAt(0).toUpperCase()+t.slice(1)}`)}),(0,b.jsx)(T,{children:(0,p.GP)(new Date(a),"dd MMM yyyy",{locale:m})})]})]})]})};var M=t(1308),P=t(7950);const L=c.Ay.div`
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -125,7 +125,7 @@
   padding: 24px;
   gap: 16px;
   border-top: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
-`,R=e=>{let{handlerCloseModal:r,title:t,children:o,actions:n}=e;return(0,b.jsxs)(O,{children:[(0,b.jsxs)(U,{children:[(0,b.jsx)(J,{children:t}),(0,b.jsx)(F,{onClick:r,children:(0,b.jsx)(I,{})})]}),o,n&&(0,b.jsx)(N,{children:n})]})};var W=t(3892),X=t(2115),Y=t(899);const K=Y.Ik({name:Y.Yj().min(2).max(100).required("Required"),description:Y.Yj().max(1e3),deadline:Y.p6().nullable()});var Z=t(7711);const Q={name:"",description:"",deadline:""},ee=e=>{let{onSubmit:r}=e;const t=(0,i.jL)(),o=(0,i.GV)(l.jt),n=(0,i.GV)(s.mB);return(0,b.jsx)(Z.Dt,{children:(0,b.jsx)(W.l1,{initialValues:Q,validationSchema:K,onSubmit:async e=>{const i={...e,company:o._id,members:[{email:n.email,role:"owner"}]};try{await t((0,a.gA)(i)).unwrap(),null===r||void 0===r||r(e)}catch(l){X.oR.error(`Failed to create project: ${l instanceof Error?l.message:String(l)}`)}},children:e=>{let{errors:r,touched:t}=e;return(0,b.jsxs)(Z.q,{id:"create-project-form",children:[(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Project name"}),(0,b.jsx)(Z.pd,{name:"name",placeholder:"Enter project name",$hasError:t.name&&!!r.name}),t.name&&r.name&&(0,b.jsx)(Z.yn,{children:r.name})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Project description"}),(0,b.jsx)(Z.TM,{name:"description",placeholder:"Enter description (optional)"}),t.description&&r.description&&(0,b.jsx)(Z.yn,{children:r.description})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Deadline (optional)"}),(0,b.jsx)(Z.pd,{name:"deadline",type:"date"})]})]})}})})},re=e=>{let{handlerCloseModal:r}=e;const{t:t}=(0,n.B)();return(0,b.jsx)(V,{handlerCloseModal:r,children:(0,b.jsx)(R,{handlerCloseModal:r,title:t("Modals.createProject.title"),actions:(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)(Z.sF,{type:"button",onClick:r,children:t("Modals.common.cancel")}),(0,b.jsx)(Z.GX,{type:"submit",form:"create-project-form",children:t("Modals.common.save")})]}),children:(0,b.jsx)(ee,{})})})},te=c.Ay.div`
+`,R=e=>{let{handlerCloseModal:r,title:t,children:o,actions:n}=e;return(0,b.jsxs)(O,{children:[(0,b.jsxs)(U,{children:[(0,b.jsx)(J,{children:t}),(0,b.jsx)(F,{onClick:r,children:(0,b.jsx)(I,{})})]}),o,n&&(0,b.jsx)(N,{children:n})]})};var W=t(3892),X=t(2115),Y=t(899);const K=Y.Ik({name:Y.Yj().min(2).max(100).required("Required"),description:Y.Yj().max(1e3),deadline:Y.p6().nullable()});var Z=t(7711);const Q={name:"",description:"",deadline:""},ee=e=>{let{onSubmit:r}=e;const t=(0,i.jL)(),o=(0,i.GV)(l.jt),n=(0,i.GV)(s.mB);return(0,b.jsx)(Z.Dt,{children:(0,b.jsx)(W.l1,{initialValues:Q,validationSchema:K,onSubmit:async e=>{const i={...e,company:o._id,members:[{email:n.email,role:"owner"}]};try{await t((0,a.gA)(i)).unwrap(),null===r||void 0===r||r(e)}catch(l){X.oR.error(`Failed to create project: ${l instanceof Error?l.message:String(l)}`)}},children:e=>{let{values:r,errors:t,touched:o,handleChange:n,handleBlur:i}=e;return(0,b.jsxs)(Z.q,{id:"create-project-form",children:[(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Project name"}),(0,b.jsx)(Z.pd,{name:"name",placeholder:"Enter project name",$hasError:o.name&&!!t.name}),o.name&&t.name&&(0,b.jsx)(Z.yn,{children:t.name})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Project description"}),(0,b.jsx)(Z.TM,{value:r.description,onChange:n,onBlur:i,name:"description",placeholder:"Enter description (optional)"}),o.description&&t.description&&(0,b.jsx)(Z.yn,{children:t.description})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Deadline (optional)"}),(0,b.jsx)(Z.pd,{name:"deadline",type:"date"})]})]})}})})},re=e=>{let{handlerCloseModal:r}=e;const{t:t}=(0,n.B)();return(0,b.jsx)(V,{handlerCloseModal:r,children:(0,b.jsx)(R,{handlerCloseModal:r,title:t("Modals.createProject.title"),actions:(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)(Z.sF,{type:"button",onClick:r,children:t("Modals.common.cancel")}),(0,b.jsx)(Z.GX,{type:"submit",form:"create-project-form",children:t("Modals.common.save")})]}),children:(0,b.jsx)(ee,{})})})},te=c.Ay.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -199,7 +199,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
-`,pe=()=>{const e=(0,i.jL)(),[r,t]=(0,o.useState)(""),[c,p]=(0,o.useState)("All Projects"),[u,x]=(0,o.useState)(!1),h=(0,i.GV)(l.jt),m=(0,i.GV)(d),y=(0,i.GV)(s.AS),{t:g}=(0,n.B)();(0,o.useEffect)((()=>{e((0,a.ZH)())}),[e]);const f=()=>{x((e=>!e))},j=m.filter((e=>{var t;const o=null===(t=e.members.find((e=>e.user.email===y)))||void 0===t?void 0:t.role,n=e.company._id===(null===h||void 0===h?void 0:h._id),i=e.name.toLowerCase().includes(r.toLowerCase()),l="All Projects"===c,a=o.toLowerCase()===c.toLowerCase();return n&&i&&(l||a)}));return(0,b.jsxs)(te,{children:[(0,b.jsxs)(oe,{children:[(0,b.jsxs)(ne,{children:[(0,b.jsx)(ie,{children:g("Projects.title")}),(0,b.jsx)(le,{onClick:()=>{f()},children:g("Projects.create")})]}),(0,b.jsxs)(ae,{children:[(0,b.jsx)(de,{type:"text",placeholder:g("Projects.searchPlaceholder"),value:r,onChange:e=>t(e.target.value)}),(0,b.jsx)(se,{children:(0,b.jsx)(M.A,{options:["All Projects","Owner","Editor","Viewer"],value:c,onChange:p,getLabel:e=>g(`Projects.filters.${e}`),getKey:e=>e})})]})]}),(0,b.jsx)(ce,{children:j.map((e=>{var r;const t=null===(r=e.members.find((e=>e.user.email===y)))||void 0===r?void 0:r.role;return(0,b.jsx)(E,{project:e,role:t},e._id)}))}),u&&(0,b.jsx)(re,{handlerCloseModal:f})]})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,Dt:()=>a,GX:()=>b,Gg:()=>h,JU:()=>c,K_:()=>x,TM:()=>$,ZD:()=>m,b7:()=>g,mO:()=>l,oX:()=>v,oi:()=>u,pd:()=>p,q:()=>d,ql:()=>y,sF:()=>f,yn:()=>j});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
+`,pe=()=>{const e=(0,i.jL)(),[r,t]=(0,o.useState)(""),[c,p]=(0,o.useState)("All Projects"),[u,h]=(0,o.useState)(!1),x=(0,i.GV)(l.jt),m=(0,i.GV)(d),y=(0,i.GV)(s.AS),{t:g}=(0,n.B)();(0,o.useEffect)((()=>{e((0,a.ZH)())}),[e]);const f=()=>{h((e=>!e))},j=m.filter((e=>{var t;const o=null===(t=e.members.find((e=>e.user.email===y)))||void 0===t?void 0:t.role,n=e.company._id===(null===x||void 0===x?void 0:x._id),i=e.name.toLowerCase().includes(r.toLowerCase()),l="All Projects"===c,a=(null===o||void 0===o?void 0:o.toLowerCase())===c.toLowerCase();return n&&i&&(l||a)}));return(0,b.jsxs)(te,{children:[(0,b.jsxs)(oe,{children:[(0,b.jsxs)(ne,{children:[(0,b.jsx)(ie,{children:g("Projects.title")}),(0,b.jsx)(le,{onClick:()=>{f()},children:g("Projects.create")})]}),(0,b.jsxs)(ae,{children:[(0,b.jsx)(de,{type:"text",placeholder:g("Projects.searchPlaceholder"),value:r,onChange:e=>t(e.target.value)}),(0,b.jsx)(se,{children:(0,b.jsx)(M.A,{options:["All Projects","Owner","Editor","Viewer"],value:c,onChange:p,getLabel:e=>g(`Projects.filters.${e}`),getKey:e=>e})})]})]}),(0,b.jsx)(ce,{children:j.map((e=>{var r;const t=null===(r=e.members.find((e=>e.user.email===y)))||void 0===r?void 0:r.role;return(0,b.jsx)(E,{project:e,role:t},e._id)}))}),u&&(0,b.jsx)(re,{handlerCloseModal:f})]})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,Dt:()=>a,GX:()=>b,Gg:()=>x,JU:()=>c,K_:()=>h,TM:()=>$,ZD:()=>m,b7:()=>g,mO:()=>l,oX:()=>v,oi:()=>u,pd:()=>p,q:()=>d,ql:()=>y,sF:()=>f,yn:()=>j});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
   width: 100%;
 `,a=o.Ay.div`
   width: 100%;
@@ -237,7 +237,7 @@
   }
 `,u=o.Ay.div`
   position: relative;
-`,x=o.Ay.button`
+`,h=o.Ay.button`
   position: absolute;
   display: flex;
   align-items: center;
@@ -249,7 +249,7 @@
   border: none;
   cursor: pointer;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
-`,h=o.Ay.div`
+`,x=o.Ay.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -361,4 +361,4 @@
   resize: vertical;
   min-height: 100px;
 `}}]);
-//# sourceMappingURL=364.f6357dc8.chunk.js.map
+//# sourceMappingURL=364.d26d350c.chunk.js.map
