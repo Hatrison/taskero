@@ -50,7 +50,9 @@ const ProjectCard = ({ project, role }: ProjectCardProps) => {
         <AddittionalInfo>
           <RoleBadge color={roleColors[role]}>
             {t(
-              `Projects.filters.${role.charAt(0).toUpperCase() + role.slice(1)}`
+              `Projects.filters.${
+                role?.charAt(0).toUpperCase() + role.slice(1)
+              }`
             )}
           </RoleBadge>
           <DateText>
