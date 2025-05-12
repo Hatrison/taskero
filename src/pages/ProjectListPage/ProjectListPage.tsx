@@ -97,7 +97,11 @@ const ProjectListPage = () => {
           )?.role as ProjectRole;
 
           return (
-            <ProjectCard key={project._id} project={project} role={myRole} />
+            <ProjectCard
+              key={project._id}
+              project={project}
+              role={myRole || "viewer"}
+            />
           );
         })}
       </Grid>

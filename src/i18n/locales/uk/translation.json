@@ -90,5 +90,24 @@
       "Editor": "Редактор",
       "Viewer": "Глядач"
     }
+  },
+  "Modals": {
+    "common": {
+      "cancel": "Скасувати",
+      "save": "Зберегти зміни"
+    },
+    "createProject": {
+      "title": "Створити проєкт"
+    }
+  },
+  "Forms": {
+    "createProject": {
+      "name": "Назва проєкту",
+      "namePlaceholder": "Введіть назву проєкту",
+      "description": "Опис проєкту",
+      "descriptionPlaceholder": "Введіть опис (необов'язково)",
+      "deadline": "Дедлайн (необов'язково)",
+      "failed": "Не вдалося створити проєкт"
+    }
   }
 }

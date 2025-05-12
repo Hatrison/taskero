@@ -6,6 +6,7 @@ import { createProject } from "@/redux/projects/operations";
 import { ProjectRole } from "@/redux/projects/projects.types";
 import { selectUser } from "@/redux/user/selectors";
 import { CreateProjectSchema } from "./createProjectFormSchema";
+import { useTranslation } from "react-i18next";
 import {
   WrapperModal,
   StyledForm,
@@ -27,15 +28,21 @@ const initialValues = {
 };
 
 const CreateProjectForm = ({ onSubmit }: Props) => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const company = useAppSelector(selectCurrentCompany);
   const user = useAppSelector(selectUser);
 
   const handleSubmit = async (values: typeof initialValues) => {
+    if (!company?._id || !user?.email) {
+      toast.error(t("Forms.createProject.failed") as string);
+      return;
+    }
+
     const payload = {
       ...values,
-      company: company!._id,
-      members: [{ email: user!.email, role: "owner" as ProjectRole }],
+      company: company._id,
+      members: [{ email: user.email, role: "owner" as ProjectRole }],
     };
 
     try {
@@ -43,7 +50,7 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
       onSubmit?.(values);
     } catch (error) {
       toast.error(
-        `Failed to create project: ${
+        `${t("Forms.createProject.failed")}: ${
           error instanceof Error ? error.message : String(error)
         }`
       );
@@ -60,10 +67,10 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
         {({ values, errors, touched, handleChange, handleBlur }) => (
           <StyledForm id="create-project-form">
             <InputContainer>
-              <Label>Project name</Label>
+              <Label>{t("Forms.createProject.name")}</Label>
               <Input
                 name="name"
-                placeholder="Enter project name"
+                placeholder={t("Forms.createProject.namePlaceholder")}
                 $hasError={touched.name && !!errors.name}
               />
               {touched.name && errors.name && (
@@ -72,13 +79,14 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
             </InputContainer>
 
             <InputContainer>
-              <Label>Project description</Label>
+              <Label>{t("Forms.createProject.description")}</Label>
               <Textarea
+                name="description"
+                placeholder={t("Forms.createProject.descriptionPlaceholder")}
                 value={values.description}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                name="description"
-                placeholder="Enter description (optional)"
+                $hasError={touched.description && !!errors.description}
               />
               {touched.description && errors.description && (
                 <ErrorText>{errors.description}</ErrorText>
@@ -86,7 +94,7 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
             </InputContainer>
 
             <InputContainer>
-              <Label>Deadline (optional)</Label>
+              <Label>{t("Forms.createProject.deadline")}</Label>
               <Input name="deadline" type="date" />
             </InputContainer>
           </StyledForm>
