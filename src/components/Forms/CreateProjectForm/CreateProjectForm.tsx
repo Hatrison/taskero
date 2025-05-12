@@ -57,7 +57,7 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
         validationSchema={CreateProjectSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ values, errors, touched, handleChange, handleBlur }) => (
           <StyledForm id="create-project-form">
             <InputContainer>
               <Label>Project name</Label>
@@ -74,6 +74,9 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
             <InputContainer>
               <Label>Project description</Label>
               <Textarea
+                value={values.description}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 name="description"
                 placeholder="Enter description (optional)"
               />

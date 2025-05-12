@@ -55,7 +55,7 @@ const ProjectListPage = () => {
       .includes(search.toLowerCase());
 
     const isAllSelected = filter === "All Projects";
-    const isRoleMatch = myRole.toLowerCase() === filter.toLowerCase();
+    const isRoleMatch = myRole?.toLowerCase() === filter.toLowerCase();
 
     const matchesFilter = isAllSelected || isRoleMatch;
     return matchesCompany && matchesSearch && matchesFilter;
