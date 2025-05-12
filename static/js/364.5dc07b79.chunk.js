@@ -61,10 +61,10 @@
   font-size: 12px;
   border-radius: 4px;
   text-transform: capitalize;
-`,T=c.Ay.p`
+`,P=c.Ay.p`
   font-size: 12px;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
-`,E=e=>{let{project:r,role:t}=e;const{name:o,company:i,members:l,createdAt:a}=r,{i18n:d,t:s}=(0,n.B)(),x=(0,c.DP)(),m={en:u.c,uk:h.uk}[d.language]||u.c,y={owner:x.roleOwner,editor:x.roleEditor,viewer:x.roleViewer};return(0,b.jsxs)(v,{to:`/projects/${r._id}`,children:[(0,b.jsxs)($,{children:[(0,b.jsx)(w,{children:o}),(0,b.jsx)(k,{children:i.name})]}),(0,b.jsxs)(A,{children:[(0,b.jsx)(f,{members:[...l].reverse()}),(0,b.jsxs)(C,{children:[(0,b.jsx)(z,{color:y[t],children:s(`Projects.filters.${t.charAt(0).toUpperCase()+t.slice(1)}`)}),(0,b.jsx)(T,{children:(0,p.GP)(new Date(a),"dd MMM yyyy",{locale:m})})]})]})]})};var M=t(1308),P=t(7950);const L=c.Ay.div`
+`,T=e=>{let{project:r,role:t}=e;const{name:o,company:i,members:l,createdAt:a}=r,{i18n:d,t:s}=(0,n.B)(),x=(0,c.DP)(),m={en:u.c,uk:h.uk}[d.language]||u.c,y={owner:x.roleOwner,editor:x.roleEditor,viewer:x.roleViewer};return(0,b.jsxs)(v,{to:`/projects/${r._id}`,children:[(0,b.jsxs)($,{children:[(0,b.jsx)(w,{children:o}),(0,b.jsx)(k,{children:i.name})]}),(0,b.jsxs)(A,{children:[(0,b.jsx)(f,{members:[...l].reverse()}),(0,b.jsxs)(C,{children:[(0,b.jsx)(z,{color:y[t],children:s(`Projects.filters.${t.charAt(0).toUpperCase()+t.slice(1)}`)}),(0,b.jsx)(P,{children:(0,p.GP)(new Date(a),"dd MMM yyyy",{locale:m})})]})]})]})};var M=t(1308),E=t(7950);const L=c.Ay.div`
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -85,12 +85,12 @@
   border-radius: 8px;
 
   box-shadow: ${e=>{let{theme:r}=e;return r.shadow}};
-`,S=document.querySelector("#modal-root"),V=e=>{let{children:r,handlerCloseModal:t}=e;const n=(0,o.useCallback)((e=>{"Escape"===e.code&&t()}),[t]);(0,o.useEffect)((()=>(window.addEventListener("keydown",n),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",n),document.body.style.overflow="auto"})),[n]);return(0,P.createPortal)((0,b.jsx)(L,{onClick:e=>{e.currentTarget===e.target&&t()},children:(0,b.jsx)(B,{children:r})}),S)};var _,G;function D(){return D=Object.assign?Object.assign.bind():function(e){for(var r=1;r<arguments.length;r++){var t=arguments[r];for(var o in t)({}).hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e},D.apply(null,arguments)}function H(e,r){let{title:t,titleId:n,...i}=e;return o.createElement("svg",D({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24",ref:r,"aria-labelledby":n},i),t?o.createElement("title",{id:n},t):null,_||(_=o.createElement("path",{d:"M18 6L6 18",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"})),G||(G=o.createElement("path",{d:"M6 6L18 18",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"})))}const q=o.forwardRef(H),O=(t.p,c.Ay.div`
+`,S=document.querySelector("#modal-root"),_=e=>{let{children:r,handlerCloseModal:t}=e;const n=(0,o.useCallback)((e=>{"Escape"===e.code&&t()}),[t]);(0,o.useEffect)((()=>(window.addEventListener("keydown",n),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",n),document.body.style.overflow="auto"})),[n]);return(0,E.createPortal)((0,b.jsx)(L,{onClick:e=>{e.currentTarget===e.target&&t()},children:(0,b.jsx)(B,{children:r})}),S)};var F,V;function G(){return G=Object.assign?Object.assign.bind():function(e){for(var r=1;r<arguments.length;r++){var t=arguments[r];for(var o in t)({}).hasOwnProperty.call(t,o)&&(e[o]=t[o])}return e},G.apply(null,arguments)}function H(e,r){let{title:t,titleId:n,...i}=e;return o.createElement("svg",G({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24",ref:r,"aria-labelledby":n},i),t?o.createElement("title",{id:n},t):null,F||(F=o.createElement("path",{d:"M18 6L6 18",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"})),V||(V=o.createElement("path",{d:"M6 6L18 18",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"})))}const q=o.forwardRef(H),D=(t.p,c.Ay.div`
   display: flex;
   flex-direction: column;
   max-width: 800px;
   width: 100%;
-`),U=c.Ay.div`
+`),O=c.Ay.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -98,7 +98,7 @@
   position: relative;
   padding: 24px;
   border-bottom: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
-`,F=c.Ay.button`
+`,U=c.Ay.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,13 +119,13 @@
 `,J=c.Ay.h2`
   font-size: 24px;
   font-weight: 700;
-`,N=c.Ay.div`
+`,R=c.Ay.div`
   display: flex;
   justify-content: flex-end;
   padding: 24px;
   gap: 16px;
   border-top: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
-`,R=e=>{let{handlerCloseModal:r,title:t,children:o,actions:n}=e;return(0,b.jsxs)(O,{children:[(0,b.jsxs)(U,{children:[(0,b.jsx)(J,{children:t}),(0,b.jsx)(F,{onClick:r,children:(0,b.jsx)(I,{})})]}),o,n&&(0,b.jsx)(N,{children:n})]})};var W=t(3892),X=t(2115),Y=t(899);const K=Y.Ik({name:Y.Yj().min(2).max(100).required("Required"),description:Y.Yj().max(1e3),deadline:Y.p6().nullable()});var Z=t(7711);const Q={name:"",description:"",deadline:""},ee=e=>{let{onSubmit:r}=e;const t=(0,i.jL)(),o=(0,i.GV)(l.jt),n=(0,i.GV)(s.mB);return(0,b.jsx)(Z.Dt,{children:(0,b.jsx)(W.l1,{initialValues:Q,validationSchema:K,onSubmit:async e=>{const i={...e,company:o._id,members:[{email:n.email,role:"owner"}]};try{await t((0,a.gA)(i)).unwrap(),null===r||void 0===r||r(e)}catch(l){X.oR.error(`Failed to create project: ${l instanceof Error?l.message:String(l)}`)}},children:e=>{let{values:r,errors:t,touched:o,handleChange:n,handleBlur:i}=e;return(0,b.jsxs)(Z.q,{id:"create-project-form",children:[(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Project name"}),(0,b.jsx)(Z.pd,{name:"name",placeholder:"Enter project name",$hasError:o.name&&!!t.name}),o.name&&t.name&&(0,b.jsx)(Z.yn,{children:t.name})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Project description"}),(0,b.jsx)(Z.TM,{value:r.description,onChange:n,onBlur:i,name:"description",placeholder:"Enter description (optional)"}),o.description&&t.description&&(0,b.jsx)(Z.yn,{children:t.description})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:"Deadline (optional)"}),(0,b.jsx)(Z.pd,{name:"deadline",type:"date"})]})]})}})})},re=e=>{let{handlerCloseModal:r}=e;const{t:t}=(0,n.B)();return(0,b.jsx)(V,{handlerCloseModal:r,children:(0,b.jsx)(R,{handlerCloseModal:r,title:t("Modals.createProject.title"),actions:(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)(Z.sF,{type:"button",onClick:r,children:t("Modals.common.cancel")}),(0,b.jsx)(Z.GX,{type:"submit",form:"create-project-form",children:t("Modals.common.save")})]}),children:(0,b.jsx)(ee,{})})})},te=c.Ay.div`
+`,N=e=>{let{handlerCloseModal:r,title:t,children:o,actions:n}=e;return(0,b.jsxs)(D,{children:[(0,b.jsxs)(O,{children:[(0,b.jsx)(J,{children:t}),(0,b.jsx)(U,{onClick:r,children:(0,b.jsx)(I,{})})]}),o,n&&(0,b.jsx)(R,{children:n})]})};var W=t(3892),X=t(2115),Y=t(899);const K=Y.Ik({name:Y.Yj().min(2).max(100).required("Required"),description:Y.Yj().max(1e3),deadline:Y.p6().nullable()});var Z=t(7711);const Q={name:"",description:"",deadline:""},ee=e=>{let{onSubmit:r}=e;const{t:t}=(0,n.B)(),o=(0,i.jL)(),d=(0,i.GV)(l.jt),c=(0,i.GV)(s.mB);return(0,b.jsx)(Z.Dt,{children:(0,b.jsx)(W.l1,{initialValues:Q,validationSchema:K,onSubmit:async e=>{if(null===d||void 0===d||!d._id||null===c||void 0===c||!c.email)return void X.oR.error(t("Forms.createProject.failed"));const n={...e,company:d._id,members:[{email:c.email,role:"owner"}]};try{await o((0,a.gA)(n)).unwrap(),null===r||void 0===r||r(e)}catch(i){X.oR.error(`${t("Forms.createProject.failed")}: ${i instanceof Error?i.message:String(i)}`)}},children:e=>{let{values:r,errors:o,touched:n,handleChange:i,handleBlur:l}=e;return(0,b.jsxs)(Z.q,{id:"create-project-form",children:[(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:t("Forms.createProject.name")}),(0,b.jsx)(Z.pd,{name:"name",placeholder:t("Forms.createProject.namePlaceholder"),$hasError:n.name&&!!o.name}),n.name&&o.name&&(0,b.jsx)(Z.yn,{children:o.name})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:t("Forms.createProject.description")}),(0,b.jsx)(Z.TM,{name:"description",placeholder:t("Forms.createProject.descriptionPlaceholder"),value:r.description,onChange:i,onBlur:l,$hasError:n.description&&!!o.description}),n.description&&o.description&&(0,b.jsx)(Z.yn,{children:o.description})]}),(0,b.jsxs)(Z.A0,{children:[(0,b.jsx)(Z.JU,{children:t("Forms.createProject.deadline")}),(0,b.jsx)(Z.pd,{name:"deadline",type:"date"})]})]})}})})},re=e=>{let{handlerCloseModal:r}=e;const{t:t}=(0,n.B)();return(0,b.jsx)(_,{handlerCloseModal:r,children:(0,b.jsx)(N,{handlerCloseModal:r,title:t("Modals.createProject.title"),actions:(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)(Z.sF,{type:"button",onClick:r,children:t("Modals.common.cancel")}),(0,b.jsx)(Z.GX,{type:"submit",form:"create-project-form",children:t("Modals.common.save")})]}),children:(0,b.jsx)(ee,{})})})},te=c.Ay.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -199,7 +199,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
-`,pe=()=>{const e=(0,i.jL)(),[r,t]=(0,o.useState)(""),[c,p]=(0,o.useState)("All Projects"),[u,h]=(0,o.useState)(!1),x=(0,i.GV)(l.jt),m=(0,i.GV)(d),y=(0,i.GV)(s.AS),{t:g}=(0,n.B)();(0,o.useEffect)((()=>{e((0,a.ZH)())}),[e]);const f=()=>{h((e=>!e))},j=m.filter((e=>{var t;const o=null===(t=e.members.find((e=>e.user.email===y)))||void 0===t?void 0:t.role,n=e.company._id===(null===x||void 0===x?void 0:x._id),i=e.name.toLowerCase().includes(r.toLowerCase()),l="All Projects"===c,a=(null===o||void 0===o?void 0:o.toLowerCase())===c.toLowerCase();return n&&i&&(l||a)}));return(0,b.jsxs)(te,{children:[(0,b.jsxs)(oe,{children:[(0,b.jsxs)(ne,{children:[(0,b.jsx)(ie,{children:g("Projects.title")}),(0,b.jsx)(le,{onClick:()=>{f()},children:g("Projects.create")})]}),(0,b.jsxs)(ae,{children:[(0,b.jsx)(de,{type:"text",placeholder:g("Projects.searchPlaceholder"),value:r,onChange:e=>t(e.target.value)}),(0,b.jsx)(se,{children:(0,b.jsx)(M.A,{options:["All Projects","Owner","Editor","Viewer"],value:c,onChange:p,getLabel:e=>g(`Projects.filters.${e}`),getKey:e=>e})})]})]}),(0,b.jsx)(ce,{children:j.map((e=>{var r;const t=null===(r=e.members.find((e=>e.user.email===y)))||void 0===r?void 0:r.role;return(0,b.jsx)(E,{project:e,role:t},e._id)}))}),u&&(0,b.jsx)(re,{handlerCloseModal:f})]})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,Dt:()=>a,GX:()=>b,Gg:()=>x,JU:()=>c,K_:()=>h,TM:()=>$,ZD:()=>m,b7:()=>g,mO:()=>l,oX:()=>v,oi:()=>u,pd:()=>p,q:()=>d,ql:()=>y,sF:()=>f,yn:()=>j});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
+`,pe=()=>{const e=(0,i.jL)(),[r,t]=(0,o.useState)(""),[c,p]=(0,o.useState)("All Projects"),[u,h]=(0,o.useState)(!1),x=(0,i.GV)(l.jt),m=(0,i.GV)(d),y=(0,i.GV)(s.AS),{t:g}=(0,n.B)();(0,o.useEffect)((()=>{e((0,a.ZH)())}),[e]);const f=()=>{h((e=>!e))},j=m.filter((e=>{var t;const o=null===(t=e.members.find((e=>e.user.email===y)))||void 0===t?void 0:t.role,n=e.company._id===(null===x||void 0===x?void 0:x._id),i=e.name.toLowerCase().includes(r.toLowerCase()),l="All Projects"===c,a=(null===o||void 0===o?void 0:o.toLowerCase())===c.toLowerCase();return n&&i&&(l||a)}));return(0,b.jsxs)(te,{children:[(0,b.jsxs)(oe,{children:[(0,b.jsxs)(ne,{children:[(0,b.jsx)(ie,{children:g("Projects.title")}),(0,b.jsx)(le,{onClick:()=>{f()},children:g("Projects.create")})]}),(0,b.jsxs)(ae,{children:[(0,b.jsx)(de,{type:"text",placeholder:g("Projects.searchPlaceholder"),value:r,onChange:e=>t(e.target.value)}),(0,b.jsx)(se,{children:(0,b.jsx)(M.A,{options:["All Projects","Owner","Editor","Viewer"],value:c,onChange:p,getLabel:e=>g(`Projects.filters.${e}`),getKey:e=>e})})]})]}),(0,b.jsx)(ce,{children:j.map((e=>{var r;const t=null===(r=e.members.find((e=>e.user.email===y)))||void 0===r?void 0:r.role;return(0,b.jsx)(T,{project:e,role:t||"viewer"},e._id)}))}),u&&(0,b.jsx)(re,{handlerCloseModal:f})]})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,Dt:()=>a,GX:()=>b,Gg:()=>x,JU:()=>c,K_:()=>h,TM:()=>$,ZD:()=>m,b7:()=>g,mO:()=>l,oX:()=>v,oi:()=>u,pd:()=>p,q:()=>d,ql:()=>y,sF:()=>f,yn:()=>j});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
   width: 100%;
 `,a=o.Ay.div`
   width: 100%;
@@ -361,4 +361,4 @@
   resize: vertical;
   min-height: 100px;
 `}}]);
-//# sourceMappingURL=364.d26d350c.chunk.js.map
+//# sourceMappingURL=364.5dc07b79.chunk.js.map
