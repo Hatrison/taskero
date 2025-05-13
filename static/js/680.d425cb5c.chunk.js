@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[680],{2680:(e,r,t)=>{t.r(r),t.d(r,{default:()=>g});var o=t(5554),n=t(3892),i=t(5043),a=t(5180),l=t(4262),s=t(9867),d=t(2115),c=t(5200),p=t(899);const h=p.Ik().shape({name:p.Yj().required("Full name is required"),email:p.Yj().email("Invalid email").required("Email is required"),password:p.Yj().min(6,"Minimum 6 characters").required("Password is required"),terms:p.zM().oneOf([!0],"You must accept the terms")});var u=t(4961),m=t(7711),x=t(579);const y={name:"",email:"",password:"",terms:!1},b=()=>{const e=(0,s.jL)(),[r,t]=(0,i.useState)(!1),o=(0,a.Zp)(),{t:p}=(0,u.B)();return(0,x.jsx)(m.mO,{children:(0,x.jsx)(n.l1,{initialValues:y,validationSchema:h,onSubmit:async(r,t)=>{try{const{terms:n,...i}=r;await e((0,l.DY)(i)).unwrap(),t.resetForm(),o("/",{replace:!0})}catch{d.oR.error("Registration failed. Please try again.")}},children:e=>{let{values:o,handleChange:n,handleSubmit:i,touched:a,errors:l}=e;return(0,x.jsxs)(m.q,{onSubmit:i,children:[(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"name",children:p("Auth.fullName")}),(0,x.jsx)(m.pd,{id:"name",name:"name",type:"text",placeholder:p("Auth.fullNamePlaceholder"),$hasError:a.name&&!!l.name}),a.name&&l.name&&(0,x.jsx)(m.yn,{children:l.name})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"email",children:p("Auth.email")}),(0,x.jsx)(m.pd,{id:"email",name:"email",type:"email",placeholder:p("Auth.emailPlaceholder"),$hasError:a.email&&!!l.email}),a.email&&l.email&&(0,x.jsx)(m.yn,{children:l.email})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"password",children:p("Auth.password")}),(0,x.jsxs)(m.oi,{children:[(0,x.jsx)(m.pd,{id:"password",name:"password",type:r?"text":"password",placeholder:p("Auth.passwordPlaceholder"),$hasError:a.password&&!!l.password}),(0,x.jsx)(m.K_,{type:"button",onClick:()=>t((e=>!e)),children:r?(0,x.jsx)(c._NO,{size:18}):(0,x.jsx)(c.Vap,{size:18})})]}),a.password&&l.password&&(0,x.jsx)(m.yn,{children:l.password})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.Gg,{children:(0,x.jsxs)(m.ZD,{children:[(0,x.jsx)("input",{type:"checkbox",name:"terms",checked:o.terms,onChange:n}),(0,x.jsx)("span",{id:"custom-checkbox"}),(0,x.jsxs)("p",{children:[p("Auth.agree")," ",(0,x.jsx)(m.oX,{to:"/terms",children:p("Auth.terms")})]})]})}),a.terms&&l.terms&&(0,x.jsx)(m.yn,{children:l.terms})]}),(0,x.jsx)(m.b7,{type:"submit",children:p("Auth.createAccount")})]})}})})},g=()=>(0,x.jsx)(o.A,{children:(0,x.jsx)(b,{})})},5554:(e,r,t)=>{t.d(r,{A:()=>f});var o=t(4961),n=t(3168),i=t(3875),a=t(279),l=t(6058),s=t(5464),d=t(5180);const c=s.Ay.div`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[680],{2680:(e,r,t)=>{t.r(r),t.d(r,{default:()=>g});var o=t(5554),n=t(3892),i=t(5043),a=t(5180),l=t(4262),s=t(9867),d=t(2115),c=t(5200),p=t(899);const h=p.Ik().shape({name:p.Yj().required("Full name is required"),email:p.Yj().email("Invalid email").required("Email is required"),password:p.Yj().min(6,"Minimum 6 characters").required("Password is required"),terms:p.zM().oneOf([!0],"You must accept the terms")});var u=t(4961),m=t(7711),x=t(579);const b={name:"",email:"",password:"",terms:!1},y=()=>{const e=(0,s.jL)(),[r,t]=(0,i.useState)(!1),o=(0,a.Zp)(),{t:p}=(0,u.B)();return(0,x.jsx)(m.mO,{children:(0,x.jsx)(n.l1,{initialValues:b,validationSchema:h,onSubmit:async(r,t)=>{try{const{terms:n,...i}=r;await e((0,l.DY)(i)).unwrap(),t.resetForm(),o("/",{replace:!0})}catch{d.oR.error("Registration failed. Please try again.")}},children:e=>{let{values:o,handleChange:n,handleSubmit:i,touched:a,errors:l}=e;return(0,x.jsxs)(m.q,{onSubmit:i,children:[(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"name",children:p("Auth.fullName")}),(0,x.jsx)(m.pd,{id:"name",name:"name",type:"text",placeholder:p("Auth.fullNamePlaceholder"),$hasError:a.name&&!!l.name}),a.name&&l.name&&(0,x.jsx)(m.yn,{children:l.name})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"email",children:p("Auth.email")}),(0,x.jsx)(m.pd,{id:"email",name:"email",type:"email",placeholder:p("Auth.emailPlaceholder"),$hasError:a.email&&!!l.email}),a.email&&l.email&&(0,x.jsx)(m.yn,{children:l.email})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"password",children:p("Auth.password")}),(0,x.jsxs)(m.oi,{children:[(0,x.jsx)(m.pd,{id:"password",name:"password",type:r?"text":"password",placeholder:p("Auth.passwordPlaceholder"),$hasError:a.password&&!!l.password}),(0,x.jsx)(m.K_,{type:"button",onClick:()=>t((e=>!e)),children:r?(0,x.jsx)(c._NO,{size:18}):(0,x.jsx)(c.Vap,{size:18})})]}),a.password&&l.password&&(0,x.jsx)(m.yn,{children:l.password})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.Gg,{children:(0,x.jsxs)(m.ZD,{children:[(0,x.jsx)("input",{type:"checkbox",name:"terms",checked:o.terms,onChange:n}),(0,x.jsx)("span",{id:"custom-checkbox"}),(0,x.jsxs)("p",{children:[p("Auth.agree")," ",(0,x.jsx)(m.oX,{to:"/terms",children:p("Auth.terms")})]})]})}),a.terms&&l.terms&&(0,x.jsx)(m.yn,{children:l.terms})]}),(0,x.jsx)(m.b7,{type:"submit",children:p("Auth.createAccount")})]})}})})},g=()=>(0,x.jsx)(o.A,{children:(0,x.jsx)(y,{})})},5554:(e,r,t)=>{t.d(r,{A:()=>$});var o=t(4961),n=t(3168),i=t(3875),a=t(279),l=t(6058),s=t(5464),d=t(5180);const c=s.Ay.div`
   min-height: 100vh;
   background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   display: flex;
@@ -48,11 +48,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-`,y=s.Ay.div`
+`,b=s.Ay.div`
   flex: 1;
   height: 1px;
   background-color: ${e=>{let{theme:r}=e;return r.borderColor}};
-`,b=s.Ay.span`
+`,y=s.Ay.span`
   font-size: 14px;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
 `,g=s.Ay.button`
@@ -74,24 +74,21 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   }
-`;var j=t(579);const f=e=>{let{children:r}=e;const{t:t}=(0,o.B)();return(0,j.jsx)(c,{children:(0,j.jsxs)(p,{children:[(0,j.jsxs)(h,{children:[(0,j.jsx)(n.A,{}),(0,j.jsxs)("div",{style:{display:"flex",gap:"8px"},children:[(0,j.jsx)(i.A,{}),(0,j.jsx)(a.A,{})]})]}),(0,j.jsxs)(u,{children:[(0,j.jsx)(m,{to:"/login",children:t("Auth.login")}),(0,j.jsx)(m,{to:"/register",children:t("Auth.register")})]}),r,(0,j.jsxs)(x,{children:[(0,j.jsx)(y,{}),(0,j.jsx)(b,{children:t("Auth.orWith")}),(0,j.jsx)(y,{})]}),(0,j.jsxs)(g,{type:"button",children:[(0,j.jsx)(l.F4b,{size:20}),t("Auth.continueWithGoogle")]})]})})}},7711:(e,r,t)=>{t.d(r,{A0:()=>d,Dt:()=>l,GX:()=>g,Gg:()=>m,JU:()=>c,K_:()=>u,TM:()=>$,ZD:()=>x,b7:()=>b,mO:()=>a,oX:()=>A,oi:()=>h,pd:()=>p,q:()=>s,ql:()=>y,sF:()=>j,yn:()=>f});var o=t(5464),n=t(3892),i=t(5180);const a=o.Ay.div`
+`;var f=t(579);const $=e=>{let{children:r}=e;const{t:t}=(0,o.B)();return(0,f.jsx)(c,{children:(0,f.jsxs)(p,{children:[(0,f.jsxs)(h,{children:[(0,f.jsx)(n.A,{}),(0,f.jsxs)("div",{style:{display:"flex",gap:"8px"},children:[(0,f.jsx)(i.A,{}),(0,f.jsx)(a.A,{})]})]}),(0,f.jsxs)(u,{children:[(0,f.jsx)(m,{to:"/login",children:t("Auth.login")}),(0,f.jsx)(m,{to:"/register",children:t("Auth.register")})]}),r,(0,f.jsxs)(x,{children:[(0,f.jsx)(b,{}),(0,f.jsx)(y,{children:t("Auth.orWith")}),(0,f.jsx)(b,{})]}),(0,f.jsxs)(g,{type:"button",children:[(0,f.jsx)(l.F4b,{size:20}),t("Auth.continueWithGoogle")]})]})})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,GX:()=>y,Gg:()=>u,JU:()=>d,K_:()=>h,TM:()=>j,ZD:()=>m,b7:()=>b,mO:()=>a,oX:()=>$,oi:()=>p,pd:()=>c,q:()=>l,ql:()=>x,sF:()=>g,yn:()=>f});var o=t(5464),n=t(3892),i=t(5180);const a=o.Ay.div`
   width: 100%;
-`,l=o.Ay.div`
-  width: 100%;
-  padding: 24px;
-`,s=(0,o.Ay)(n.lV)`
+`,l=(0,o.Ay)(n.lV)`
   display: flex;
   flex-direction: column;
   gap: 24px;
-`,d=o.Ay.div`
+`,s=o.Ay.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-`,c=o.Ay.label`
+`,d=o.Ay.label`
   font-size: 14px;
   font-weight: 500;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
-`,p=(0,o.Ay)(n.D0)`
+`,c=(0,o.Ay)(n.D0)`
   width: 100%;
   padding: 12px;
   font-size: 16px;
@@ -110,9 +107,9 @@
   &:focus {
     border-color: ${e=>{let{theme:r}=e;return r.primary}};
   }
-`,h=o.Ay.div`
+`,p=o.Ay.div`
   position: relative;
-`,u=o.Ay.button`
+`,h=o.Ay.button`
   position: absolute;
   display: flex;
   align-items: center;
@@ -124,12 +121,12 @@
   border: none;
   cursor: pointer;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
-`,m=o.Ay.div`
+`,u=o.Ay.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 4px;
-`,x=o.Ay.label`
+`,m=o.Ay.label`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -169,7 +166,7 @@
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
-`,y=(0,o.Ay)(i.N_)`
+`,x=(0,o.Ay)(i.N_)`
   font-size: 14px;
   color: ${e=>{let{theme:r}=e;return r.primary}};
   transition: color ${e=>{let{theme:r}=e;return r.animation}};
@@ -191,7 +188,7 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
-`,g=o.Ay.button`
+`,y=o.Ay.button`
   padding: 8px 16px;
   background-color: ${e=>{let{theme:r}=e;return r.primary}};
   color: ${e=>{let{theme:r}=e;return r.buttonText}};
@@ -205,7 +202,7 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
-`,j=o.Ay.button`
+`,g=o.Ay.button`
   padding: 8px 16px;
   background-color: ${e=>{let{theme:r}=e;return r.background}};
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
@@ -219,11 +216,27 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   }
-`,f=o.Ay.p`
+`,f=(o.Ay.button`
+  padding: 8px 16px;
+  background-color: ${e=>{let{theme:r}=e;return r.background}};
+  color: ${e=>{let{theme:r}=e;return r.danger}};
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color ${e=>{let{theme:r}=e;return r.animation}},
+    background-color ${e=>{let{theme:r}=e;return r.animation}};
+
+  &:hover {
+    color: ${e=>{let{theme:r}=e;return r.dangerHover}};
+    background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
+  }
+`,o.Ay.p`
   color: #e74a3b;
   font-size: 12px;
   margin-top: -4px;
-`,A=(0,o.Ay)(i.N_)`
+`),$=(0,o.Ay)(i.N_)`
   font-size: 14px;
   color: ${e=>{let{theme:r}=e;return r.primary}};
   text-decoration: underline;
@@ -232,8 +245,8 @@
   &:hover {
     color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
-`,$=(0,o.Ay)(p).attrs({as:"textarea"})`
+`,j=(0,o.Ay)(c).attrs({as:"textarea"})`
   resize: vertical;
   min-height: 100px;
 `}}]);
-//# sourceMappingURL=680.107ec23d.chunk.js.map
+//# sourceMappingURL=680.d425cb5c.chunk.js.map
