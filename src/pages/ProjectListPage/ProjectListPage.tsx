@@ -109,9 +109,11 @@ const ProjectListPage = () => {
           </UpperBlock>
 
           <Grid>
-            {filteredProjectsWithRole.map(({ project, role }) => (
-              <ProjectCard key={project._id} project={project} role={role} />
-            ))}
+            {!loading &&
+              myEmail &&
+              filteredProjectsWithRole.map(({ project, role }) => (
+                <ProjectCard key={project._id} project={project} role={role} />
+              ))}
           </Grid>
           {isModalOpen && (
             <CreateProjectModal
