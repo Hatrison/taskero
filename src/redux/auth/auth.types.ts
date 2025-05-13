@@ -1,3 +1,5 @@
+import { TUserState } from "../user/user.types";
+
 export type TRegisterAction = {
   email: string;
   password: string;
@@ -12,4 +14,5 @@ export type TLoginAction = {
 
 export type TAuthResponse = {
   accessToken: string;
+  user: TUserState;
 };

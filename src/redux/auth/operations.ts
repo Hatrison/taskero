@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance, setAuthHeader } from "@/utils/axiosInstance";
 import { clearCurrentCompany } from "@/redux/companies/companiesSlice";
 import { TLoginAction, TRegisterAction, TAuthResponse } from "./auth.types";
+import { addUserData } from "../user/userSlice";
 
 export const registerUser = createAsyncThunk(
   "auth/register",
@@ -14,6 +15,9 @@ export const registerUser = createAsyncThunk(
       const { accessToken } = res.data;
       setAuthHeader(accessToken);
       localStorage.setItem("accessToken", accessToken);
+
+      await thunkAPI.dispatch(addUserData(res.data.user));
+
       return res.data;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);
@@ -36,6 +40,8 @@ export const loginUser = createAsyncThunk(
       } else {
         sessionStorage.setItem("accessToken", accessToken);
       }
+
+      await thunkAPI.dispatch(addUserData(res.data.user));
 
       return res.data;
     } catch (err: any) {
