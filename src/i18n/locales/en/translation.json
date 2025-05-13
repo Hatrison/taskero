@@ -91,6 +91,7 @@
   },
   "Modals": {
     "common": {
+      "delete": "Delete",
       "cancel": "Cancel",
       "save": "Save Changes"
     },

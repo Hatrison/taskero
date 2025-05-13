@@ -6,11 +6,6 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const WrapperModal = styled.div`
-  width: 100%;
-  padding: 24px;
-`;
-
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -171,6 +166,24 @@ export const CancelButtonModal = styled.button`
   transition: background-color ${({ theme }) => theme.animation};
 
   &:hover {
+    background-color: ${({ theme }) => theme.backgroundSecondary};
+  }
+`;
+
+export const DeleteButtonModal = styled.button`
+  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.danger};
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color ${({ theme }) => theme.animation},
+    background-color ${({ theme }) => theme.animation};
+
+  &:hover {
+    color: ${({ theme }) => theme.dangerHover};
     background-color: ${({ theme }) => theme.backgroundSecondary};
   }
 `;

@@ -48,13 +48,15 @@ const ProjectCard = ({ project, role }: ProjectCardProps) => {
       <BottomBlock>
         <MembersAvatarGroup members={[...members].reverse()} />
         <AddittionalInfo>
-          <RoleBadge color={roleColors[role]}>
-            {t(
-              `Projects.filters.${
-                role?.charAt(0).toUpperCase() + role.slice(1)
-              }`
-            )}
-          </RoleBadge>
+          {role && (
+            <RoleBadge color={roleColors[role]}>
+              {t(
+                `Projects.filters.${
+                  role.charAt(0).toUpperCase() + role.slice(1)
+                }`
+              )}
+            </RoleBadge>
+          )}
           <DateText>
             {format(new Date(createdAt), "dd MMM yyyy", {
               locale: currentLocale,

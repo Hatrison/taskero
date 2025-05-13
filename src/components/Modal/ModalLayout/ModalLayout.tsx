@@ -3,6 +3,7 @@ import {
   ModalHeader,
   CloseButton,
   ModalTitle,
+  ChildrenWrapper,
   ModalActions,
   MyCloseIcon,
 } from "./ModalLayout.styled";
@@ -28,7 +29,7 @@ const ModalLayout = ({
           <MyCloseIcon />
         </CloseButton>
       </ModalHeader>
-      {children}
+      <ChildrenWrapper>{children}</ChildrenWrapper>
       {actions && <ModalActions>{actions}</ModalActions>}
     </LayoutWrapper>
   );

@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { selectCurrentCompany } from "@/redux/companies/selectors";
 import { fetchMyProjects } from "@/redux/projects/operations";
-import { selectProjects } from "@/redux/projects/selectors";
+import {
+  selectProjects,
+  selectProjectsLoading,
+} from "@/redux/projects/selectors";
 import { ProjectRole } from "@/redux/projects/projects.types";
 import { selectUserEmail } from "@/redux/user/selectors";
+import Loader from "@/components/Loader";
 import ProjectCard from "@/components/ProjectCard";
 import CustomSelect from "@/components/CustomSelect";
 import CreateProjectModal from "@/components/Modals/CreateProjectModal";
@@ -19,6 +23,7 @@ import {
   CreateButton,
   SelectWrapper,
   UpperBlock,
+  LoaderContainer,
 } from "./ProjectListPage.styled";
 
 const ProjectListPage = () => {
@@ -26,6 +31,7 @@ const ProjectListPage = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All Projects");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const loading = useAppSelector(selectProjectsLoading);
   const company = useAppSelector(selectCurrentCompany);
   const projects = useAppSelector(selectProjects);
   const myEmail = useAppSelector(selectUserEmail);
@@ -43,69 +49,78 @@ const ProjectListPage = () => {
     toggleModal();
   };
 
-  const filteredProjects = projects.filter((project) => {
-    const myRole: ProjectRole = project.members.find(
-      (member) => member.user.email === myEmail
-    )?.role as ProjectRole;
+  const filteredProjectsWithRole = useMemo(() => {
+    return projects
+      .map((project) => {
+        const role = project.members.find(
+          (member) => member.user.email === myEmail
+        )?.role as ProjectRole;
 
-    const matchesCompany = project.company._id === company?._id;
+        return { project, role };
+      })
+      .filter(({ project, role }) => {
+        const matchesCompany = project.company._id === company?._id;
+        const matchesSearch = project.name
+          .toLowerCase()
+          .includes(search.toLowerCase());
 
-    const matchesSearch = project.name
-      .toLowerCase()
-      .includes(search.toLowerCase());
+        const isAllSelected = filter === "All Projects";
+        const isRoleMatch = role?.toLowerCase() === filter.toLowerCase();
 
-    const isAllSelected = filter === "All Projects";
-    const isRoleMatch = myRole?.toLowerCase() === filter.toLowerCase();
-
-    const matchesFilter = isAllSelected || isRoleMatch;
-    return matchesCompany && matchesSearch && matchesFilter;
-  });
+        return (
+          matchesCompany && matchesSearch && (isAllSelected || isRoleMatch)
+        );
+      });
+  }, [projects, company?._id, myEmail, search, filter]);
 
   return (
     <PageWrapper>
-      <UpperBlock>
-        <PageHeader>
-          <Title>{t("Projects.title")}</Title>
-          <CreateButton onClick={() => handleCreateProject()}>
-            {t("Projects.create")}
-          </CreateButton>
-        </PageHeader>
+      {loading ? (
+        <LoaderContainer>
+          <Loader size="48px" color="#3e85f3" />
+        </LoaderContainer>
+      ) : (
+        <>
+          <UpperBlock>
+            <PageHeader>
+              <Title>{t("Projects.title")}</Title>
+              <CreateButton onClick={() => handleCreateProject()}>
+                {t("Projects.create")}
+              </CreateButton>
+            </PageHeader>
 
-        <TopBar>
-          <SearchInput
-            type="text"
-            placeholder={t("Projects.searchPlaceholder")}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <SelectWrapper>
-            <CustomSelect
-              options={["All Projects", "Owner", "Editor", "Viewer"]}
-              value={filter}
-              onChange={setFilter}
-              getLabel={(r) => t(`Projects.filters.${r}`)}
-              getKey={(r) => r}
+            <TopBar>
+              <SearchInput
+                type="text"
+                placeholder={t("Projects.searchPlaceholder")}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <SelectWrapper>
+                <CustomSelect
+                  options={["All Projects", "Owner", "Editor", "Viewer"]}
+                  value={filter}
+                  onChange={setFilter}
+                  getLabel={(r) => t(`Projects.filters.${r}`)}
+                  getKey={(r) => r}
+                />
+              </SelectWrapper>
+            </TopBar>
+          </UpperBlock>
+
+          <Grid>
+            {filteredProjectsWithRole.map(({ project, role }) => (
+              <ProjectCard key={project._id} project={project} role={role} />
+            ))}
+          </Grid>
+          {isModalOpen && (
+            <CreateProjectModal
+              handlerCloseModal={toggleModal}
+              hasDeleteAction
             />
-          </SelectWrapper>
-        </TopBar>
-      </UpperBlock>
-
-      <Grid>
-        {filteredProjects.map((project) => {
-          const myRole: ProjectRole = project.members.find(
-            (member) => member.user.email === myEmail
-          )?.role as ProjectRole;
-
-          return (
-            <ProjectCard
-              key={project._id}
-              project={project}
-              role={myRole || "viewer"}
-            />
-          );
-        })}
-      </Grid>
-      {isModalOpen && <CreateProjectModal handlerCloseModal={toggleModal} />}
+          )}
+        </>
+      )}
     </PageWrapper>
   );
 };

@@ -9,6 +9,7 @@ import {
 
 type Props = {
   handlerCloseModal: () => void;
+  hasDeleteAction?: boolean;
 };
 
 const CreateProjectModal = ({ handlerCloseModal }: Props) => {
@@ -21,12 +22,14 @@ const CreateProjectModal = ({ handlerCloseModal }: Props) => {
         title={t("Modals.createProject.title")}
         actions={
           <>
-            <CancelButtonModal type="button" onClick={handlerCloseModal}>
-              {t("Modals.common.cancel")}
-            </CancelButtonModal>
-            <SubmitButtonModal type="submit" form="create-project-form">
-              {t("Modals.common.save")}
-            </SubmitButtonModal>
+            <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+              <CancelButtonModal type="button" onClick={handlerCloseModal}>
+                {t("Modals.common.cancel")}
+              </CancelButtonModal>
+              <SubmitButtonModal type="submit" form="create-project-form">
+                {t("Modals.common.save")}
+              </SubmitButtonModal>
+            </div>
           </>
         }
       >

@@ -8,7 +8,6 @@ import { selectUser } from "@/redux/user/selectors";
 import { CreateProjectSchema } from "./createProjectFormSchema";
 import { useTranslation } from "react-i18next";
 import {
-  WrapperModal,
   StyledForm,
   InputContainer,
   Label,
@@ -58,49 +57,47 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
   };
 
   return (
-    <WrapperModal>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={CreateProjectSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ values, errors, touched, handleChange, handleBlur }) => (
-          <StyledForm id="create-project-form">
-            <InputContainer>
-              <Label>{t("Forms.createProject.name")}</Label>
-              <Input
-                name="name"
-                placeholder={t("Forms.createProject.namePlaceholder")}
-                $hasError={touched.name && !!errors.name}
-              />
-              {touched.name && errors.name && (
-                <ErrorText>{errors.name}</ErrorText>
-              )}
-            </InputContainer>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={CreateProjectSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ values, errors, touched, handleChange, handleBlur }) => (
+        <StyledForm id="create-project-form">
+          <InputContainer>
+            <Label>{t("Forms.createProject.name")}</Label>
+            <Input
+              name="name"
+              placeholder={t("Forms.createProject.namePlaceholder")}
+              $hasError={touched.name && !!errors.name}
+            />
+            {touched.name && errors.name && (
+              <ErrorText>{errors.name}</ErrorText>
+            )}
+          </InputContainer>
 
-            <InputContainer>
-              <Label>{t("Forms.createProject.description")}</Label>
-              <Textarea
-                name="description"
-                placeholder={t("Forms.createProject.descriptionPlaceholder")}
-                value={values.description}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                $hasError={touched.description && !!errors.description}
-              />
-              {touched.description && errors.description && (
-                <ErrorText>{errors.description}</ErrorText>
-              )}
-            </InputContainer>
+          <InputContainer>
+            <Label>{t("Forms.createProject.description")}</Label>
+            <Textarea
+              name="description"
+              placeholder={t("Forms.createProject.descriptionPlaceholder")}
+              value={values.description}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              $hasError={touched.description && !!errors.description}
+            />
+            {touched.description && errors.description && (
+              <ErrorText>{errors.description}</ErrorText>
+            )}
+          </InputContainer>
 
-            <InputContainer>
-              <Label>{t("Forms.createProject.deadline")}</Label>
-              <Input name="deadline" type="date" />
-            </InputContainer>
-          </StyledForm>
-        )}
-      </Formik>
-    </WrapperModal>
+          <InputContainer>
+            <Label>{t("Forms.createProject.deadline")}</Label>
+            <Input name="deadline" type="date" />
+          </InputContainer>
+        </StyledForm>
+      )}
+    </Formik>
   );
 };
 

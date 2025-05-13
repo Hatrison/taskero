@@ -61,4 +61,5 @@ export const RoleBadge = styled.span<{ color: string }>`
 export const DateText = styled.p`
   font-size: 12px;
   color: ${({ theme }) => theme.secondaryText};
+  margin-left: auto;
 `;

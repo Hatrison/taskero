@@ -23,7 +23,7 @@ const App = () => {
     <Theme>
       {isRefreshing ? (
         <LoadContainer>
-          <Loader size="60px" color="#000000" />
+          <Loader size="60px" color="#3e85f3" />
         </LoadContainer>
       ) : (
         <Router />

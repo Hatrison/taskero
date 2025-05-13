@@ -31,6 +31,7 @@ declare module "styled-components" {
     primaryHover: string;
     secondary: string;
     danger: string;
+    dangerHover: string;
     success: string;
     warning: string;
     info: string;

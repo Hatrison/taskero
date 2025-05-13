@@ -16,6 +16,8 @@ export const Backdrop = styled.div`
 
 export const ModalContainer = styled.div`
   position: relative;
+  width: 100%;
+  max-width: 800px;
   min-width: 200px;
   min-height: 200px;
   background-color: ${({ theme }) => theme.background};

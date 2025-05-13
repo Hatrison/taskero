@@ -4,7 +4,6 @@ import { ReactComponent as CloseIcon } from "@/images/svg/closeModal.svg";
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 800px;
   width: 100%;
 `;
 
@@ -45,10 +44,15 @@ export const ModalTitle = styled.h2`
   font-weight: 700;
 `;
 
+export const ChildrenWrapper = styled.div`
+  padding: 24px;
+`;
+
 export const ModalActions = styled.div`
   display: flex;
-  justify-content: flex-end;
-  padding: 24px;
+  justify-content: space-between;
   gap: 16px;
+  width: 100%;
+  padding: 24px;
   border-top: 1px solid ${({ theme }) => theme.borderColor};
 `;
