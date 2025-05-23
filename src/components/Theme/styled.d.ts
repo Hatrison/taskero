@@ -13,6 +13,7 @@ declare module "styled-components" {
     cardBackground: string;
     headerBackground: string;
     sidebarBackground: string;
+    tagBackground: string;
 
     // Scrollbar
     scrollbarBackground: string;

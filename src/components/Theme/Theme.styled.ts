@@ -11,6 +11,7 @@ export const theme = {
     cardBackground: "#ffffff",
     headerBackground: "#ffffff",
     sidebarBackground: "#ffffff",
+    tagBackground: "#f0f7ff",
 
     // Scrollbar
     scrollbarBackground: "#f0f0f0",
@@ -71,6 +72,7 @@ export const theme = {
     cardBackground: "#2b2b2b",
     headerBackground: "#1f1f1f",
     sidebarBackground: "#1f1f1f",
+    tagBackground: "#f0f7ff",
 
     // Scrollbar
     scrollbarBackground: "#333333",

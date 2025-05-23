@@ -19,10 +19,12 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 56px);
   flex-grow: 1;
   padding-left: 83px;
   overflow-y: auto;
+  position: relative;
+  margin-top: 56px;
 
   @media (max-width: 1279px) {
     padding-left: 0;

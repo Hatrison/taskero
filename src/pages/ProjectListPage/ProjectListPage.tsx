@@ -114,10 +114,7 @@ const ProjectListPage = () => {
             ))}
           </Grid>
           {isModalOpen && (
-            <CreateProjectModal
-              handlerCloseModal={toggleModal}
-              hasDeleteAction
-            />
+            <CreateProjectModal handlerCloseModal={toggleModal} />
           )}
         </>
       )}

@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 export const CardWrapperLink = styled(Link)`
   background-color: ${({ theme }) => theme.cardBackground};
-  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  border-radius: 4px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -12,7 +13,6 @@ export const CardWrapperLink = styled(Link)`
   width: 100%;
   height: 100%;
   min-height: 200px;
-  box-shadow: ${({ theme }) => theme.shadow};
   transition: background-color ${({ theme }) => theme.animation};
   cursor: pointer;
 

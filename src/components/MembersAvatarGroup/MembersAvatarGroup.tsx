@@ -1,9 +1,13 @@
-import { ProjectMember } from "@/redux/projects/projects.types";
 import UserAvatar from "@/components/UserAvatar";
 import { ExtraAvatar, MemberItem, Wrapper } from "./MembersAvatarGroup.styled";
 
+type User = {
+  _id: string;
+  avatar?: string;
+};
+
 type Props = {
-  members: ProjectMember[];
+  members: User[];
   maxVisible?: number;
   size?: number;
 };
@@ -14,7 +18,7 @@ const MembersAvatarGroup = ({ members, maxVisible = 4, size = 28 }: Props) => {
 
   return (
     <Wrapper>
-      {visibleMembers.map(({ user }, index) => (
+      {visibleMembers.map((user, index) => (
         <MemberItem key={user._id} index={index}>
           <UserAvatar
             src={

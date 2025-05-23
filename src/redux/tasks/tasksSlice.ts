@@ -50,7 +50,6 @@ const tasksSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchProjectTasks.pending,
-          fetchTaskById.pending,
           createTask.pending,
           updateTask.pending,
           deleteTask.pending
@@ -63,7 +62,6 @@ const tasksSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchProjectTasks.rejected,
-          fetchTaskById.rejected,
           createTask.rejected,
           updateTask.rejected,
           deleteTask.rejected
@@ -76,7 +74,6 @@ const tasksSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchProjectTasks.fulfilled,
-          fetchTaskById.fulfilled,
           createTask.fulfilled,
           updateTask.fulfilled,
           deleteTask.fulfilled

@@ -1,3 +1,9 @@
+import { useTranslation } from "react-i18next";
+import {
+  CancelButtonModal,
+  SubmitButtonModal,
+  DeleteButtonModal,
+} from "@/styles/form/Form.styled";
 import {
   LayoutWrapper,
   ModalHeader,
@@ -11,16 +17,20 @@ import {
 type Props = {
   handlerCloseModal: () => void;
   title: string;
+  formName: string;
+  deleteAction?: () => void;
   children: React.ReactNode;
-  actions?: React.ReactNode;
 };
 
 const ModalLayout = ({
   handlerCloseModal,
   title,
+  formName,
+  deleteAction,
   children,
-  actions,
 }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <LayoutWrapper>
       <ModalHeader>
@@ -30,7 +40,21 @@ const ModalLayout = ({
         </CloseButton>
       </ModalHeader>
       <ChildrenWrapper>{children}</ChildrenWrapper>
-      {actions && <ModalActions>{actions}</ModalActions>}
+      <ModalActions>
+        {deleteAction && (
+          <DeleteButtonModal type="button" onClick={() => deleteAction()}>
+            {t("Modals.common.delete")}
+          </DeleteButtonModal>
+        )}
+        <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+          <CancelButtonModal type="button" onClick={handlerCloseModal}>
+            {t("Modals.common.cancel")}
+          </CancelButtonModal>
+          <SubmitButtonModal type="submit" form={formName}>
+            {t("Modals.common.save")}
+          </SubmitButtonModal>
+        </div>
+      </ModalActions>
     </LayoutWrapper>
   );
 };

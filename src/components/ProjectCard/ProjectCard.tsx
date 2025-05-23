@@ -46,7 +46,9 @@ const ProjectCard = ({ project, role }: ProjectCardProps) => {
       </TitleWrapper>
 
       <BottomBlock>
-        <MembersAvatarGroup members={[...members].reverse()} />
+        <MembersAvatarGroup
+          members={[...members.map(({ user }) => user)].reverse()}
+        />
         <AddittionalInfo>
           {role && (
             <RoleBadge color={roleColors[role]}>

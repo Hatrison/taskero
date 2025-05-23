@@ -66,7 +66,6 @@ const companiesSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchMyCompanies.pending,
-          fetchCompanyById.pending,
           createCompany.pending,
           updateCompany.pending,
           deleteCompany.pending,
@@ -80,7 +79,6 @@ const companiesSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchMyCompanies.rejected,
-          fetchCompanyById.rejected,
           createCompany.rejected,
           updateCompany.rejected,
           deleteCompany.rejected,
@@ -94,7 +92,6 @@ const companiesSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchMyCompanies.fulfilled,
-          fetchCompanyById.fulfilled,
           createCompany.fulfilled,
           updateCompany.fulfilled,
           deleteCompany.fulfilled,

@@ -11,6 +11,7 @@ export interface Company {
   logo?: string;
   owner: UserShort;
   members: UserShort[];
+  createdAt: string;
 }
 
 export interface CompaniesState {
@@ -20,9 +21,7 @@ export interface CompaniesState {
   error: string | null;
 }
 
-export interface CreateCompanyPayload {
-  name: string;
-}
+export type CreateCompanyPayload = FormData;
 
 export interface UpdateCompanyPayload {
   id: string;

@@ -1,24 +1,24 @@
 import { useTranslation } from "react-i18next";
 import Modal from "@/components/Modal/Modal";
 import ModalLayout from "@/components/Modal/ModalLayout";
-import CreateProjectForm from "@/components/Forms/CreateProjectForm";
+import CreateCompanyForm from "@/components/Forms/CreateCompanyForm";
 
 type Props = {
   handlerCloseModal: () => void;
 };
 
-const CreateProjectModal = ({ handlerCloseModal }: Props) => {
+const CreateCompanyModal = ({ handlerCloseModal }: Props) => {
   const { t } = useTranslation();
-  const formName = "create-project-form";
+  const formName = "create-company-form";
 
   return (
     <Modal handlerCloseModal={handlerCloseModal}>
       <ModalLayout
         handlerCloseModal={handlerCloseModal}
-        title={t("Modals.createProject.title")}
+        title={t("Modals.createCompany.title")}
         formName={formName}
       >
-        <CreateProjectForm
+        <CreateCompanyForm
           handlerCloseModal={handlerCloseModal}
           formName={formName}
         />
@@ -27,4 +27,4 @@ const CreateProjectModal = ({ handlerCloseModal }: Props) => {
   );
 };
 
-export default CreateProjectModal;
+export default CreateCompanyModal;

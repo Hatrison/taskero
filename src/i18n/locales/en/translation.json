@@ -1,4 +1,12 @@
 {
+  "Common": {
+    "roles": {
+      "owner": "Owner",
+      "viewer": "Viewer",
+      "editor": "Editor",
+      "member": "Member"
+    }
+  },
   "LandingPage": {
     "Header": {
       "features": "Features",
@@ -89,6 +97,19 @@
       "Viewer": "Viewer"
     }
   },
+  "Companies": {
+    "title": "My Companies",
+    "create": "Create Company",
+    "searchPlaceholder": "Search companies...",
+    "filters": {
+      "name": "Sort by Name",
+      "date": "Sort by Date"
+    },
+    "role": {
+      "owner": "Owner",
+      "member": "Member"
+    }
+  },
   "Modals": {
     "common": {
       "delete": "Delete",
@@ -97,16 +118,57 @@
     },
     "createProject": {
       "title": "Create Project"
+    },
+    "createCompany": {
+      "title": "Create Company"
+    },
+    "editCompany": {
+      "title": "Edit Company"
+    },
+    "editCompanyMembers": {
+      "title": "Edit Company Members"
     }
   },
   "Forms": {
+    "common": {
+      "chooseFile": "Choose File",
+      "dragOrClick": "Drag and drop or click to upload, or",
+      "remove": "Remove"
+    },
     "createProject": {
       "name": "Project name",
       "namePlaceholder": "Enter project name",
       "description": "Project description",
       "descriptionPlaceholder": "Enter description (optional)",
       "deadline": "Deadline (optional)",
+      "success": "Project created successfully",
       "failed": "Failed to create project"
+    },
+    "createCompany": {
+      "name": "Company name",
+      "namePlaceholder": "Enter company name",
+      "logo": "Company logo (optional)",
+      "success": "Company created successfully",
+      "failed": "Failed to create company"
+    },
+    "editCompany": {
+      "failedToLoad": "Failed to load company data",
+      "name": "Company name",
+      "namePlaceholder": "Enter company name",
+      "logo": "Company logo",
+      "success": "Company updated successfully",
+      "failed": "Failed to update company"
+    },
+    "editCompanyMembers": {
+      "add": "Add members",
+      "addPlaceholder": "Enter email addresses",
+      "success": "Members added successfully",
+      "failed": "Failed to add members",
+      "failedToLoad": "Failed to load company members"
+    },
+    "deleteCompany": {
+      "success": "Company deleted successfully",
+      "failed": "Failed to delete company"
     }
   }
 }

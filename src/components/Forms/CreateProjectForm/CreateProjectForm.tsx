@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Formik } from "formik";
 import { toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "@/hooks";
@@ -5,8 +6,7 @@ import { selectCurrentCompany } from "@/redux/companies/selectors";
 import { createProject } from "@/redux/projects/operations";
 import { ProjectRole } from "@/redux/projects/projects.types";
 import { selectUser } from "@/redux/user/selectors";
-import { CreateProjectSchema } from "./createProjectFormSchema";
-import { useTranslation } from "react-i18next";
+import { CreateProjectSchema } from "./createProjectSchema";
 import {
   StyledForm,
   InputContainer,
@@ -17,7 +17,8 @@ import {
 } from "@/styles/form/Form.styled";
 
 type Props = {
-  onSubmit?: (data: any) => void;
+  handlerCloseModal: () => void;
+  formName?: string;
 };
 
 const initialValues = {
@@ -26,7 +27,7 @@ const initialValues = {
   deadline: "",
 };
 
-const CreateProjectForm = ({ onSubmit }: Props) => {
+const CreateProjectForm = ({ handlerCloseModal, formName }: Props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const company = useAppSelector(selectCurrentCompany);
@@ -46,7 +47,8 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
 
     try {
       await dispatch(createProject(payload)).unwrap();
-      onSubmit?.(values);
+      toast.success(t("Forms.createProject.success") as string);
+      handlerCloseModal();
     } catch (error) {
       toast.error(
         `${t("Forms.createProject.failed")}: ${
@@ -63,7 +65,7 @@ const CreateProjectForm = ({ onSubmit }: Props) => {
       onSubmit={handleSubmit}
     >
       {({ values, errors, touched, handleChange, handleBlur }) => (
-        <StyledForm id="create-project-form">
+        <StyledForm id={formName}>
           <InputContainer>
             <Label>{t("Forms.createProject.name")}</Label>
             <Input
