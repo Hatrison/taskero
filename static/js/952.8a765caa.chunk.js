@@ -18,7 +18,7 @@
   font-size: 12px;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
   font-weight: 500;
-`;var d=t(579);const s=e=>{let{members:r,maxVisible:t=4,size:n=28}=e;const s=r.slice(0,t),c=r.length-t;return(0,d.jsxs)(i,{children:[s.map(((e,r)=>{var t;return(0,d.jsx)(l,{index:r,children:(0,d.jsx)(o.A,{src:null!==(t=e.avatar)&&void 0!==t&&t.startsWith("http")?e.avatar:`https:${e.avatar}`,size:n})},e._id)})),c>0&&(0,d.jsx)(l,{index:t,children:(0,d.jsxs)(a,{size:n,children:["+",c]})})]})}},6952:(e,r,t)=>{t.r(r),t.d(r,{default:()=>we});var o=t(5043),n=t(4961),i=t(9867),l=t(377),a=t(5939),d=t(1308),s=t(5464),c=t(2115),m=t(3289),p=t(5601),u=t(3367),h=t(9593),x=t(7784),g=t(3892),y=t(184);const b=s.Ay.div`
+`;var d=t(579);const s=e=>{let{members:r,maxVisible:t=4,size:n=28}=e;const s=r.slice(0,t),c=r.length-t;return(0,d.jsxs)(i,{children:[s.map(((e,r)=>{var t;return(0,d.jsx)(l,{index:r,children:(0,d.jsx)(o.A,{src:null!==(t=e.avatar)&&void 0!==t&&t.startsWith("http")?e.avatar:`https:${e.avatar}`,size:n})},e._id)})),c>0&&(0,d.jsx)(l,{index:t,children:(0,d.jsxs)(a,{size:n,children:["+",c]})})]})}},6952:(e,r,t)=>{t.r(r),t.d(r,{default:()=>$e});var o=t(5043),n=t(4961),i=t(9867),l=t(377),a=t(5939),d=t(1308),s=t(5464),c=t(2115),m=t(3289),p=t(5601),u=t(3367),h=t(9593),x=t(7784),g=t(3892),y=t(184);const b=s.Ay.div`
   border: 2px dashed ${e=>{let{theme:r}=e;return r.borderColor}};
   border-radius: 8px;
   padding: 32px 24px;
@@ -64,7 +64,7 @@
   justify-content: center;
   align-items: center;
   height: 295px;
-`;var M=t(899);const T=M.Ik({name:M.Yj().required("Required"),logo:M.gl().nullable()}),z=e=>{let{handlerCloseModal:r,formName:t,companyId:l}=e;const d=(0,i.jL)(),{t:s}=(0,n.B)(),[m,u]=(0,o.useState)(null);(0,o.useEffect)((()=>{(async()=>{try{const e=await d((0,p.Gh)(l)).unwrap();u(e)}catch(e){c.oR.error(`${s("Forms.editCompany.failedToLoad")}: ${e instanceof Error?e.message:String(e)}`),r()}})()}),[d,l,s,r]);const h={name:(null===m||void 0===m?void 0:m.name)||"",logo:null};return m?(0,k.jsx)(g.l1,{enableReinitialize:!0,initialValues:h,validationSchema:T,onSubmit:async e=>{const t=new FormData;t.append("name",e.name),e.logo&&t.append("logo",e.logo);try{await d((0,p.JT)({id:l,formData:t})).unwrap(),c.oR.success(s("Forms.editCompany.success")),r()}catch(o){c.oR.error(`${s("Forms.editCompany.failed")}: ${o instanceof Error?o.message:String(o)}`)}},children:e=>{let{errors:r,touched:o}=e;return(0,k.jsxs)(A.q,{id:t,children:[(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:s("Forms.editCompany.name")}),(0,k.jsx)(A.pd,{name:"name",placeholder:s("Forms.editCompany.namePlaceholder"),$hasError:o.name&&!!r.name}),o.name&&r.name&&(0,k.jsx)(A.yn,{children:r.name})]}),(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:s("Forms.editCompany.logo")}),(0,k.jsx)(C,{name:"logo",placeholderText:s("Forms.common.dragOrClick"),buttonText:s("Forms.common.chooseFile"),initialPreview:m.logo})]})]})}}):(0,k.jsx)(F,{children:(0,k.jsx)(a.A,{size:"60px",color:"#3e85f3"})})},S=e=>{let{handlerCloseModal:r,deleteAction:t,companyId:o}=e;const{t:i}=(0,n.B)(),l="edit-company-form";return(0,k.jsx)(h.A,{handlerCloseModal:r,children:(0,k.jsx)(x.A,{handlerCloseModal:r,title:i("Modals.editCompany.title"),formName:l,deleteAction:t,children:(0,k.jsx)(z,{handlerCloseModal:r,formName:l,companyId:o})})})};var E=t(7201);const R=s.Ay.div`
+`;var M=t(899);const T=M.Ik({name:M.Yj().required("Required"),logo:M.gl().nullable()}),z=e=>{let{handlerCloseModal:r,formName:t,companyId:l}=e;const d=(0,i.jL)(),{t:s}=(0,n.B)(),[m,u]=(0,o.useState)(null);(0,o.useEffect)((()=>{(async()=>{try{const e=await d((0,p.Gh)(l)).unwrap();u(e)}catch(e){c.oR.error(`${s("Forms.editCompany.failedToLoad")}: ${e instanceof Error?e.message:String(e)}`),r()}})()}),[d,l,s,r]);const h={name:(null===m||void 0===m?void 0:m.name)||"",logo:null};return m?(0,k.jsx)(g.l1,{enableReinitialize:!0,initialValues:h,validationSchema:T,onSubmit:async e=>{const t=new FormData;t.append("name",e.name),e.logo&&t.append("logo",e.logo);try{await d((0,p.JT)({id:l,formData:t})).unwrap(),c.oR.success(s("Forms.editCompany.success")),r()}catch(o){c.oR.error(`${s("Forms.editCompany.failed")}: ${o instanceof Error?o.message:String(o)}`)}},children:e=>{let{errors:r,touched:o}=e;return(0,k.jsxs)(A.q,{id:t,children:[(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:s("Forms.editCompany.name")}),(0,k.jsx)(A.pd,{name:"name",placeholder:s("Forms.editCompany.namePlaceholder"),$hasError:o.name&&!!r.name}),o.name&&r.name&&(0,k.jsx)(A.yn,{children:r.name})]}),(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:s("Forms.editCompany.logo")}),(0,k.jsx)(C,{name:"logo",placeholderText:s("Forms.common.dragOrClick"),buttonText:s("Forms.common.chooseFile"),initialPreview:m.logo})]})]})}}):(0,k.jsx)(F,{children:(0,k.jsx)(a.A,{size:"60px",color:"#3e85f3"})})},S=e=>{let{handlerCloseModal:r,deleteAction:t,companyId:o}=e;const{t:i}=(0,n.B)(),l="edit-company-form";return(0,k.jsx)(h.A,{handlerCloseModal:r,children:(0,k.jsx)(x.A,{handlerCloseModal:r,title:i("Modals.editCompany.title"),formName:l,deleteAction:t,children:(0,k.jsx)(z,{handlerCloseModal:r,formName:l,companyId:o})})})};var R=t(7201);const L=s.Ay.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -81,7 +81,7 @@
   &:focus-within {
     border: 1px solid ${e=>{let{theme:r}=e;return r.primary}};
   }
-`,L=s.Ay.div`
+`,E=s.Ay.div`
   display: flex;
   align-items: center;
   padding: 6px 10px;
@@ -110,7 +110,7 @@
   &::placeholder {
     color: ${e=>{let{theme:r}=e;return r.secondaryText}};
   }
-`,I=e=>{let{pending:r,onPendingChange:t,placeholder:i}=e;const[l,a]=(0,o.useState)(""),{t:d}=(0,n.B)();return(0,k.jsxs)(R,{children:[r.map((e=>(0,k.jsxs)(L,{children:[e,(0,k.jsx)(B,{onClick:()=>{return o=e,void t(r.filter((e=>e!==o)));var o},children:"\xd7"})]},e))),(0,k.jsx)(D,{type:"text",value:l,onChange:e=>a(e.target.value),onKeyDown:e=>{if(["Enter","Tab",","].includes(e.key)){e.preventDefault();const o=l.trim().replace(/,+$/,"");if(!o)return;if(!(e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))(o))return void c.oR.error(d("Forms.common.invalidEmail"));if(r.includes(o))return c.oR.info(d("Forms.common.alreadyInPending")),void a("");t([...r,o]),a("")}},placeholder:i})]})},N=s.Ay.div`
+`,I=e=>{let{pending:r,onPendingChange:t,placeholder:i}=e;const[l,a]=(0,o.useState)(""),{t:d}=(0,n.B)();return(0,k.jsxs)(L,{children:[r.map((e=>(0,k.jsxs)(E,{children:[e,(0,k.jsx)(B,{onClick:()=>{return o=e,void t(r.filter((e=>e!==o)));var o},children:"\xd7"})]},e))),(0,k.jsx)(D,{type:"text",value:l,onChange:e=>a(e.target.value),onKeyDown:e=>{if(["Enter","Tab",","].includes(e.key)){e.preventDefault();const o=l.trim().replace(/,+$/,"");if(!o)return;if(!(e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))(o))return void c.oR.error(d("Forms.common.invalidEmail"));if(r.includes(o))return c.oR.info(d("Forms.common.alreadyInPending")),void a("");t([...r,o]),a("")}},placeholder:i})]})},N=s.Ay.div`
   max-height: 240px;
   overflow-y: auto;
   border: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
@@ -164,7 +164,10 @@
   padding: 2px 6px;
   border-radius: 4px;
   white-space: nowrap;
-`,U=s.Ay.button`
+`,U=s.Ay.div`
+  display: flex;
+  width: 150px;
+`,Y=s.Ay.button`
   border: 1px solid ${e=>{let{theme:r}=e;return r.danger}};
   color: ${e=>{let{theme:r}=e;return r.danger}};
   background: none;
@@ -181,12 +184,12 @@
     background-color: ${e=>{let{theme:r}=e;return r.dangerHover||"rgba(255, 0, 0, 0.05)"}};
     border-color: ${e=>{let{theme:r}=e;return r.dangerHover||"rgba(255, 0, 0, 0.2)"}};
   }
-`,Y=e=>{let{value:r,users:t,onChange:l,withActions:a=!0}=e;const d=(0,i.jL)(),[m,p]=(0,o.useState)([]),[u,h]=(0,o.useState)([]),{t:x}=(0,n.B)(),g=(0,s.DP)(),y={owner:g.roleOwner,editor:g.roleEditor,viewer:g.roleViewer,member:g.roleMember,new:g.roleNew},b=async()=>{if(0===m.length)return void c.oR.info(x("Forms.common.nobodyToAdd"));const e=m.filter((e=>!r.includes(e)));if(0===e.length)return c.oR.info(x("Forms.common.allAlreadyAdded")),void p([]);try{const t=(await d((0,E.AX)(e)).unwrap()).map((e=>({...e,role:"new"})));h((e=>[...e,...t])),l([...r,...t.map((e=>e.email))]),p([])}catch(t){c.oR.error(x("Forms.common.fetchUsersFailed")),l([...r,...e]),p([])}},f=r.map((e=>t.find((r=>r.email===e))||u.find((r=>r.email===e))||{_id:e,name:e.split("@")[0],email:e,role:"new"}));return(0,k.jsxs)(k.Fragment,{children:[(0,k.jsx)(N,{children:f.map((e=>{const t=y[e.role]||g.roleMember;return(0,k.jsxs)(P,{children:[e.avatar?(0,k.jsx)(q,{src:e.avatar,alt:e.name}):(0,k.jsx)(O,{}),(0,k.jsxs)(V,{children:[(0,k.jsxs)(_,{children:[e.name,e.role&&(0,k.jsx)(H,{color:t,children:x(`Common.roles.${e.role}`)})]}),(0,k.jsx)(G,{children:e.email})]}),a&&"owner"!==e.role&&(0,k.jsx)(U,{type:"button",onClick:()=>{return t=e.email,void l(r.filter((e=>e!==t)));var t},children:x("Forms.common.remove")})]},e._id)}))}),a&&(0,k.jsxs)(k.Fragment,{children:[(0,k.jsx)("label",{children:x("Forms.common.addMembers")}),(0,k.jsx)(I,{pending:m,onPendingChange:p,placeholder:x("Forms.common.addMembersPlaceholder")}),(0,k.jsx)(A.GX,{type:"button",onClick:b,children:x("Forms.common.addMembers")})]})]})},J=s.Ay.div`
+`,J=e=>{let{value:r,users:t,onChange:l,withActions:a=!0,editableRoles:m=!1,availableRoles:p=["member","editor","viewer"]}=e;const u=(0,i.jL)(),[h,x]=(0,o.useState)([]),[g,y]=(0,o.useState)([]),{t:b}=(0,n.B)(),f=(0,s.DP)(),v={owner:f.roleOwner,editor:f.roleEditor,viewer:f.roleViewer,member:f.roleMember,new:f.roleNew},j="object"===typeof r[0]&&null!==r[0],w=e=>"string"===typeof e?e:e.email,$=async()=>{if(0===h.length)return void c.oR.info(b("Forms.common.nobodyToAdd"));const e=r.map(w),t=h.filter((r=>!e.includes(r)));if(0===t.length)return c.oR.info(b("Forms.common.allAlreadyAdded")),void x([]);try{const e=await u((0,R.AX)(t)).unwrap(),o=e.map((e=>e.email)),n=t.filter((e=>!o.includes(e)));n.length>0&&c.oR.warn(b("Forms.common.someUsersNotFound",{count:n.length,all:t.length}));const i=e.map((e=>({...e,role:"new"})));y((e=>[...e,...i]));const a=j?i.map((e=>({email:e.email,role:"new"}))):i.map((e=>e.email));l([...r,...a]),x([])}catch(o){c.oR.error(b("Forms.common.fetchUsersFailed"))}},C=r.map((e=>{const r=w(e),o="string"===typeof(n=e)?"member":n.role;var n;return t.find((e=>e.email===r))||g.find((e=>e.email===r))||{_id:r,name:r.split("@")[0],email:r,role:o}}));return(0,k.jsxs)(k.Fragment,{children:[(()=>{const e=m&&p.length>1;return(0,k.jsx)(N,{children:C.map((t=>{const o=null!==t&&void 0!==t&&t.role?v[t.role]:f.roleMember;return(0,k.jsxs)(P,{children:[t.avatar?(0,k.jsx)(q,{src:t.avatar,alt:t.name}):(0,k.jsx)(O,{}),(0,k.jsxs)(V,{children:[(0,k.jsxs)(_,{children:[t.name,t.role&&(0,k.jsx)(H,{color:o,children:b(`Common.roles.${t.role}`)})]}),(0,k.jsx)(G,{children:t.email})]}),a&&"owner"!==t.role&&(0,k.jsxs)(k.Fragment,{children:[j&&e&&(0,k.jsx)(U,{children:(0,k.jsx)(d.A,{options:p,value:t.role,onChange:e=>((e,t)=>{if(!j)return;const o=r.map((r=>r.email===e?{...r,role:t}:r));l(o)})(t.email,e),getLabel:e=>b(`Common.roles.${e}`),getKey:e=>null!==e&&void 0!==e?e:""})}),(0,k.jsx)(Y,{type:"button",onClick:()=>(e=>{const t=r.filter((r=>w(r).toLowerCase()!==e.toLowerCase()));l(t)})(t.email),children:b("Forms.common.remove")})]})]},t._id)}))})})(),a&&(0,k.jsxs)(k.Fragment,{children:[(0,k.jsx)("label",{children:b("Forms.common.addMembers")}),(0,k.jsx)(I,{pending:h,onPendingChange:x,placeholder:b("Forms.common.addMembersPlaceholder")}),(0,k.jsx)(A.GX,{type:"button",onClick:$,children:b("Forms.common.addMembers")})]})]})},K=s.Ay.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 295px;
-`,K=M.Ik().shape({members:M.YO().of(M.Yj().email()).min(1).required(),newMembers:M.Yj()}),X=e=>{let{handlerCloseModal:r,formName:t,companyId:l,withActions:d=!0}=e;const s=(0,i.jL)(),[m,u]=(0,o.useState)(null),{t:h}=(0,n.B)();if((0,o.useEffect)((()=>{(async()=>{try{const e=await s((0,p.Gh)(l)).unwrap();u(e)}catch(e){c.oR.error(`${h("Forms.editCompanyMembers.failedToLoad")}: ${e instanceof Error?e.message:String(e)}`),r()}})()}),[s,l,h,r]),!m)return(0,k.jsx)(J,{children:(0,k.jsx)(a.A,{size:"60px",color:"#3e85f3"})});const x={members:m.members.map((e=>e.email))},y=m.members.map((e=>({...e,role:m.owner.email===e.email?"owner":"member"})));return(0,k.jsx)(g.l1,{enableReinitialize:!0,initialValues:x,validationSchema:K,onSubmit:async e=>{try{await s((0,p.jw)({id:m._id,members:e.members})).unwrap(),c.oR.success(h("Forms.editCompanyMembers.success")),r()}catch(t){c.oR.error(`${h("Forms.editCompanyMembers.failed")}: ${t instanceof Error?t.message:String(t)}`)}},children:e=>{let{values:r,setFieldValue:o}=e;return(0,k.jsx)(A.q,{id:t,children:(0,k.jsx)(Y,{value:r.members,users:y,onChange:e=>o("members",e),withActions:d})})}})},W=e=>{let{handlerCloseModal:r,companyId:t,withActions:o=!0}=e;const{t:i}=(0,n.B)(),l="edit-company-members-form";return(0,k.jsx)(h.A,{handlerCloseModal:r,children:(0,k.jsx)(x.A,{handlerCloseModal:r,title:i("Modals.editCompanyMembers.title"),formName:l,withActions:o,children:(0,k.jsx)(X,{handlerCloseModal:r,formName:l,companyId:t,withActions:o})})})},Z=s.Ay.div`
+`,X=M.Ik().shape({members:M.YO().of(M.Yj().email()).min(1).required(),newMembers:M.Yj()}),W=e=>{let{handlerCloseModal:r,formName:t,companyId:l,withActions:d=!0}=e;const s=(0,i.jL)(),[m,u]=(0,o.useState)(null),{t:h}=(0,n.B)();if((0,o.useEffect)((()=>{(async()=>{try{const e=await s((0,p.Gh)(l)).unwrap();u(e)}catch(e){c.oR.error(`${h("Forms.editCompanyMembers.failedToLoad")}: ${e instanceof Error?e.message:String(e)}`),r()}})()}),[s,l,h,r]),!m)return(0,k.jsx)(K,{children:(0,k.jsx)(a.A,{size:"60px",color:"#3e85f3"})});const x={members:m.members.map((e=>e.email))},y=m.members.map((e=>({...e,role:m.owner.email===e.email?"owner":"member"})));return(0,k.jsx)(g.l1,{enableReinitialize:!0,initialValues:x,validationSchema:X,onSubmit:async e=>{try{await s((0,p.jw)({id:m._id,members:e.members})).unwrap(),c.oR.success(h("Forms.editCompanyMembers.success")),r()}catch(t){c.oR.error(`${h("Forms.editCompanyMembers.failed")}: ${t instanceof Error?t.message:String(t)}`)}},children:e=>{let{values:r,setFieldValue:o}=e;return(0,k.jsx)(A.q,{id:t,children:(0,k.jsx)(J,{value:r.members,users:y,onChange:e=>o("members",e),withActions:d})})}})},Z=e=>{let{handlerCloseModal:r,companyId:t,withActions:o=!0}=e;const{t:i}=(0,n.B)(),l="edit-company-members-form";return(0,k.jsx)(h.A,{handlerCloseModal:r,children:(0,k.jsx)(x.A,{handlerCloseModal:r,title:i("Modals.editCompanyMembers.title"),formName:l,withActions:o,children:(0,k.jsx)(W,{handlerCloseModal:r,formName:l,companyId:t,withActions:o})})})},Q=s.Ay.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -196,25 +199,25 @@
   border: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
   border-radius: 4px;
   background-color: ${e=>{let{theme:r}=e;return r.background}};
-`,Q=s.Ay.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 `,ee=s.Ay.div`
   display: flex;
   flex-direction: column;
+  gap: 12px;
+`,re=s.Ay.div`
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-`,re=s.Ay.img`
+`,te=s.Ay.img`
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 12px;
   background-color: #ddd;
-`,te=s.Ay.h3`
+`,oe=s.Ay.h3`
   font-size: 18px;
   font-weight: 600;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
-`,oe=s.Ay.span`
+`,ne=s.Ay.span`
   font-size: 14px;
   font-weight: 500;
   color: ${e=>{let{theme:r}=e;return r.roleTextColor}};
@@ -222,13 +225,13 @@
   border-radius: 4px;
   padding: 2px 8px;
   align-self: start;
-`,ne=s.Ay.div`
+`,ie=s.Ay.div`
   position: absolute;
   top: 8px;
   right: 8px;
   display: flex;
   gap: 8px;
-`,ie=s.Ay.button`
+`,le=s.Ay.button`
   background: none;
   border: none;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
@@ -242,31 +245,31 @@
   &:hover {
     color: ${e=>{let{theme:r}=e;return r.primary}};
   }
-`;var le=t(3538);const ae=e=>{var r;let{company:t}=e;const l=(0,i.jL)(),[a,d]=(0,o.useState)(!1),[h,x]=(0,o.useState)(!1),g=(0,i.GV)(m.AS),{t:y}=(0,n.B)(),b=(0,s.DP)(),f=()=>{d((e=>!e))},v=()=>{x((e=>!e))},j=(null===t||void 0===t||null===(r=t.owner)||void 0===r?void 0:r.email)===g?"owner":"member",w=t.members,$={owner:b.roleOwner,member:b.roleMember};return(0,k.jsxs)(k.Fragment,{children:[(0,k.jsxs)(Z,{children:[(0,k.jsxs)(Q,{children:[(0,k.jsx)(re,{src:t.logo,alt:"Logo"}),(0,k.jsx)(te,{children:t.name})]}),(0,k.jsxs)(ee,{children:[(0,k.jsx)(oe,{color:$[j],children:y(`Common.role.${j}`)}),(0,k.jsx)(u.A,{members:[...w].reverse()})]}),(0,k.jsxs)(ne,{children:[(0,k.jsx)(ie,{onClick:v,children:(0,k.jsx)(le.Sy$,{size:20})}),"owner"===j&&(0,k.jsx)(ie,{onClick:f,children:(0,k.jsx)(le.Kak,{size:20})})]})]}),a&&"owner"===j&&(0,k.jsx)(S,{handlerCloseModal:()=>f(),deleteAction:async()=>{try{await l((0,p.RC)(t._id)),c.oR.success(y("Forms.deleteCompany.success")),f()}catch(e){c.oR.error(`${y("Forms.deleteCompany.failed")}: ${e instanceof Error?e.message:String(e)}`)}},companyId:t._id}),h&&(0,k.jsx)(W,{handlerCloseModal:()=>v(),companyId:t._id,withActions:"owner"===j})]})},de=M.Ik({name:M.Yj().required("Required"),logo:M.gl().nullable()}),se={name:"",logo:null},ce=e=>{let{handlerCloseModal:r,formName:t}=e;const o=(0,i.jL)(),{t:l}=(0,n.B)();return(0,k.jsx)(g.l1,{initialValues:se,validationSchema:de,onSubmit:async e=>{const t=new FormData;t.append("name",e.name),e.logo&&t.append("logo",e.logo);try{await o((0,p.eK)(t)),c.oR.success(l("Forms.createCompany.success")),r()}catch(n){c.oR.error(`${l("Forms.createCompany.failed")}: ${n instanceof Error?n.message:String(n)}`)}},children:e=>{let{errors:r,touched:o}=e;return(0,k.jsxs)(A.q,{id:t,children:[(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:l("Forms.createCompany.name")}),(0,k.jsx)(A.pd,{name:"name",placeholder:l("Forms.createCompany.namePlaceholder"),$hasError:o.name&&!!r.name}),o.name&&r.name&&(0,k.jsx)(A.yn,{children:r.name})]}),(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:l("Forms.createCompany.logo")}),(0,k.jsx)(C,{name:"logo",placeholderText:l("Forms.common.dragOrClick"),buttonText:l("Forms.common.chooseFile")})]})]})}})},me=e=>{let{handlerCloseModal:r}=e;const{t:t}=(0,n.B)(),o="create-company-form";return(0,k.jsx)(h.A,{handlerCloseModal:r,children:(0,k.jsx)(x.A,{handlerCloseModal:r,title:t("Modals.createCompany.title"),formName:o,children:(0,k.jsx)(ce,{handlerCloseModal:r,formName:o})})})},pe=s.Ay.div`
+`;var ae=t(3538);const de=e=>{var r;let{company:t}=e;const l=(0,i.jL)(),[a,d]=(0,o.useState)(!1),[h,x]=(0,o.useState)(!1),g=(0,i.GV)(m.AS),{t:y}=(0,n.B)(),b=(0,s.DP)(),f=()=>{d((e=>!e))},v=()=>{x((e=>!e))},j=(null===t||void 0===t||null===(r=t.owner)||void 0===r?void 0:r.email)===g?"owner":"member",w=t.members,$={owner:b.roleOwner,member:b.roleMember};return(0,k.jsxs)(k.Fragment,{children:[(0,k.jsxs)(Q,{children:[(0,k.jsxs)(ee,{children:[(0,k.jsx)(te,{src:t.logo,alt:"Logo"}),(0,k.jsx)(oe,{children:t.name})]}),(0,k.jsxs)(re,{children:[(0,k.jsx)(ne,{color:$[j],children:y(`Common.roles.${j}`)}),(0,k.jsx)(u.A,{members:[...w].reverse()})]}),(0,k.jsxs)(ie,{children:[(0,k.jsx)(le,{onClick:v,children:(0,k.jsx)(ae.Sy$,{size:20})}),"owner"===j&&(0,k.jsx)(le,{onClick:f,children:(0,k.jsx)(ae.Kak,{size:20})})]})]}),a&&"owner"===j&&(0,k.jsx)(S,{handlerCloseModal:()=>f(),deleteAction:async()=>{try{await l((0,p.RC)(t._id)),c.oR.success(y("Forms.deleteCompany.success")),f()}catch(e){c.oR.error(`${y("Forms.deleteCompany.failed")}: ${e instanceof Error?e.message:String(e)}`)}},companyId:t._id}),h&&(0,k.jsx)(Z,{handlerCloseModal:()=>v(),companyId:t._id,withActions:"owner"===j})]})},se=M.Ik({name:M.Yj().required("Required"),logo:M.gl().nullable()}),ce={name:"",logo:null},me=e=>{let{handlerCloseModal:r,formName:t}=e;const o=(0,i.jL)(),{t:l}=(0,n.B)();return(0,k.jsx)(g.l1,{initialValues:ce,validationSchema:se,onSubmit:async e=>{const t=new FormData;t.append("name",e.name),e.logo&&t.append("logo",e.logo);try{await o((0,p.eK)(t)),c.oR.success(l("Forms.createCompany.success")),r()}catch(n){c.oR.error(`${l("Forms.createCompany.failed")}: ${n instanceof Error?n.message:String(n)}`)}},children:e=>{let{errors:r,touched:o}=e;return(0,k.jsxs)(A.q,{id:t,children:[(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:l("Forms.createCompany.name")}),(0,k.jsx)(A.pd,{name:"name",placeholder:l("Forms.createCompany.namePlaceholder"),$hasError:o.name&&!!r.name}),o.name&&r.name&&(0,k.jsx)(A.yn,{children:r.name})]}),(0,k.jsxs)(A.A0,{children:[(0,k.jsx)(A.JU,{children:l("Forms.createCompany.logo")}),(0,k.jsx)(C,{name:"logo",placeholderText:l("Forms.common.dragOrClick"),buttonText:l("Forms.common.chooseFile")})]})]})}})},pe=e=>{let{handlerCloseModal:r}=e;const{t:t}=(0,n.B)(),o="create-company-form";return(0,k.jsx)(h.A,{handlerCloseModal:r,children:(0,k.jsx)(x.A,{handlerCloseModal:r,title:t("Modals.createCompany.title"),formName:o,children:(0,k.jsx)(me,{handlerCloseModal:r,formName:o})})})},ue=s.Ay.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 48px;
-`,ue=s.Ay.div`
+`,he=s.Ay.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-`,he=s.Ay.div`
+`,xe=s.Ay.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-`,xe=s.Ay.div`
+`,ge=s.Ay.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-`,ge=s.Ay.h2`
+`,ye=s.Ay.h2`
   font-size: 24px;
   font-weight: 700;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
-`,ye=s.Ay.button`
+`,be=s.Ay.button`
   background-color: ${e=>{let{theme:r}=e;return r.buttonBackground}};
   color: ${e=>{let{theme:r}=e;return r.buttonText}};
   padding: 12px 24px;
@@ -280,7 +283,7 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.buttonBackgroundHover}};
   }
-`,be=s.Ay.div`
+`,fe=s.Ay.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -293,7 +296,7 @@
     flex-direction: row;
     align-items: center;
   }
-`,fe=s.Ay.input`
+`,ve=s.Ay.input`
   flex: 1;
   padding: 12px 16px;
   border: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
@@ -310,7 +313,7 @@
     border-color: ${e=>{let{theme:r}=e;return r.primary}};
     outline: none;
   }
-`,ve=s.Ay.div`
+`,je=s.Ay.div`
   display: flex;
   height: 100%;
   width: 100%;
@@ -318,7 +321,7 @@
   @media (min-width: 768px) {
     width: 200px;
   }
-`,je=s.Ay.div`
+`,we=s.Ay.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
@@ -330,7 +333,7 @@
   @media (min-width: 1280px) {
     grid-template-columns: 1fr;
   }
-`,we=()=>{const[e,r]=(0,o.useState)(""),[t,s]=(0,o.useState)("name"),[c,m]=(0,o.useState)(!1),p=(0,i.GV)(l.Yl),u=(0,i.GV)(l.EB),{t:h}=(0,n.B)(),x=()=>{m((e=>!e))},g=(0,o.useMemo)((()=>u.filter((r=>r.name.toLowerCase().includes(e.toLowerCase()))).sort(((e,r)=>"name"===t?e.name.localeCompare(r.name):"date"===t?new Date(r.createdAt).getTime()-new Date(e.createdAt).getTime():0))),[u,e,t]);return(0,k.jsx)(pe,{children:p?(0,k.jsx)(ue,{children:(0,k.jsx)(a.A,{size:"48px",color:"#3e85f3"})}):(0,k.jsxs)(k.Fragment,{children:[(0,k.jsxs)(he,{children:[(0,k.jsxs)(xe,{children:[(0,k.jsx)(ge,{children:h("Companies.title")}),(0,k.jsx)(ye,{onClick:()=>x(),children:h("Companies.create")})]}),(0,k.jsxs)(be,{children:[(0,k.jsx)(fe,{type:"text",placeholder:h("Companies.searchPlaceholder"),value:e,onChange:e=>r(e.target.value)}),(0,k.jsx)(ve,{children:(0,k.jsx)(d.A,{options:["name","date"],value:t,onChange:s,getLabel:e=>h(`Companies.filters.${e}`),getKey:e=>e})})]})]}),(0,k.jsx)(je,{children:g.map((e=>(0,k.jsx)(ae,{company:e},e._id)))}),c&&(0,k.jsx)(me,{handlerCloseModal:x})]})})}},7711:(e,r,t)=>{t.d(r,{A0:()=>d,GX:()=>y,Gg:()=>u,JU:()=>s,K_:()=>p,N3:()=>f,TM:()=>w,ZD:()=>h,b7:()=>g,mO:()=>l,oX:()=>j,oi:()=>m,pd:()=>c,q:()=>a,ql:()=>x,sF:()=>b,yn:()=>v});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
+`,$e=()=>{const[e,r]=(0,o.useState)(""),[t,s]=(0,o.useState)("name"),[c,m]=(0,o.useState)(!1),p=(0,i.GV)(l.Yl),u=(0,i.GV)(l.EB),{t:h}=(0,n.B)(),x=()=>{m((e=>!e))},g=(0,o.useMemo)((()=>u.filter((r=>r.name.toLowerCase().includes(e.toLowerCase()))).sort(((e,r)=>"name"===t?e.name.localeCompare(r.name):"date"===t?new Date(r.createdAt).getTime()-new Date(e.createdAt).getTime():0))),[u,e,t]);return(0,k.jsx)(ue,{children:p?(0,k.jsx)(he,{children:(0,k.jsx)(a.A,{size:"48px",color:"#3e85f3"})}):(0,k.jsxs)(k.Fragment,{children:[(0,k.jsxs)(xe,{children:[(0,k.jsxs)(ge,{children:[(0,k.jsx)(ye,{children:h("Companies.title")}),(0,k.jsx)(be,{onClick:()=>x(),children:h("Companies.create")})]}),(0,k.jsxs)(fe,{children:[(0,k.jsx)(ve,{type:"text",placeholder:h("Companies.searchPlaceholder"),value:e,onChange:e=>r(e.target.value)}),(0,k.jsx)(je,{children:(0,k.jsx)(d.A,{options:["name","date"],value:t,onChange:s,getLabel:e=>h(`Companies.filters.${e}`),getKey:e=>e})})]})]}),(0,k.jsx)(we,{children:g.map((e=>(0,k.jsx)(de,{company:e},e._id)))}),c&&(0,k.jsx)(pe,{handlerCloseModal:x})]})})}},7711:(e,r,t)=>{t.d(r,{A0:()=>d,GX:()=>y,Gg:()=>u,JU:()=>s,K_:()=>p,N3:()=>f,TM:()=>w,ZD:()=>h,b7:()=>g,mO:()=>l,oX:()=>j,oi:()=>m,pd:()=>c,q:()=>a,ql:()=>x,sF:()=>b,yn:()=>v});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
   width: 100%;
 `,a=(0,o.Ay)(n.lV)`
   display: flex;
@@ -570,4 +573,4 @@
 
   box-shadow: ${e=>{let{theme:r}=e;return r.shadow}};
 `;var d=t(579);const s=document.querySelector("#modal-root"),c=e=>{let{children:r,handlerCloseModal:t}=e;const i=(0,o.useCallback)((e=>{"Escape"===e.code&&t()}),[t]);(0,o.useEffect)((()=>(window.addEventListener("keydown",i),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",i),document.body.style.overflow="auto"})),[i]);return(0,n.createPortal)((0,d.jsx)(l,{onClick:e=>{e.currentTarget===e.target&&t()},children:(0,d.jsx)(a,{children:r})}),s)}}}]);
-//# sourceMappingURL=952.f1a357ab.chunk.js.map
+//# sourceMappingURL=952.8a765caa.chunk.js.map
