@@ -70,6 +70,11 @@ export const RoleBadge = styled.span<{ color: string }>`
   white-space: nowrap;
 `;
 
+export const SelectContainer = styled.div`
+  display: flex;
+  width: 150px;
+`;
+
 export const RemoveButton = styled.button`
   border: 1px solid ${({ theme }) => theme.danger};
   color: ${({ theme }) => theme.danger};

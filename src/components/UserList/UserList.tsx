@@ -6,6 +6,7 @@ import { useAppDispatch } from "@/hooks";
 import { UserBase } from "@/redux/user/user.types";
 import { resolveUsersByEmail } from "@/redux/user/operations";
 import { SubmitButtonModal } from "@/styles/form/Form.styled";
+import CustomSelect from "@/components/CustomSelect";
 import EmailInputWithTags from "./EmailInputWithTags";
 import {
   AvatarPlaceholder,
@@ -17,30 +18,43 @@ import {
   Email,
   RoleBadge,
   RemoveButton,
+  SelectContainer,
 } from "./UserList.styled";
 
+type Role = "owner" | "member" | "editor" | "viewer" | "new";
+
 export interface UserListItem extends UserBase {
-  role: "owner" | "member" | "editor" | "viewer" | "new";
+  role?: Role;
 }
+
+type UserWithRole = { email: string; role: Role };
+
+type Member = string | UserWithRole;
 
 interface Props {
-  value: string[];
+  value: Member[];
   users: UserListItem[];
-  onChange: (value: string[]) => void;
+  onChange: (value: Member[]) => void;
   withActions?: boolean;
+  editableRoles?: boolean;
+  availableRoles?: UserListItem["role"][];
 }
 
-const UserList = ({ value, users, onChange, withActions = true }: Props) => {
+const UserList = ({
+  value,
+  users,
+  onChange,
+  withActions = true,
+  editableRoles = false,
+  availableRoles = ["member", "editor", "viewer"],
+}: Props) => {
   const dispatch = useAppDispatch();
   const [pendingEmails, setPendingEmails] = useState<string[]>([]);
   const [localUsers, setLocalUsers] = useState<UserListItem[]>([]);
   const { t } = useTranslation();
   const theme = useTheme();
 
-  const roleColors: Record<
-    "owner" | "member" | "editor" | "viewer" | "new",
-    string
-  > = {
+  const roleColors: Record<Role, string> = {
     owner: theme.roleOwner,
     editor: theme.roleEditor,
     viewer: theme.roleViewer,
@@ -48,8 +62,28 @@ const UserList = ({ value, users, onChange, withActions = true }: Props) => {
     new: theme.roleNew,
   };
 
+  const isExtended = typeof value[0] === "object" && value[0] !== null;
+
+  const getEmail = (item: Member) =>
+    typeof item === "string" ? item : item.email;
+
+  const getRole = (item: Member): Role =>
+    typeof item === "string" ? "member" : item.role;
+
+  const setRole = (email: string, newRole: Role) => {
+    if (!isExtended) return;
+
+    const updated = (value as { email: string; role: Role }[]).map((item) =>
+      item.email === email ? { ...item, role: newRole } : item
+    );
+    onChange(updated);
+  };
+
   const handleRemove = (emailToRemove: string) => {
-    onChange(value.filter((email) => email !== emailToRemove));
+    const updated = value.filter(
+      (v) => getEmail(v).toLowerCase() !== emailToRemove.toLowerCase()
+    );
+    onChange(updated);
   };
 
   const handleAddMembers = async () => {
@@ -58,7 +92,10 @@ const UserList = ({ value, users, onChange, withActions = true }: Props) => {
       return;
     }
 
-    const uniqueToAdd = pendingEmails.filter((email) => !value.includes(email));
+    const existingEmails = value.map(getEmail);
+    const uniqueToAdd = pendingEmails.filter(
+      (email) => !existingEmails.includes(email)
+    );
 
     if (uniqueToAdd.length === 0) {
       toast.info(t("Forms.common.allAlreadyAdded") as string);
@@ -71,22 +108,41 @@ const UserList = ({ value, users, onChange, withActions = true }: Props) => {
         resolveUsersByEmail(uniqueToAdd)
       ).unwrap();
 
+      const resolvedEmails = resolved.map((user) => user.email);
+      const unresolvedEmails = uniqueToAdd.filter(
+        (email) => !resolvedEmails.includes(email)
+      );
+
+      if (unresolvedEmails.length > 0) {
+        toast.warn(
+          t("Forms.common.someUsersNotFound", {
+            count: unresolvedEmails.length,
+            all: uniqueToAdd.length,
+          }) as string
+        );
+      }
+
       const enriched: UserListItem[] = resolved.map((user) => ({
         ...user,
         role: "new" as const,
       }));
 
       setLocalUsers((prev) => [...prev, ...enriched]);
-      onChange([...value, ...enriched.map((u) => u.email)]);
+
+      const added: Member[] = isExtended
+        ? enriched.map((u) => ({ email: u.email, role: "new" }))
+        : enriched.map((u) => u.email);
+
+      onChange([...value, ...added]);
       setPendingEmails([]);
     } catch (error) {
       toast.error(t("Forms.common.fetchUsersFailed") as string);
-      onChange([...value, ...uniqueToAdd]);
-      setPendingEmails([]);
     }
   };
 
-  const displayedUsers: UserListItem[] = value.map((email) => {
+  const displayedUsers: UserListItem[] = value.map((entry) => {
+    const email = getEmail(entry);
+    const role = getRole(entry);
     const matched =
       users.find((u) => u.email === email) ||
       localUsers.find((u) => u.email === email);
@@ -96,49 +152,70 @@ const UserList = ({ value, users, onChange, withActions = true }: Props) => {
         _id: email,
         name: email.split("@")[0],
         email,
-        role: "new",
+        role,
       }
     );
   });
 
-  const renderUserList = () => (
-    <ListContainer>
-      {displayedUsers.map((user) => {
-        const roleColor = roleColors[user.role] || theme.roleMember;
+  const renderUserList = () => {
+    const canChangeRole = editableRoles && availableRoles.length > 1;
 
-        return (
-          <MemberRow key={user._id}>
-            {user.avatar ? (
-              <Avatar src={user.avatar} alt={user.name} />
-            ) : (
-              <AvatarPlaceholder />
-            )}
+    return (
+      <ListContainer>
+        {displayedUsers.map((user) => {
+          const roleColor = user?.role
+            ? roleColors[user.role]
+            : theme.roleMember;
 
-            <MemberInfo>
-              <Name>
-                {user.name}
-                {user.role && (
-                  <RoleBadge color={roleColor}>
-                    {t(`Common.roles.${user.role}`)}
-                  </RoleBadge>
-                )}
-              </Name>
-              <Email>{user.email}</Email>
-            </MemberInfo>
+          return (
+            <MemberRow key={user._id}>
+              {user.avatar ? (
+                <Avatar src={user.avatar} alt={user.name} />
+              ) : (
+                <AvatarPlaceholder />
+              )}
 
-            {withActions && user.role !== "owner" && (
-              <RemoveButton
-                type="button"
-                onClick={() => handleRemove(user.email)}
-              >
-                {t("Forms.common.remove")}
-              </RemoveButton>
-            )}
-          </MemberRow>
-        );
-      })}
-    </ListContainer>
-  );
+              <MemberInfo>
+                <Name>
+                  {user.name}
+                  {user.role && (
+                    <RoleBadge color={roleColor}>
+                      {t(`Common.roles.${user.role}`)}
+                    </RoleBadge>
+                  )}
+                </Name>
+                <Email>{user.email}</Email>
+              </MemberInfo>
+
+              {withActions && user.role !== "owner" && (
+                <>
+                  {isExtended && canChangeRole && (
+                    <SelectContainer>
+                      <CustomSelect
+                        options={availableRoles}
+                        value={user.role as Role}
+                        onChange={(newRole) =>
+                          setRole(user.email, newRole as Role)
+                        }
+                        getLabel={(r) => t(`Common.roles.${r}`)}
+                        getKey={(r) => r ?? ""}
+                      />
+                    </SelectContainer>
+                  )}
+                  <RemoveButton
+                    type="button"
+                    onClick={() => handleRemove(user.email)}
+                  >
+                    {t("Forms.common.remove")}
+                  </RemoveButton>
+                </>
+              )}
+            </MemberRow>
+          );
+        })}
+      </ListContainer>
+    );
+  };
 
   const renderAddSection = () => (
     <>

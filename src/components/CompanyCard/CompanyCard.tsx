@@ -74,7 +74,7 @@ const CompanyCard = ({ company }: Props) => {
 
         <BottomBlock>
           <RoleBadge color={roleColors[role]}>
-            {t(`Common.role.${role}`)}
+            {t(`Common.roles.${role}`)}
           </RoleBadge>
 
           <MembersAvatarGroup members={[...members].reverse()} />

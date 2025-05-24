@@ -140,6 +140,7 @@
       "invalidEmail": "Invalid email",
       "alreadyInPending": "Email already added to the list",
       "nobodyToAdd": "Please enter at least one email",
+      "someUsersNotFound": "{{count}} email(s) of {{all}} were not found in the system",
       "fetchUsersFailed": "Unable to load user data",
       "remove": "Remove"
     },
