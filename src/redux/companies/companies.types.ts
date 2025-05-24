@@ -1,16 +1,11 @@
-export interface UserShort {
-  _id: string;
-  name: string;
-  email: string;
-  avatar?: string;
-}
+import { UserBase } from "../user/user.types";
 
 export interface Company {
   _id: string;
   name: string;
   logo?: string;
-  owner: UserShort;
-  members: UserShort[];
+  owner: UserBase;
+  members: UserBase[];
   createdAt: string;
 }
 

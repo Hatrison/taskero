@@ -4,7 +4,8 @@
       "owner": "Owner",
       "viewer": "Viewer",
       "editor": "Editor",
-      "member": "Member"
+      "member": "Member",
+      "new": "New"
     }
   },
   "LandingPage": {
@@ -126,13 +127,20 @@
       "title": "Edit Company"
     },
     "editCompanyMembers": {
-      "title": "Edit Company Members"
+      "title": "Company Members"
     }
   },
   "Forms": {
     "common": {
       "chooseFile": "Choose File",
       "dragOrClick": "Drag and drop or click to upload, or",
+      "addMembers": "Add Members",
+      "addMembersPlaceholder": "Enter email addresses",
+      "allAlreadyAdded": "All specified users already added",
+      "invalidEmail": "Invalid email",
+      "alreadyInPending": "Email already added to the list",
+      "nobodyToAdd": "Please enter at least one email",
+      "fetchUsersFailed": "Unable to load user data",
       "remove": "Remove"
     },
     "createProject": {

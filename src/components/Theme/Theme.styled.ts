@@ -39,6 +39,8 @@ export const theme = {
     roleOwner: "#3e85f3",
     roleEditor: "#4caf50",
     roleViewer: "#9E9E9E",
+    roleMember: "#009d3a",
+    roleNew: "#FF9800",
     roleTextColor: "#ffffff",
 
     // Shadows and Effects
@@ -72,7 +74,7 @@ export const theme = {
     cardBackground: "#2b2b2b",
     headerBackground: "#1f1f1f",
     sidebarBackground: "#1f1f1f",
-    tagBackground: "#f0f7ff",
+    tagBackground: "#484848",
 
     // Scrollbar
     scrollbarBackground: "#333333",
@@ -100,6 +102,8 @@ export const theme = {
     roleOwner: "#3e85f3",
     roleEditor: "#4caf50",
     roleViewer: "#9E9E9E",
+    roleMember: "#009d3a",
+    roleNew: "#FF9800",
     roleTextColor: "#ffffff",
 
     // Shadows and Effects

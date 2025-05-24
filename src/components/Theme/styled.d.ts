@@ -41,6 +41,8 @@ declare module "styled-components" {
     roleOwner: string;
     roleEditor: string;
     roleViewer: string;
+    roleMember: string;
+    roleNew: string;
     roleTextColor: string;
 
     // Shadows and Effects

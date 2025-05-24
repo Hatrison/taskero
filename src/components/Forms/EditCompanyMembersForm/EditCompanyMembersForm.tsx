@@ -2,17 +2,12 @@ import { useEffect, useState } from "react";
 import { Formik } from "formik";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import { useAppDispatch, useAppSelector } from "@/hooks";
-import { selectUserEmail } from "@/redux/user/selectors";
+import { useAppDispatch } from "@/hooks";
 import { fetchCompanyById, updateMembers } from "@/redux/companies/operations";
 import { Company } from "@/redux/companies/companies.types";
 import Loader from "@/components/Loader";
 import UserList from "@/components/UserList";
-import {
-  StyledForm,
-  Textarea,
-  SubmitButtonModal,
-} from "@/styles/form/Form.styled";
+import { StyledForm } from "@/styles/form/Form.styled";
 import { LoadContainer } from "./EditCompanyMembersForm.styled";
 import { EditCompanyMembersSchema } from "./EditCompanyMembersSchema";
 
@@ -20,15 +15,16 @@ type Props = {
   handlerCloseModal: () => void;
   formName: string;
   companyId: string;
+  withActions?: boolean;
 };
 
 const EditCompanyMembersForm = ({
   handlerCloseModal,
   formName,
   companyId,
+  withActions = true,
 }: Props) => {
   const dispatch = useAppDispatch();
-  const myEmail = useAppSelector(selectUserEmail);
   const [company, setCompany] = useState<Company | null>(null);
   const { t } = useTranslation();
 
@@ -60,21 +56,12 @@ const EditCompanyMembersForm = ({
 
   const initialValues = {
     members: company.members.map((m) => m.email),
-    newMembers: "",
   };
 
   const handleSubmit = async (values: typeof initialValues) => {
-    const uniqueEmails = new Set([
-      ...values.members,
-      ...values.newMembers
-        .split("\n")
-        .map((email) => email.trim())
-        .filter(Boolean),
-    ]);
-
     try {
       await dispatch(
-        updateMembers({ id: company._id, members: Array.from(uniqueEmails) })
+        updateMembers({ id: company._id, members: values.members })
       ).unwrap();
 
       toast.success(t("Forms.editCompanyMembers.success") as string);
@@ -88,6 +75,14 @@ const EditCompanyMembersForm = ({
     }
   };
 
+  const companyMembersWithRoles = company.members.map((member) => ({
+    ...member,
+    role:
+      company.owner.email === member.email
+        ? ("owner" as const)
+        : ("member" as const),
+  }));
+
   return (
     <Formik
       enableReinitialize
@@ -96,48 +91,14 @@ const EditCompanyMembersForm = ({
       onSubmit={handleSubmit}
     >
       {({ values, setFieldValue }) => {
-        const handleAddMembers = () => {
-          const newEmails = values.newMembers
-            .split("\n")
-            .map((email) => email.trim())
-            .filter((email) => !!email && !values.members.includes(email));
-
-          if (newEmails.length === 0) return;
-
-          setFieldValue("members", [...values.members, ...newEmails]);
-          setFieldValue("newMembers", "");
-        };
-
         return (
           <StyledForm id={formName}>
             <UserList
-              users={company.members.map((m) => {
-                const role = m.email === myEmail ? "owner" : "member";
-
-                return {
-                  id: m._id,
-                  name: m.name,
-                  email: m.email,
-                  role,
-                  avatarUrl: m.avatar,
-                };
-              })}
-              onRemove={(email) => {
-                const updated = values.members.filter((e) => e !== email);
-                setFieldValue("members", updated);
-              }}
-              canRemove={(role) => role !== "owner"}
+              value={values.members}
+              users={companyMembersWithRoles}
+              onChange={(updated) => setFieldValue("members", updated)}
+              withActions={withActions}
             />
-
-            <label>{t("Forms.editCompanyMembers.add")}</label>
-            <Textarea
-              name="newMembers"
-              placeholder={t("Forms.editCompanyMembers.addPlaceholder")}
-            />
-
-            <SubmitButtonModal type="button" onClick={handleAddMembers}>
-              {t("Forms.editCompanyMembers.add")}
-            </SubmitButtonModal>
           </StyledForm>
         );
       }}

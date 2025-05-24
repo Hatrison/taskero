@@ -1,17 +1,11 @@
 import { ColumnWithTasks } from "@/redux/columns/columns.types";
-
-export interface UserShort {
-  _id: string;
-  name: string;
-  email: string;
-  avatar?: string;
-}
+import { UserBase } from "../user/user.types";
 
 export type ProjectRole = "owner" | "editor" | "viewer";
 
 export interface ProjectMember {
   _id: string;
-  user: UserShort;
+  user: UserBase;
   role: ProjectRole;
 }
 

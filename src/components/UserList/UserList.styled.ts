@@ -1,20 +1,39 @@
 import styled from "styled-components";
 
+export const ListContainer = styled.div`
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  border-radius: 8px;
+`;
+
 export const MemberRow = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px;
-  border: 1px solid ${({ theme }) => theme.borderColor};
-  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  border-bottom: 1px solid ${({ theme }) => theme.borderColor};
   background-color: ${({ theme }) => theme.cardBackground};
+
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+export const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  object-fit: cover;
 `;
 
 export const AvatarPlaceholder = styled.div`
   width: 40px;
   height: 40px;
-  border-radius: 8px;
-  background-color: #ccc;
+  border-radius: 4px;
+  background-color: #cccccc;
   flex-shrink: 0;
 `;
 
@@ -42,10 +61,10 @@ export const Email = styled.div`
   white-space: nowrap;
 `;
 
-export const RoleBadge = styled.span`
+export const RoleBadge = styled.span<{ color: string }>`
   font-size: 12px;
-  background-color: ${({ theme }) => theme.tagBackground};
-  color: ${({ theme }) => theme.primary};
+  background-color: ${({ color }) => color};
+  color: ${({ theme }) => theme.roleTextColor};
   padding: 2px 6px;
   border-radius: 4px;
   white-space: nowrap;
@@ -59,9 +78,14 @@ export const RemoveButton = styled.button`
   border-radius: 6px;
   font-size: 14px;
   cursor: pointer;
+  transition: color ${({ theme }) => theme.animation},
+    background-color ${({ theme }) => theme.animation},
+    border-color ${({ theme }) => theme.animation};
 
   &:hover {
+    color: ${({ theme }) => theme.invertedText || "rgba(255, 0, 0, 0.8)"};
     background-color: ${({ theme }) =>
       theme.dangerHover || "rgba(255, 0, 0, 0.05)"};
+    border-color: ${({ theme }) => theme.dangerHover || "rgba(255, 0, 0, 0.2)"};
   }
 `;

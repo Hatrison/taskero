@@ -1,9 +1,9 @@
-import { UserShort } from "@/redux/projects/projects.types";
+import { UserBase } from "../user/user.types";
 
 export interface Comment {
   _id: string;
   task: string;
-  user: UserShort;
+  user: UserBase;
   text: string;
   createdAt: string;
   updatedAt: string;

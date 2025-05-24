@@ -6,9 +6,14 @@ import EditCompanyMembersForm from "@/components/Forms/EditCompanyMembersForm";
 type Props = {
   handlerCloseModal: () => void;
   companyId: string;
+  withActions?: boolean;
 };
 
-const EditCompanyMembersModal = ({ handlerCloseModal, companyId }: Props) => {
+const EditCompanyMembersModal = ({
+  handlerCloseModal,
+  companyId,
+  withActions = true,
+}: Props) => {
   const { t } = useTranslation();
   const formName = "edit-company-members-form";
 
@@ -18,11 +23,13 @@ const EditCompanyMembersModal = ({ handlerCloseModal, companyId }: Props) => {
         handlerCloseModal={handlerCloseModal}
         title={t("Modals.editCompanyMembers.title")}
         formName={formName}
+        withActions={withActions}
       >
         <EditCompanyMembersForm
           handlerCloseModal={handlerCloseModal}
           formName={formName}
           companyId={companyId}
+          withActions={withActions}
         />
       </ModalLayout>
     </Modal>

@@ -60,7 +60,7 @@ const CompanyCard = ({ company }: Props) => {
 
   const roleColors: Record<"owner" | "member", string> = {
     owner: theme.roleOwner,
-    member: theme.roleViewer,
+    member: theme.roleMember,
   };
 
   return (
@@ -74,22 +74,24 @@ const CompanyCard = ({ company }: Props) => {
 
         <BottomBlock>
           <RoleBadge color={roleColors[role]}>
-            {t(`Companies.role.${role}`)}
+            {t(`Common.role.${role}`)}
           </RoleBadge>
 
           <MembersAvatarGroup members={[...members].reverse()} />
         </BottomBlock>
 
         <Actions>
-          <IconButton onClick={() => toggleMembersModal()}>
+          <IconButton onClick={toggleMembersModal}>
             <HiUserGroup size={20} />
           </IconButton>
-          <IconButton onClick={() => toggleEditModal()}>
-            <HiDotsVertical size={20} />
-          </IconButton>
+          {role === "owner" && (
+            <IconButton onClick={toggleEditModal}>
+              <HiDotsVertical size={20} />
+            </IconButton>
+          )}
         </Actions>
       </Card>
-      {isEditModalOpen && (
+      {isEditModalOpen && role === "owner" && (
         <EditCompanyModal
           handlerCloseModal={() => toggleEditModal()}
           deleteAction={handleDelete}
@@ -100,6 +102,7 @@ const CompanyCard = ({ company }: Props) => {
         <EditCompanyMembersModal
           handlerCloseModal={() => toggleMembersModal()}
           companyId={company._id}
+          withActions={role === "owner"}
         />
       )}
     </>

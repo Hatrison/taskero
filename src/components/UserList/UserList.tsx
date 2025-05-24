@@ -1,80 +1,164 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+import { useTheme } from "styled-components";
+import { useAppDispatch } from "@/hooks";
+import { UserBase } from "@/redux/user/user.types";
+import { resolveUsersByEmail } from "@/redux/user/operations";
+import { SubmitButtonModal } from "@/styles/form/Form.styled";
+import EmailInputWithTags from "./EmailInputWithTags";
 import {
   AvatarPlaceholder,
+  ListContainer,
   MemberRow,
+  Avatar,
   MemberInfo,
   Name,
   Email,
   RoleBadge,
   RemoveButton,
 } from "./UserList.styled";
-import { useTranslation } from "react-i18next";
 
-export interface UserListItem {
-  id: string;
-  name: string;
-  email: string;
-  avatarUrl?: string;
-  role?: string;
+export interface UserListItem extends UserBase {
+  role: "owner" | "member" | "editor" | "viewer" | "new";
 }
 
 interface Props {
+  value: string[];
   users: UserListItem[];
-  onRemove?: (email: string) => void;
-  canRemove?: (role: string) => boolean;
-  renderRole?: (role: string) => React.ReactNode;
-  renderActions?: (user: UserListItem) => React.ReactNode;
+  onChange: (value: string[]) => void;
+  withActions?: boolean;
 }
 
-const UserList = ({
-  users,
-  onRemove,
-  canRemove = () => true,
-  renderRole,
-  renderActions,
-}: Props) => {
+const UserList = ({ value, users, onChange, withActions = true }: Props) => {
+  const dispatch = useAppDispatch();
+  const [pendingEmails, setPendingEmails] = useState<string[]>([]);
+  const [localUsers, setLocalUsers] = useState<UserListItem[]>([]);
   const { t } = useTranslation();
+  const theme = useTheme();
+
+  const roleColors: Record<
+    "owner" | "member" | "editor" | "viewer" | "new",
+    string
+  > = {
+    owner: theme.roleOwner,
+    editor: theme.roleEditor,
+    viewer: theme.roleViewer,
+    member: theme.roleMember,
+    new: theme.roleNew,
+  };
+
+  const handleRemove = (emailToRemove: string) => {
+    onChange(value.filter((email) => email !== emailToRemove));
+  };
+
+  const handleAddMembers = async () => {
+    if (pendingEmails.length === 0) {
+      toast.info(t("Forms.common.nobodyToAdd") as string);
+      return;
+    }
+
+    const uniqueToAdd = pendingEmails.filter((email) => !value.includes(email));
+
+    if (uniqueToAdd.length === 0) {
+      toast.info(t("Forms.common.allAlreadyAdded") as string);
+      setPendingEmails([]);
+      return;
+    }
+
+    try {
+      const resolved: UserBase[] = await dispatch(
+        resolveUsersByEmail(uniqueToAdd)
+      ).unwrap();
+
+      const enriched: UserListItem[] = resolved.map((user) => ({
+        ...user,
+        role: "new" as const,
+      }));
+
+      setLocalUsers((prev) => [...prev, ...enriched]);
+      onChange([...value, ...enriched.map((u) => u.email)]);
+      setPendingEmails([]);
+    } catch (error) {
+      toast.error(t("Forms.common.fetchUsersFailed") as string);
+      onChange([...value, ...uniqueToAdd]);
+      setPendingEmails([]);
+    }
+  };
+
+  const displayedUsers: UserListItem[] = value.map((email) => {
+    const matched =
+      users.find((u) => u.email === email) ||
+      localUsers.find((u) => u.email === email);
+
+    return (
+      matched || {
+        _id: email,
+        name: email.split("@")[0],
+        email,
+        role: "new",
+      }
+    );
+  });
+
+  const renderUserList = () => (
+    <ListContainer>
+      {displayedUsers.map((user) => {
+        const roleColor = roleColors[user.role] || theme.roleMember;
+
+        return (
+          <MemberRow key={user._id}>
+            {user.avatar ? (
+              <Avatar src={user.avatar} alt={user.name} />
+            ) : (
+              <AvatarPlaceholder />
+            )}
+
+            <MemberInfo>
+              <Name>
+                {user.name}
+                {user.role && (
+                  <RoleBadge color={roleColor}>
+                    {t(`Common.roles.${user.role}`)}
+                  </RoleBadge>
+                )}
+              </Name>
+              <Email>{user.email}</Email>
+            </MemberInfo>
+
+            {withActions && user.role !== "owner" && (
+              <RemoveButton
+                type="button"
+                onClick={() => handleRemove(user.email)}
+              >
+                {t("Forms.common.remove")}
+              </RemoveButton>
+            )}
+          </MemberRow>
+        );
+      })}
+    </ListContainer>
+  );
+
+  const renderAddSection = () => (
+    <>
+      <label>{t("Forms.common.addMembers")}</label>
+      <EmailInputWithTags
+        pending={pendingEmails}
+        onPendingChange={setPendingEmails}
+        placeholder={t("Forms.common.addMembersPlaceholder")}
+      />
+
+      <SubmitButtonModal type="button" onClick={handleAddMembers}>
+        {t("Forms.common.addMembers")}
+      </SubmitButtonModal>
+    </>
+  );
 
   return (
     <>
-      {users.map((user) => (
-        <MemberRow key={user.id}>
-          {user.avatarUrl ? (
-            <img
-              src={user.avatarUrl}
-              alt={user.name}
-              width={40}
-              height={40}
-              style={{ borderRadius: 8 }}
-            />
-          ) : (
-            <AvatarPlaceholder />
-          )}
-          <MemberInfo>
-            <Name>
-              {user.name}
-              {user.role && (
-                <>
-                  {" "}
-                  <RoleBadge>
-                    {renderRole
-                      ? renderRole(user.role)
-                      : t(`Common.roles.${user.role}`)}
-                  </RoleBadge>
-                </>
-              )}
-            </Name>
-            <Email>{user.email}</Email>
-          </MemberInfo>
-
-          {renderActions?.(user)}
-
-          {!renderActions && onRemove && user.role && canRemove(user.role) && (
-            <RemoveButton type="button" onClick={() => onRemove(user.email)}>
-              {t("Forms.common.remove")}
-            </RemoveButton>
-          )}
-        </MemberRow>
-      ))}
+      {renderUserList()}
+      {withActions && renderAddSection()}
     </>
   );
 };

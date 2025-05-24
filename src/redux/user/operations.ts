@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance, setAuthHeader } from "@/utils/axiosInstance";
 import { addUserData } from "./userSlice";
-import { TUserUpdatePayload } from "./user.types";
+import { TUserUpdatePayload, UserBase } from "./user.types";
 
 export const fetchCurrentUser = createAsyncThunk(
   "user/fetchCurrentUser",
@@ -11,7 +11,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const token = localStorage.getItem("accessToken");
       if (token) setAuthHeader(token);
 
-      const res = await instance.get("/api/auth/me");
+      const res = await instance.get("/api/users/me");
       const user = res.data;
 
       i18n.changeLanguage(user?.language);
@@ -28,10 +28,22 @@ export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (data: TUserUpdatePayload, thunkAPI) => {
     try {
-      const res = await instance.patch("/api/auth/update", data);
+      const res = await instance.patch("/api/users/update", data);
       const updated = res.data;
 
       return updated;
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
+export const resolveUsersByEmail = createAsyncThunk<UserBase[], string[]>(
+  "users/resolveByEmail",
+  async (emails, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/api/users/resolve", { emails });
+      return data;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message);
     }

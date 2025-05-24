@@ -19,6 +19,7 @@ type Props = {
   title: string;
   formName: string;
   deleteAction?: () => void;
+  withActions?: boolean;
   children: React.ReactNode;
 };
 
@@ -27,6 +28,7 @@ const ModalLayout = ({
   title,
   formName,
   deleteAction,
+  withActions = true,
   children,
 }: Props) => {
   const { t } = useTranslation();
@@ -40,21 +42,23 @@ const ModalLayout = ({
         </CloseButton>
       </ModalHeader>
       <ChildrenWrapper>{children}</ChildrenWrapper>
-      <ModalActions>
-        {deleteAction && (
-          <DeleteButtonModal type="button" onClick={() => deleteAction()}>
-            {t("Modals.common.delete")}
-          </DeleteButtonModal>
-        )}
-        <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
-          <CancelButtonModal type="button" onClick={handlerCloseModal}>
-            {t("Modals.common.cancel")}
-          </CancelButtonModal>
-          <SubmitButtonModal type="submit" form={formName}>
-            {t("Modals.common.save")}
-          </SubmitButtonModal>
-        </div>
-      </ModalActions>
+      {withActions && (
+        <ModalActions>
+          {deleteAction && (
+            <DeleteButtonModal type="button" onClick={() => deleteAction()}>
+              {t("Modals.common.delete")}
+            </DeleteButtonModal>
+          )}
+          <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+            <CancelButtonModal type="button" onClick={handlerCloseModal}>
+              {t("Modals.common.cancel")}
+            </CancelButtonModal>
+            <SubmitButtonModal type="submit" form={formName}>
+              {t("Modals.common.save")}
+            </SubmitButtonModal>
+          </div>
+        </ModalActions>
+      )}
     </LayoutWrapper>
   );
 };
