@@ -361,7 +361,7 @@
   width: 100%;
   padding: 24px;
   border-top: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
-`;var f=t(579);const j=e=>{let{handlerCloseModal:r,title:t,formName:o,deleteAction:n,children:a}=e;const{t:d}=(0,i.B)();return(0,f.jsxs)(u,{children:[(0,f.jsxs)(h,{children:[(0,f.jsx)(y,{children:t}),(0,f.jsx)(m,{onClick:r,children:(0,f.jsx)(x,{})})]}),(0,f.jsx)(g,{children:a}),(0,f.jsxs)(b,{children:[n&&(0,f.jsx)(l.N3,{type:"button",onClick:()=>n(),children:d("Modals.common.delete")}),(0,f.jsxs)("div",{style:{display:"flex",gap:"8px",marginLeft:"auto"},children:[(0,f.jsx)(l.sF,{type:"button",onClick:r,children:d("Modals.common.cancel")}),(0,f.jsx)(l.GX,{type:"submit",form:o,children:d("Modals.common.save")})]})]})]})}},9593:(e,r,t)=>{t.d(r,{A:()=>c});var o=t(5043),n=t(7950),i=t(5464);const l=i.Ay.div`
+`;var f=t(579);const j=e=>{let{handlerCloseModal:r,title:t,formName:o,deleteAction:n,withActions:a=!0,children:d}=e;const{t:s}=(0,i.B)();return(0,f.jsxs)(u,{children:[(0,f.jsxs)(h,{children:[(0,f.jsx)(y,{children:t}),(0,f.jsx)(m,{onClick:r,children:(0,f.jsx)(x,{})})]}),(0,f.jsx)(g,{children:d}),a&&(0,f.jsxs)(b,{children:[n&&(0,f.jsx)(l.N3,{type:"button",onClick:()=>n(),children:s("Modals.common.delete")}),(0,f.jsxs)("div",{style:{display:"flex",gap:"8px",marginLeft:"auto"},children:[(0,f.jsx)(l.sF,{type:"button",onClick:r,children:s("Modals.common.cancel")}),(0,f.jsx)(l.GX,{type:"submit",form:o,children:s("Modals.common.save")})]})]})]})}},9593:(e,r,t)=>{t.d(r,{A:()=>c});var o=t(5043),n=t(7950),i=t(5464);const l=i.Ay.div`
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -385,4 +385,4 @@
 
   box-shadow: ${e=>{let{theme:r}=e;return r.shadow}};
 `;var d=t(579);const s=document.querySelector("#modal-root"),c=e=>{let{children:r,handlerCloseModal:t}=e;const i=(0,o.useCallback)((e=>{"Escape"===e.code&&t()}),[t]);(0,o.useEffect)((()=>(window.addEventListener("keydown",i),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",i),document.body.style.overflow="auto"})),[i]);return(0,n.createPortal)((0,d.jsx)(l,{onClick:e=>{e.currentTarget===e.target&&t()},children:(0,d.jsx)(a,{children:r})}),s)}}}]);
-//# sourceMappingURL=549.09be690f.chunk.js.map
+//# sourceMappingURL=549.acca79ae.chunk.js.map
