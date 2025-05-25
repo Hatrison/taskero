@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useTheme } from "styled-components";
-import { useAppDispatch } from "@/hooks";
-import { UserBase } from "@/redux/user/user.types";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 import { resolveUsersByEmail } from "@/redux/user/operations";
+import { selectUser } from "@/redux/user/selectors";
+import { UserBase } from "@/redux/user/user.types";
 import { SubmitButtonModal } from "@/styles/form/Form.styled";
 import CustomSelect from "@/components/CustomSelect";
 import EmailInputWithTags from "./EmailInputWithTags";
@@ -25,6 +26,7 @@ type Role = "owner" | "member" | "editor" | "viewer" | "new";
 
 export interface UserListItem extends UserBase {
   role?: Role;
+  displayRole?: Role;
 }
 
 type UserWithRole = { email: string; role: Role };
@@ -49,6 +51,7 @@ const UserList = ({
   availableRoles = ["member", "editor", "viewer"],
 }: Props) => {
   const dispatch = useAppDispatch();
+  const currentUser = useAppSelector(selectUser);
   const [pendingEmails, setPendingEmails] = useState<string[]>([]);
   const [localUsers, setLocalUsers] = useState<UserListItem[]>([]);
   const { t } = useTranslation();
@@ -67,8 +70,15 @@ const UserList = ({
   const getEmail = (item: Member) =>
     typeof item === "string" ? item : item.email;
 
-  const getRole = (item: Member): Role =>
-    typeof item === "string" ? "member" : item.role;
+  const getRole = (item: Member): Role => {
+    if (typeof item === "object") return item.role;
+
+    const matched =
+      users.find((u) => u.email === item) ||
+      localUsers.find((u) => u.email === item);
+
+    return matched?.role || "member";
+  };
 
   const setRole = (email: string, newRole: Role) => {
     if (!isExtended) return;
@@ -130,8 +140,19 @@ const UserList = ({
       setLocalUsers((prev) => [...prev, ...enriched]);
 
       const added: Member[] = isExtended
-        ? enriched.map((u) => ({ email: u.email, role: "new" }))
-        : enriched.map((u) => u.email);
+        ? resolved.map((u) => {
+            const previous =
+              users.find((user) => user.email === u.email) ||
+              localUsers.find((user) => user.email === u.email);
+
+            const role: Role =
+              previous?.role && previous.role !== "new"
+                ? previous.role
+                : "viewer";
+
+            return { email: u.email, role };
+          })
+        : resolved.map((u) => u.email);
 
       onChange([...value, ...added]);
       setPendingEmails([]);
@@ -147,14 +168,17 @@ const UserList = ({
       users.find((u) => u.email === email) ||
       localUsers.find((u) => u.email === email);
 
-    return (
-      matched || {
+    const isNew = matched?.role === "new";
+
+    return {
+      ...(matched || {
         _id: email,
         name: email.split("@")[0],
         email,
-        role,
-      }
-    );
+      }),
+      role,
+      displayRole: isNew ? "new" : role,
+    };
   });
 
   const renderUserList = () => {
@@ -163,10 +187,6 @@ const UserList = ({
     return (
       <ListContainer>
         {displayedUsers.map((user) => {
-          const roleColor = user?.role
-            ? roleColors[user.role]
-            : theme.roleMember;
-
           return (
             <MemberRow key={user._id}>
               {user.avatar ? (
@@ -178,16 +198,16 @@ const UserList = ({
               <MemberInfo>
                 <Name>
                   {user.name}
-                  {user.role && (
-                    <RoleBadge color={roleColor}>
-                      {t(`Common.roles.${user.role}`)}
+                  {user.displayRole && (
+                    <RoleBadge color={roleColors[user.displayRole]}>
+                      {t(`Common.roles.${user.displayRole}`)}
                     </RoleBadge>
                   )}
                 </Name>
                 <Email>{user.email}</Email>
               </MemberInfo>
 
-              {withActions && user.role !== "owner" && (
+              {withActions && user._id !== currentUser?._id && (
                 <>
                   {isExtended && canChangeRole && (
                     <SelectContainer>

@@ -124,6 +124,9 @@
     },
     "editCompanyMembers": {
       "title": "Учасники компанії"
+    },
+    "EditProjectMembers": {
+      "title": "Учасники проєкту"
     }
   },
   "Forms": {

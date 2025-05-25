@@ -42,13 +42,14 @@ const Router = () => {
                 <PrivateRoute redirectTo="/" component={<CompanyPage />} />
               }
             />
-            <Route
-              path="projects/:id"
-              element={
-                <PrivateRoute redirectTo="/" component={<ProjectBoardPage />} />
-              }
-            />
           </Route>
+
+          <Route
+            path="projects/:id"
+            element={
+              <PrivateRoute redirectTo="/" component={<ProjectBoardPage />} />
+            }
+          />
 
           <Route
             path="login"

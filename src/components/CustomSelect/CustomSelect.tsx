@@ -41,6 +41,7 @@ const CustomSelect = <T,>({
   return (
     <Wrapper ref={ref}>
       <Trigger
+        type="button"
         onClick={() => setOpen((prev) => !prev)}
         title={value ? getLabel(value) : ""}
       >

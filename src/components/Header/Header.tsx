@@ -63,7 +63,7 @@ const Header = ({ onSidebarToggle }: Props) => {
           </>
         )}
         <Link to="/account">
-          <UserAvatar src={avatarSrc} size={40} />
+          <UserAvatar src={avatarSrc} size={36} />
         </Link>
       </RightGroup>
     </HeaderWrapper>

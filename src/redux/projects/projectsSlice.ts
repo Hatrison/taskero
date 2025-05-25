@@ -60,6 +60,7 @@ const projectsSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchMyProjects.pending,
+          fetchProjectById.pending,
           createProject.pending,
           updateProject.pending,
           deleteProject.pending,
@@ -73,6 +74,7 @@ const projectsSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchMyProjects.rejected,
+          fetchProjectById.rejected,
           createProject.rejected,
           updateProject.rejected,
           deleteProject.rejected,
@@ -86,6 +88,7 @@ const projectsSlice = createSlice({
       .addMatcher(
         isAnyOf(
           fetchMyProjects.fulfilled,
+          fetchProjectById.fulfilled,
           createProject.fulfilled,
           updateProject.fulfilled,
           deleteProject.fulfilled,

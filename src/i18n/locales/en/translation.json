@@ -111,6 +111,13 @@
       "member": "Member"
     }
   },
+  "Project": {
+    "backToProjects": "Back to Projects",
+    "deleteProject": {
+      "success": "Project deleted successfully",
+      "failed": "Failed to delete project"
+    }
+  },
   "Modals": {
     "common": {
       "delete": "Delete",
@@ -128,6 +135,12 @@
     },
     "editCompanyMembers": {
       "title": "Company Members"
+    },
+    "EditProjectMembers": {
+      "title": "Project Members"
+    },
+    "EditProject": {
+      "title": "Edit Project"
     }
   },
   "Forms": {
@@ -171,13 +184,17 @@
     "editCompanyMembers": {
       "add": "Add members",
       "addPlaceholder": "Enter email addresses",
-      "success": "Members added successfully",
-      "failed": "Failed to add members",
+      "success": "Members updated successfully",
+      "failed": "Failed to update members",
       "failedToLoad": "Failed to load company members"
     },
     "deleteCompany": {
       "success": "Company deleted successfully",
       "failed": "Failed to delete company"
+    },
+    "editProjectMembers": {
+      "success": "Members updated successfully",
+      "failed": "Failed to update members"
     }
   }
 }
