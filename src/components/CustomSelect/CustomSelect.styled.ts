@@ -31,18 +31,23 @@ export const Label = styled.span`
   text-align: left;
 `;
 
-export const Dropdown = styled.ul`
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
+export const Dropdown = styled.ul<{
+  $top: number;
+  $left: number;
+  $width: number;
+}>`
+  position: fixed;
+  top: ${({ $top }) => `${$top}px`};
+  left: ${({ $left }) => `${$left}px`};
+  width: ${({ $width }) => `${$width}px`};
   background-color: ${({ theme }) => theme.background};
   border: 1px solid ${({ theme }) => theme.borderColor};
   border-radius: 6px;
   list-style: none;
   padding: 4px 0;
   margin: 0;
-  z-index: 10;
-  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const Option = styled.li`

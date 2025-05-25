@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { FiChevronDown } from "react-icons/fi";
 import {
   Wrapper,
@@ -26,47 +27,81 @@ const CustomSelect = <T,>({
   placeholder = "Select...",
 }: Props<T>) => {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
+  const [dropdownPos, setDropdownPos] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+  });
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        !containerRef.current?.contains(target) &&
+        !dropdownRef.current?.contains(target)
+      ) {
         setOpen(false);
       }
     };
+
+    if (open && triggerRef.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      setDropdownPos({
+        top: rect.bottom + 4,
+        left: rect.left,
+        width: rect.width,
+      });
+    }
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   return (
-    <Wrapper ref={ref}>
+    <Wrapper ref={containerRef}>
       <Trigger
         type="button"
+        ref={triggerRef}
         onClick={() => setOpen((prev) => !prev)}
         title={value ? getLabel(value) : ""}
       >
         <Label>{value ? getLabel(value) : placeholder}</Label>
         <FiChevronDown
           size={16}
-          style={{ transform: open ? "rotate(180deg)" : "rotate(0)" }}
+          style={{
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "transform 0.2s",
+          }}
         />
       </Trigger>
 
-      {open && (
-        <Dropdown>
-          {options.map((item) => (
-            <Option
-              key={getKey(item)}
-              onClick={() => {
-                onChange(item);
-                setOpen(false);
-              }}
-            >
-              {getLabel(item)}
-            </Option>
-          ))}
-        </Dropdown>
-      )}
+      {open &&
+        createPortal(
+          <Dropdown
+            ref={dropdownRef}
+            $top={dropdownPos.top}
+            $left={dropdownPos.left}
+            $width={dropdownPos.width}
+          >
+            {options.map((item) => (
+              <Option
+                key={getKey(item)}
+                onClick={() => {
+                  onChange(item);
+                  setOpen(false);
+                }}
+              >
+                {getLabel(item)}
+              </Option>
+            ))}
+          </Dropdown>,
+          document.body
+        )}
     </Wrapper>
   );
 };
