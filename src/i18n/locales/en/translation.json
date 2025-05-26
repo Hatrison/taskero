@@ -105,18 +105,10 @@
     "filters": {
       "name": "Sort by Name",
       "date": "Sort by Date"
-    },
-    "role": {
-      "owner": "Owner",
-      "member": "Member"
     }
   },
   "Project": {
-    "backToProjects": "Back to Projects",
-    "deleteProject": {
-      "success": "Project deleted successfully",
-      "failed": "Failed to delete project"
-    }
+    "backToProjects": "Back to Projects"
   },
   "Modals": {
     "common": {
@@ -136,10 +128,10 @@
     "editCompanyMembers": {
       "title": "Company Members"
     },
-    "EditProjectMembers": {
+    "editProjectMembers": {
       "title": "Project Members"
     },
-    "EditProject": {
+    "editProject": {
       "title": "Edit Project"
     }
   },
@@ -160,7 +152,7 @@
     "createProject": {
       "name": "Project name",
       "namePlaceholder": "Enter project name",
-      "description": "Project description",
+      "description": "Project description (optional)",
       "descriptionPlaceholder": "Enter description (optional)",
       "deadline": "Deadline (optional)",
       "success": "Project created successfully",
@@ -195,6 +187,19 @@
     "editProjectMembers": {
       "success": "Members updated successfully",
       "failed": "Failed to update members"
+    },
+    "editProject": {
+      "name": "Project name",
+      "namePlaceholder": "Enter project name",
+      "description": "Project description (optional)",
+      "descriptionPlaceholder": "Enter description (optional)",
+      "deadline": "Deadline (optional)",
+      "success": "Project updated successfully",
+      "failed": "Failed to update project"
+    },
+    "deleteProject": {
+      "success": "Project deleted successfully",
+      "failed": "Failed to delete project"
     }
   }
 }

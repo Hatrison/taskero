@@ -21,7 +21,7 @@ const EditProjectMembersModal = ({
     <Modal handlerCloseModal={handlerCloseModal}>
       <ModalLayout
         handlerCloseModal={handlerCloseModal}
-        title={t("Modals.EditProjectMembers.title")}
+        title={t("Modals.editProjectMembers.title")}
         formName={formName}
         withActions={withActions}
       >

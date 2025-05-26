@@ -11,7 +11,7 @@ import {
 } from "@/redux/projects/selectors";
 import Loader from "@/components/Loader";
 import EditProjectMembersModal from "@/components/Modals/EditProjectMembersModal/EditProjectMembersModal";
-import EditProjecModal from "@/components/Modals/EditProjecModal";
+import EditProjecModal from "@/components/Modals/EditProjectModal";
 import Header from "./Header";
 import {
   BoardContainer,
@@ -51,12 +51,12 @@ const ProjectBoardPage = () => {
 
     try {
       await dispatch(deleteProject(project._id));
-      toast.success(t("Project.deleteProject.success") as string);
+      toast.success(t("Forms.deleteProject.success") as string);
       toggleSettingsModal();
       navigate("/", { replace: true });
     } catch (error) {
       toast.error(
-        `${t("Project.deleteProject.failed")}: ${
+        `${t("Forms.deleteProject.failed")}: ${
           error instanceof Error ? error.message : String(error)
         }`
       );
@@ -99,7 +99,6 @@ const ProjectBoardPage = () => {
       {isSettingsModalOpen && (
         <EditProjecModal
           handlerCloseModal={() => toggleSettingsModal()}
-          projectId={projectId || ""}
           deleteAction={() => handleDelete()}
           withActions={canEditProject}
         />

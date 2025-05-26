@@ -5,14 +5,12 @@ import EditProjectForm from "@/components/Forms/EditProjectForm";
 
 type Props = {
   handlerCloseModal: () => void;
-  projectId: string;
   deleteAction?: () => void;
   withActions?: boolean;
 };
 
 const EditProjectModal = ({
   handlerCloseModal,
-  projectId,
   deleteAction = () => {},
   withActions = true,
 }: Props) => {
@@ -23,7 +21,7 @@ const EditProjectModal = ({
     <Modal handlerCloseModal={handlerCloseModal}>
       <ModalLayout
         handlerCloseModal={handlerCloseModal}
-        title={t("Modals.EditProject.title")}
+        title={t("Modals.editProject.title")}
         formName={formName}
         deleteAction={deleteAction}
         withActions={withActions}
@@ -31,7 +29,6 @@ const EditProjectModal = ({
         <EditProjectForm
           handlerCloseModal={handlerCloseModal}
           formName={formName}
-          projectId={projectId}
           withActions={withActions}
         />
       </ModalLayout>

@@ -206,6 +206,7 @@ export const TermsLink = styled(Link)`
 `;
 
 export const Textarea = styled(Input).attrs({ as: "textarea" })`
-  resize: vertical;
-  min-height: 100px;
+  resize: none;
+  height: 150px;
+  overflow-y: auto;
 `;
