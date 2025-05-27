@@ -16,11 +16,11 @@ export const Backdrop = styled.div`
 
 export const ModalContainer = styled.div`
   position: relative;
+  display: flex;
   width: 100%;
-  height: 100%;
   max-width: 800px;
   min-width: 200px;
-  min-height: 200px;
+  max-height: calc(100vh - 48px);
   background-color: ${({ theme }) => theme.background};
   border: ${({ theme }) => theme.modalBorder};
   border-radius: 8px;

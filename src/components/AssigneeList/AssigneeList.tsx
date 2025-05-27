@@ -6,12 +6,12 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { searchProjectMembers } from "@/redux/projects/operations";
 import { selectCurrentProject } from "@/redux/projects/selectors";
 import { UserBase } from "@/redux/user/user.types";
+import UserList from "@/components/UserList";
 import {
   Wrapper,
   Dropdown,
   Option,
 } from "@/components/CustomSelect/CustomSelect.styled";
-import UserList from "../UserList";
 
 type Props = {
   value: UserBase[];
