@@ -108,7 +108,16 @@
     }
   },
   "Project": {
-    "backToProjects": "Назад до проектів"
+    "backToProjects": "Назад до проектів",
+    "columns": {
+      "newColumn": "Новий стовпець",
+      "addColumn": "Додати стовпець",
+      "addTask": "Додати завдання",
+      "addFailed": "Не вдалося додати стовпець",
+      "updateFailed": "Не вдалося оновити стовпець",
+      "reorderFailed": "Не вдалося змінити порядок стовпців",
+      "deleteFailed": "Не вдалося видалити стовпець"
+    }
   },
   "Modals": {
     "common": {
@@ -133,6 +142,9 @@
     },
     "editProject": {
       "title": "Редагувати проєкт"
+    },
+    "createTask": {
+      "title": "Створити завдання"
     }
   },
   "Forms": {

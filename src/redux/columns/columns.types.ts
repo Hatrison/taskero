@@ -24,6 +24,15 @@ export interface UpdateColumnPayload {
   data: Partial<Pick<Column, "name" | "order">>;
 }
 
+export interface ReorderColumnItem {
+  id: string;
+  order: number;
+}
+
+export interface ReorderColumnsPayload {
+  columns: ReorderColumnItem[];
+}
+
 export interface ColumnWithTasks extends Column {
   tasks: Task[];
 }

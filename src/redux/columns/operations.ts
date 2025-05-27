@@ -3,6 +3,7 @@ import { instance } from "@/utils/axiosInstance";
 import {
   Column,
   CreateColumnPayload,
+  ReorderColumnsPayload,
   UpdateColumnPayload,
 } from "./columns.types";
 
@@ -43,6 +44,22 @@ export const updateColumn = createAsyncThunk<Column, UpdateColumnPayload>(
     } catch (error: any) {
       return thunkAPI.rejectWithValue(
         error.response?.data?.message || "Failed to update column"
+      );
+    }
+  }
+);
+
+export const reorderColumns = createAsyncThunk<Column[], ReorderColumnsPayload>(
+  "columns/reorder",
+  async ({ columns }, thunkAPI) => {
+    try {
+      const { data } = await instance.patch("/api/columns/reorder", {
+        columns,
+      });
+      return data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || "Failed to reorder columns"
       );
     }
   }

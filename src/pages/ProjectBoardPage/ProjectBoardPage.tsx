@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
@@ -9,6 +9,8 @@ import {
   selectCurrentProject,
   selectProjectsLoading,
 } from "@/redux/projects/selectors";
+import { selectColumns } from "@/redux/columns/selectors";
+import { selectTasks } from "@/redux/tasks/selectors";
 import Loader from "@/components/Loader";
 import EditProjectMembersModal from "@/components/Modals/EditProjectMembersModal/EditProjectMembersModal";
 import EditProjecModal from "@/components/Modals/EditProjectModal";
@@ -18,6 +20,7 @@ import {
   LoadContainer,
   PageWrapper,
 } from "./ProjectBoardPage.styled";
+import ProjectColumns from "./ProjectColumns";
 
 const ProjectBoardPage = () => {
   const { id: projectId } = useParams<{ id: string }>();
@@ -26,10 +29,28 @@ const ProjectBoardPage = () => {
   const currentUser = useAppSelector(selectUser);
   const project = useAppSelector(selectCurrentProject);
   const isLoading = useAppSelector(selectProjectsLoading);
+  const columns = useAppSelector(selectColumns);
+  const tasks = useAppSelector(selectTasks);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
   const [isEditMembersModalOpen, setIsEditMembersModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [canEditProject, setCanEditProject] = useState(false);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!headerRef.current) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        setHeaderHeight(entry.contentRect.height);
+      }
+    });
+
+    observer.observe(headerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (projectId) {
@@ -73,19 +94,27 @@ const ProjectBoardPage = () => {
 
   return (
     <PageWrapper>
-      <Header
-        name={project?.name || ""}
-        avatar={currentUser.avatar}
-        toggleMembersModal={toggleMembersModal}
-        toggleSettingsModal={toggleSettingsModal}
-      />
+      <div ref={headerRef}>
+        <Header
+          name={project?.name || ""}
+          avatar={currentUser.avatar}
+          toggleMembersModal={toggleMembersModal}
+          toggleSettingsModal={toggleSettingsModal}
+        />
+      </div>
 
       {isLoading ? (
         <LoadContainer>
           <Loader size="60px" color="#3e85f3" />
         </LoadContainer>
       ) : (
-        <BoardContainer>Columns</BoardContainer>
+        <BoardContainer>
+          <ProjectColumns
+            columns={columns.map((c) => ({ ...c, tasks })) || []}
+            topOffset={headerHeight}
+            withActions={canEditProject}
+          />
+        </BoardContainer>
       )}
 
       {isEditMembersModalOpen && (

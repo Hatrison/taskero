@@ -36,6 +36,8 @@ export const Name = styled.h3`
   font-size: 18px;
   font-weight: 600;
   color: ${({ theme }) => theme.primaryText};
+  word-break: break-word;
+  overflow-wrap: break-word;
 `;
 
 export const RoleBadge = styled.span<{ color: string }>`

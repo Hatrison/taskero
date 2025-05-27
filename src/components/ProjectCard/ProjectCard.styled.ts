@@ -30,6 +30,8 @@ export const TitleWrapper = styled.div`
 export const ProjectTitle = styled.h3`
   font-size: 18px;
   font-weight: 700;
+  word-break: break-word;
+  overflow-wrap: break-word;
 `;
 
 export const ProjectCompany = styled.p`

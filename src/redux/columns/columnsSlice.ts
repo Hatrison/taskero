@@ -4,6 +4,7 @@ import {
   createColumn,
   updateColumn,
   deleteColumn,
+  reorderColumns,
 } from "./operations";
 import { Column, ColumnsState } from "./columns.types";
 
@@ -37,6 +38,9 @@ const columnsSlice = createSlice({
         const index = state.items.findIndex((c) => c._id === updated._id);
         if (index !== -1) state.items[index] = updated;
       })
+      .addCase(reorderColumns.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.items = state.items.filter((c) => c._id !== action.payload);
       })
@@ -45,6 +49,7 @@ const columnsSlice = createSlice({
           fetchColumnsByProject.pending,
           createColumn.pending,
           updateColumn.pending,
+          reorderColumns.pending,
           deleteColumn.pending
         ),
         (state) => {
@@ -57,6 +62,7 @@ const columnsSlice = createSlice({
           fetchColumnsByProject.rejected,
           createColumn.rejected,
           updateColumn.rejected,
+          reorderColumns.rejected,
           deleteColumn.rejected
         ),
         (state, action) => {
@@ -69,6 +75,7 @@ const columnsSlice = createSlice({
           fetchColumnsByProject.fulfilled,
           createColumn.fulfilled,
           updateColumn.fulfilled,
+          reorderColumns.fulfilled,
           deleteColumn.fulfilled
         ),
         (state) => {

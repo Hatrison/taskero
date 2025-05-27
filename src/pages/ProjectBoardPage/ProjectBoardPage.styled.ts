@@ -4,7 +4,8 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden;
 `;
 
 export const LoadContainer = styled.div`
@@ -17,15 +18,8 @@ export const LoadContainer = styled.div`
 `;
 
 export const BoardContainer = styled.div`
-  flex: 1;
   display: flex;
-  flex-direction: raw;
-  gap: 16px;
-  padding: 16px;
+  flex-direction: row;
+  flex-grow: 1;
   background-color: ${({ theme }) => theme.background};
-
-  @media screen and (min-width: 768px) {
-    gap: 24px;
-    padding: 24px;
-  }
 `;

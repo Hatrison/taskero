@@ -108,7 +108,16 @@
     }
   },
   "Project": {
-    "backToProjects": "Back to Projects"
+    "backToProjects": "Back to Projects",
+    "columns": {
+      "newColumn": "New Column",
+      "addColumn": "Add Column",
+      "addTask": "Add Task",
+      "addFailed": "Failed to add column",
+      "updateFailed": "Failed to update column",
+      "reorderFailed": "Failed to reorder columns",
+      "deleteFailed": "Failed to delete column"
+    }
   },
   "Modals": {
     "common": {
@@ -133,6 +142,9 @@
     },
     "editProject": {
       "title": "Edit Project"
+    },
+    "createTask": {
+      "title": "Create Task"
     }
   },
   "Forms": {
