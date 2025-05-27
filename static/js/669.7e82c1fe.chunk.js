@@ -18,7 +18,7 @@
   font-size: 12px;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
   font-weight: 500;
-`;var s=o(579);const d=e=>{let{members:r,maxVisible:o=4,size:n=28}=e;const d=r.slice(0,o),c=r.length-o;return(0,s.jsxs)(a,{children:[d.map(((e,r)=>{var o;return(0,s.jsx)(l,{index:r,children:(0,s.jsx)(t.A,{src:null!==(o=e.avatar)&&void 0!==o&&o.startsWith("http")?e.avatar:`https:${e.avatar}`,size:n})},e._id)})),c>0&&(0,s.jsx)(l,{index:o,children:(0,s.jsxs)(i,{size:n,children:["+",c]})})]})}},4669:(e,r,o)=>{o.r(r),o.d(r,{default:()=>ie});var t=o(5043),n=o(4961),a=o(9867),l=o(377),i=o(5939),s=o(1308),d=o(5464),c=o(2115),m=o(3289),p=o(5601),x=o(3367),h=o(9593),u=o(7784),g=o(3892),y=o(184);const f=d.Ay.div`
+`;var s=o(579);const d=e=>{let{members:r,maxVisible:o=4,size:n=28}=e;const d=r.slice(0,o),c=r.length-o;return(0,s.jsxs)(a,{children:[d.map(((e,r)=>{var o;return(0,s.jsx)(l,{index:r,children:(0,s.jsx)(t.A,{src:null!==(o=e.avatar)&&void 0!==o&&o.startsWith("http")?e.avatar:`https:${e.avatar}`,size:n})},e._id)})),c>0&&(0,s.jsx)(l,{index:o,children:(0,s.jsxs)(i,{size:n,children:["+",c]})})]})}},4669:(e,r,o)=>{o.r(r),o.d(r,{default:()=>ie});var t=o(5043),n=o(4961),a=o(9867),l=o(377),i=o(5939),s=o(551),d=o(5464),c=o(2115),m=o(3289),p=o(5601),x=o(3367),h=o(9593),u=o(7784),g=o(3892),y=o(184);const f=d.Ay.div`
   border: 2px dashed ${e=>{let{theme:r}=e;return r.borderColor}};
   border-radius: 8px;
   padding: 32px 24px;
@@ -216,4 +216,4 @@
     grid-template-columns: 1fr;
   }
 `,ie=()=>{const[e,r]=(0,t.useState)(""),[o,d]=(0,t.useState)("name"),[c,m]=(0,t.useState)(!1),p=(0,a.GV)(l.Yl),x=(0,a.GV)(l.EB),{t:h}=(0,n.B)(),u=()=>{m((e=>!e))},g=(0,t.useMemo)((()=>x.filter((r=>r.name.toLowerCase().includes(e.toLowerCase()))).sort(((e,r)=>"name"===o?e.name.localeCompare(r.name):"date"===o?new Date(r.createdAt).getTime()-new Date(e.createdAt).getTime():0))),[x,e,o]);return(0,$.jsx)(Q,{children:p?(0,$.jsx)(X,{children:(0,$.jsx)(i.A,{size:"48px",color:"#3e85f3"})}):(0,$.jsxs)($.Fragment,{children:[(0,$.jsxs)(Z,{children:[(0,$.jsxs)(ee,{children:[(0,$.jsx)(re,{children:h("Companies.title")}),(0,$.jsx)(oe,{onClick:()=>u(),children:h("Companies.create")})]}),(0,$.jsxs)(te,{children:[(0,$.jsx)(ne,{type:"text",placeholder:h("Companies.searchPlaceholder"),value:e,onChange:e=>r(e.target.value)}),(0,$.jsx)(ae,{children:(0,$.jsx)(s.A,{options:["name","date"],value:o,onChange:d,getLabel:e=>h(`Companies.filters.${e}`),getKey:e=>e})})]})]}),(0,$.jsx)(le,{children:g.map((e=>(0,$.jsx)(J,{company:e},e._id)))}),c&&(0,$.jsx)(W,{handlerCloseModal:u})]})})}}}]);
-//# sourceMappingURL=669.aab80196.chunk.js.map
+//# sourceMappingURL=669.7e82c1fe.chunk.js.map

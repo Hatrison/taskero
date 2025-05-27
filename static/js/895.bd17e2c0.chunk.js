@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[895],{7142:(e,r,t)=>{t.d(r,{A:()=>T});var o=t(5043),n=t(4961),i=t(2115),l=t(5464),a=t(9867),d=t(7201),s=t(3289),c=t(7711),p=t(1308);const m=l.Ay.div`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[895],{7142:(e,r,t)=>{t.d(r,{A:()=>T});var o=t(5043),n=t(4961),i=t(2115),l=t(5464),a=t(9867),d=t(7201),s=t(3289),c=t(7711),p=t(551);const m=l.Ay.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -85,13 +85,13 @@
   gap: 8px;
   font-size: 16px;
   color: ${e=>{let{theme:r}=e;return r.primaryText}};
-`,A=l.Ay.div`
+`,j=l.Ay.div`
   font-size: 14px;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-`,j=l.Ay.span`
+`,A=l.Ay.span`
   font-size: 12px;
   background-color: ${e=>{let{color:r}=e;return r}};
   color: ${e=>{let{theme:r}=e;return r.roleTextColor}};
@@ -118,7 +118,7 @@
     background-color: ${e=>{let{theme:r}=e;return r.dangerHover||"rgba(255, 0, 0, 0.05)"}};
     border-color: ${e=>{let{theme:r}=e;return r.dangerHover||"rgba(255, 0, 0, 0.2)"}};
   }
-`,T=e=>{let{value:r,users:t,onChange:m,withActions:u=!0,editableRoles:h=!1,availableRoles:x=["member","editor","viewer"]}=e;const T=(0,a.jL)(),F=(0,a.GV)(s.mB),[L,R]=(0,o.useState)([]),[E,M]=(0,o.useState)([]),{t:B}=(0,n.B)(),H=(0,l.DP)(),N={owner:H.roleOwner,editor:H.roleEditor,viewer:H.roleViewer,member:H.roleMember,new:H.roleNew},P="object"===typeof r[0]&&null!==r[0],_=e=>"string"===typeof e?e:e.email,S=async()=>{if(0===L.length)return void i.oR.info(B("Forms.common.nobodyToAdd"));const e=r.map(_),o=L.filter((r=>!e.includes(r)));if(0===o.length)return i.oR.info(B("Forms.common.allAlreadyAdded")),void R([]);try{const e=await T((0,d.AX)(o)).unwrap(),n=e.map((e=>e.email)),l=o.filter((e=>!n.includes(e)));l.length>0&&i.oR.warn(B("Forms.common.someUsersNotFound",{count:l.length,all:o.length}));const a=e.map((e=>({...e,role:"new"})));M((e=>[...e,...a]));const s=P?e.map((e=>{const r=t.find((r=>r.email===e.email))||E.find((r=>r.email===e.email)),o=null!==r&&void 0!==r&&r.role&&"new"!==r.role?r.role:"viewer";return{email:e.email,role:o}})):e.map((e=>e.email));m([...r,...s]),R([])}catch(n){i.oR.error(B("Forms.common.fetchUsersFailed"))}},D=r.map((e=>{const r=_(e),o=(e=>{if("object"===typeof e)return e.role;const r=t.find((r=>r.email===e))||E.find((r=>r.email===e));return(null===r||void 0===r?void 0:r.role)||"member"})(e),n=t.find((e=>e.email===r))||E.find((e=>e.email===r)),i="new"===(null===n||void 0===n?void 0:n.role);return{...n||{_id:r,name:r.split("@")[0],email:r},role:o,displayRole:i?"new":o}}));return(0,g.jsxs)(g.Fragment,{children:[(()=>{const e=h&&x.length>1;return(0,g.jsx)(y,{children:D.map((t=>(0,g.jsxs)(f,{children:[t.avatar?(0,g.jsx)(v,{src:t.avatar,alt:t.name}):(0,g.jsx)(w,{}),(0,g.jsxs)($,{children:[(0,g.jsxs)(k,{children:[t.name,t.displayRole&&(0,g.jsx)(j,{color:N[t.displayRole],children:B(`Common.roles.${t.displayRole}`)})]}),(0,g.jsx)(A,{children:t.email})]}),u&&t._id!==(null===F||void 0===F?void 0:F._id)&&(0,g.jsxs)(g.Fragment,{children:[P&&e&&(0,g.jsx)(C,{children:(0,g.jsx)(p.A,{options:x,value:t.role,onChange:e=>((e,t)=>{if(!P)return;const o=r.map((r=>r.email===e?{...r,role:t}:r));m(o)})(t.email,e),getLabel:e=>B(`Common.roles.${e}`),getKey:e=>null!==e&&void 0!==e?e:""})}),(0,g.jsx)(z,{type:"button",onClick:()=>(e=>{const t=r.filter((r=>_(r).toLowerCase()!==e.toLowerCase()));m(t)})(t.email),children:B("Forms.common.remove")})]})]},t._id)))})})(),u&&(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)("label",{children:B("Forms.common.addMembers")}),(0,g.jsx)(b,{pending:L,onPendingChange:R,placeholder:B("Forms.common.addMembersPlaceholder")}),(0,g.jsx)(c.GX,{type:"button",onClick:S,children:B("Forms.common.addMembers")})]})]})}},7711:(e,r,t)=>{t.d(r,{A0:()=>d,GX:()=>b,Gg:()=>u,JU:()=>s,K_:()=>m,N3:()=>f,TM:()=>$,ZD:()=>h,b7:()=>g,mO:()=>l,oX:()=>w,oi:()=>p,pd:()=>c,q:()=>a,ql:()=>x,sF:()=>y,yn:()=>v});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
+`,T=e=>{let{value:r,users:t,onChange:m,withActions:u=!0,editableRoles:h=!1,availableRoles:x=["member","editor","viewer"],viewMode:T=!1}=e;const F=(0,a.jL)(),L=(0,a.GV)(s.mB),[M,R]=(0,o.useState)([]),[E,B]=(0,o.useState)([]),{t:H}=(0,n.B)(),_=(0,l.DP)(),N={owner:_.roleOwner,editor:_.roleEditor,viewer:_.roleViewer,member:_.roleMember,new:_.roleNew},P=()=>t.length?(0,g.jsx)(y,{children:t.map((e=>(0,g.jsxs)(f,{children:[e.avatar?(0,g.jsx)(v,{src:e.avatar,alt:e.name}):(0,g.jsx)(w,{}),(0,g.jsxs)($,{children:[(0,g.jsx)(k,{children:e.name}),(0,g.jsx)(j,{children:e.email})]}),(0,g.jsx)(z,{type:"button",onClick:()=>(e=>{const r=t.filter((r=>r.email.toLowerCase()!==e.toLowerCase()));m(r)})(e.email),children:H("Forms.common.remove")})]},e._id)))}):null;if(!r||!Array.isArray(r)&&T)return P();const S="object"===typeof(null===r||void 0===r?void 0:r[0])&&null!==r[0],D=e=>"string"===typeof e?e:e.email,G=r.map((e=>{const r=D(e),o=(e=>{if("object"===typeof e)return e.role;const r=t.find((r=>r.email===e))||E.find((r=>r.email===e));return(null===r||void 0===r?void 0:r.role)||"member"})(e),n=t.find((e=>e.email===r))||E.find((e=>e.email===r)),i="new"===(null===n||void 0===n?void 0:n.role);return{...n||{_id:r,name:r.split("@")[0],email:r},role:o,displayRole:i?"new":o}})),O=async()=>{if(0===M.length)return void i.oR.info(H("Forms.common.nobodyToAdd"));const e=r.map(D),o=M.filter((r=>!e.includes(r)));if(0===o.length)return i.oR.info(H("Forms.common.allAlreadyAdded")),void R([]);try{const e=await F((0,d.AX)(o)).unwrap(),n=e.map((e=>e.email)),l=o.filter((e=>!n.includes(e)));l.length>0&&i.oR.warn(H("Forms.common.someUsersNotFound",{count:l.length,all:o.length}));const a=e.map((e=>({...e,role:"new"})));B((e=>[...e,...a]));const s=S?e.map((e=>{const r=t.find((r=>r.email===e.email))||E.find((r=>r.email===e.email)),o=null!==r&&void 0!==r&&r.role&&"new"!==r.role?r.role:"viewer";return{email:e.email,role:o}})):e.map((e=>e.email));m([...r,...s]),R([])}catch(n){i.oR.error(H("Forms.common.fetchUsersFailed"))}};return(0,g.jsxs)(g.Fragment,{children:[(()=>{const e=h&&x.length>1;return(0,g.jsx)(y,{children:G.map((t=>(0,g.jsxs)(f,{children:[t.avatar?(0,g.jsx)(v,{src:t.avatar,alt:t.name}):(0,g.jsx)(w,{}),(0,g.jsxs)($,{children:[(0,g.jsxs)(k,{children:[t.name,t.displayRole&&(0,g.jsx)(A,{color:N[t.displayRole],children:H(`Common.roles.${t.displayRole}`)})]}),(0,g.jsx)(j,{children:t.email})]}),u&&t._id!==(null===L||void 0===L?void 0:L._id)&&(0,g.jsxs)(g.Fragment,{children:[S&&e&&(0,g.jsx)(C,{children:(0,g.jsx)(p.A,{options:x,value:t.role,onChange:e=>((e,t)=>{if(!S)return;const o=r.map((r=>r.email===e?{...r,role:t}:r));m(o)})(t.email,e),getLabel:e=>H(`Common.roles.${e}`),getKey:e=>null!==e&&void 0!==e?e:""})}),(0,g.jsx)(z,{type:"button",onClick:()=>(e=>{const t=r.filter((r=>D(r).toLowerCase()!==e.toLowerCase()));m(t)})(t.email),children:H("Forms.common.remove")})]})]},t._id)))})})(),u&&(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)("label",{children:H("Forms.common.addMembers")}),(0,g.jsx)(b,{pending:M,onPendingChange:R,placeholder:H("Forms.common.addMembersPlaceholder")}),(0,g.jsx)(c.GX,{type:"button",onClick:O,children:H("Forms.common.addMembers")})]})]})}},7711:(e,r,t)=>{t.d(r,{A0:()=>d,GX:()=>b,Gg:()=>u,JU:()=>s,K_:()=>m,N3:()=>f,TM:()=>$,ZD:()=>h,b7:()=>g,mO:()=>l,oX:()=>w,oi:()=>p,pd:()=>c,q:()=>a,ql:()=>x,sF:()=>y,yn:()=>v});var o=t(5464),n=t(3892),i=t(5180);const l=o.Ay.div`
   width: 100%;
 `,a=(0,o.Ay)(n.lV)`
   display: flex;
@@ -297,6 +297,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 `),u=a.Ay.div`
   display: flex;
   align-items: center;
@@ -328,6 +329,7 @@
   font-weight: 700;
 `,b=a.Ay.div`
   padding: 24px;
+  overflow: auto;
 `,y=a.Ay.div`
   display: flex;
   justify-content: space-between;
@@ -350,6 +352,7 @@
 `,a=i.Ay.div`
   position: relative;
   width: 100%;
+  height: 100%;
   max-width: 800px;
   min-width: 200px;
   min-height: 200px;
@@ -359,4 +362,4 @@
 
   box-shadow: ${e=>{let{theme:r}=e;return r.shadow}};
 `;var d=t(579);const s=document.querySelector("#modal-root"),c=e=>{let{children:r,handlerCloseModal:t}=e;const i=(0,o.useCallback)((e=>{"Escape"===e.code&&t()}),[t]);(0,o.useEffect)((()=>(window.addEventListener("keydown",i),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",i),document.body.style.overflow="auto"})),[i]);return(0,n.createPortal)((0,d.jsx)(l,{onClick:e=>{e.currentTarget===e.target&&t()},children:(0,d.jsx)(a,{children:r})}),s)}}}]);
-//# sourceMappingURL=895.c4921d67.chunk.js.map
+//# sourceMappingURL=895.bd17e2c0.chunk.js.map
