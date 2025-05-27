@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/taskero/static/css/main.82760533.css",
-    "main.js": "/taskero/static/js/main.e6eb0c50.js",
+    "main.js": "/taskero/static/js/main.355d42f0.js",
     "static/js/412.32ab38f0.chunk.js": "/taskero/static/js/412.32ab38f0.chunk.js",
     "static/js/20.cc68ca92.chunk.js": "/taskero/static/js/20.cc68ca92.chunk.js",
     "static/js/680.cb1c728c.chunk.js": "/taskero/static/js/680.cb1c728c.chunk.js",
     "static/js/292.df494444.chunk.js": "/taskero/static/js/292.df494444.chunk.js",
-    "static/js/249.6d70c49b.chunk.js": "/taskero/static/js/249.6d70c49b.chunk.js",
+    "static/js/249.e35b05ef.chunk.js": "/taskero/static/js/249.e35b05ef.chunk.js",
     "static/js/647.bff04403.chunk.js": "/taskero/static/js/647.bff04403.chunk.js",
     "static/js/669.7e82c1fe.chunk.js": "/taskero/static/js/669.7e82c1fe.chunk.js",
     "static/js/579.e03a4a48.chunk.js": "/taskero/static/js/579.e03a4a48.chunk.js",
@@ -18,7 +18,7 @@
     "static/js/773.5d619965.chunk.js": "/taskero/static/js/773.5d619965.chunk.js",
     "static/js/382.4c2cba31.chunk.js": "/taskero/static/js/382.4c2cba31.chunk.js",
     "static/js/511.c0b0683d.chunk.js": "/taskero/static/js/511.c0b0683d.chunk.js",
-    "static/js/895.bd17e2c0.chunk.js": "/taskero/static/js/895.bd17e2c0.chunk.js",
+    "static/js/895.67975309.chunk.js": "/taskero/static/js/895.67975309.chunk.js",
     "static/media/landing-page_main.png": "/taskero/static/media/landing-page_main.019adf4ec5cd1fc2527a.png",
     "static/media/landing-page_how-it-works.png": "/taskero/static/media/landing-page_how-it-works.862b4b7820da6013fee8.png",
     "static/media/logo.png": "/taskero/static/media/logo.f9f20538470db5fa4750.png",
@@ -29,12 +29,12 @@
     "index.html": "/taskero/index.html",
     "static/media/closeModal.svg": "/taskero/static/media/closeModal.0e0a9f31172f3e216fed15e7db621f0a.svg",
     "main.82760533.css.map": "/taskero/static/css/main.82760533.css.map",
-    "main.e6eb0c50.js.map": "/taskero/static/js/main.e6eb0c50.js.map",
+    "main.355d42f0.js.map": "/taskero/static/js/main.355d42f0.js.map",
     "412.32ab38f0.chunk.js.map": "/taskero/static/js/412.32ab38f0.chunk.js.map",
     "20.cc68ca92.chunk.js.map": "/taskero/static/js/20.cc68ca92.chunk.js.map",
     "680.cb1c728c.chunk.js.map": "/taskero/static/js/680.cb1c728c.chunk.js.map",
     "292.df494444.chunk.js.map": "/taskero/static/js/292.df494444.chunk.js.map",
-    "249.6d70c49b.chunk.js.map": "/taskero/static/js/249.6d70c49b.chunk.js.map",
+    "249.e35b05ef.chunk.js.map": "/taskero/static/js/249.e35b05ef.chunk.js.map",
     "647.bff04403.chunk.js.map": "/taskero/static/js/647.bff04403.chunk.js.map",
     "669.7e82c1fe.chunk.js.map": "/taskero/static/js/669.7e82c1fe.chunk.js.map",
     "579.e03a4a48.chunk.js.map": "/taskero/static/js/579.e03a4a48.chunk.js.map",
@@ -46,10 +46,10 @@
     "773.5d619965.chunk.js.map": "/taskero/static/js/773.5d619965.chunk.js.map",
     "382.4c2cba31.chunk.js.map": "/taskero/static/js/382.4c2cba31.chunk.js.map",
     "511.c0b0683d.chunk.js.map": "/taskero/static/js/511.c0b0683d.chunk.js.map",
-    "895.bd17e2c0.chunk.js.map": "/taskero/static/js/895.bd17e2c0.chunk.js.map"
+    "895.67975309.chunk.js.map": "/taskero/static/js/895.67975309.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.82760533.css",
-    "static/js/main.e6eb0c50.js"
+    "static/js/main.355d42f0.js"
   ]
 }

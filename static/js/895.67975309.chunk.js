@@ -297,7 +297,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
 `),u=a.Ay.div`
   display: flex;
   align-items: center;
@@ -351,15 +350,15 @@
   z-index: 999;
 `,a=i.Ay.div`
   position: relative;
+  display: flex;
   width: 100%;
-  height: 100%;
   max-width: 800px;
   min-width: 200px;
-  min-height: 200px;
+  max-height: calc(100vh - 48px);
   background-color: ${e=>{let{theme:r}=e;return r.background}};
   border: ${e=>{let{theme:r}=e;return r.modalBorder}};
   border-radius: 8px;
 
   box-shadow: ${e=>{let{theme:r}=e;return r.shadow}};
 `;var d=t(579);const s=document.querySelector("#modal-root"),c=e=>{let{children:r,handlerCloseModal:t}=e;const i=(0,o.useCallback)((e=>{"Escape"===e.code&&t()}),[t]);(0,o.useEffect)((()=>(window.addEventListener("keydown",i),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",i),document.body.style.overflow="auto"})),[i]);return(0,n.createPortal)((0,d.jsx)(l,{onClick:e=>{e.currentTarget===e.target&&t()},children:(0,d.jsx)(a,{children:r})}),s)}}}]);
-//# sourceMappingURL=895.bd17e2c0.chunk.js.map
+//# sourceMappingURL=895.67975309.chunk.js.map
