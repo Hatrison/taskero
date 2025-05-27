@@ -37,6 +37,18 @@ declare module "styled-components" {
     warning: string;
     info: string;
 
+    // Priority Background Colors
+    priorityLow: string;
+    priorityMedium: string;
+    priorityHigh: string;
+    priorityCritical: string;
+
+    // Priority Text Colors
+    priorityTextLow: string;
+    priorityTextMedium: string;
+    priorityTextHigh: string;
+    priorityTextCritical: string;
+
     // Roles
     roleOwner: string;
     roleEditor: string;

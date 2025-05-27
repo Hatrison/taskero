@@ -35,6 +35,18 @@ export const theme = {
     warning: "#ffa726",
     info: "#29b6f6",
 
+    // Priority Background Colors
+    priorityLow: "#4CAF5020",
+    priorityMedium: "#FF980020",
+    priorityHigh: "#F4433620",
+    priorityCritical: "#9C27B020",
+
+    // Priority Text Colors
+    priorityTextLow: "#4CAF50",
+    priorityTextMedium: "#FF9800",
+    priorityTextHigh: "#F44336",
+    priorityTextCritical: "#9C27B0",
+
     // Roles
     roleOwner: "#3e85f3",
     roleEditor: "#4caf50",
@@ -97,6 +109,18 @@ export const theme = {
     success: "#4caf50",
     warning: "#ffa726",
     info: "#29b6f6",
+
+    // Priority Background Colors
+    priorityLow: "#4CAF5020",
+    priorityMedium: "#FF980020",
+    priorityHigh: "#F4433620",
+    priorityCritical: "#9C27B020",
+
+    // Priority Text Colors
+    priorityTextLow: "#4CAF50",
+    priorityTextMedium: "#FF9800",
+    priorityTextHigh: "#F44336",
+    priorityTextCritical: "#9C27B0",
 
     // Roles
     roleOwner: "#3e85f3",

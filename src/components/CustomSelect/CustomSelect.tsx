@@ -7,6 +7,7 @@ import {
   Dropdown,
   Option,
   Label,
+  ColorDot,
 } from "./CustomSelect.styled";
 
 type Props<T> = {
@@ -15,6 +16,7 @@ type Props<T> = {
   onChange: (value: T) => void;
   getLabel: (item: T) => string;
   getKey: (item: T) => string;
+  getColor?: (item: T) => string;
   placeholder?: string;
 };
 
@@ -24,6 +26,7 @@ const CustomSelect = <T,>({
   onChange,
   getLabel,
   getKey,
+  getColor,
   placeholder = "Select...",
 }: Props<T>) => {
   const [open, setOpen] = useState(false);
@@ -70,6 +73,7 @@ const CustomSelect = <T,>({
         onClick={() => setOpen((prev) => !prev)}
         title={value ? getLabel(value) : ""}
       >
+        {value && getColor && <ColorDot color={getColor(value)} />}
         <Label>{value ? getLabel(value) : placeholder}</Label>
         <FiChevronDown
           size={16}
@@ -96,6 +100,7 @@ const CustomSelect = <T,>({
                   setOpen(false);
                 }}
               >
+                {getColor && <ColorDot color={getColor(item)} />}
                 {getLabel(item)}
               </Option>
             ))}

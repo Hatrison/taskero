@@ -92,6 +92,17 @@ const ProjectBoardPage = () => {
     setIsSettingsModalOpen((prev) => !prev);
   };
 
+  const tasksByColumn: Record<string, typeof tasks> = tasks.reduce(
+    (acc, task) => {
+      if (!acc[task.column]) {
+        acc[task.column] = [];
+      }
+      acc[task.column].push(task);
+      return acc;
+    },
+    {} as Record<string, typeof tasks>
+  );
+
   return (
     <PageWrapper>
       <div ref={headerRef}>
@@ -110,7 +121,10 @@ const ProjectBoardPage = () => {
       ) : (
         <BoardContainer>
           <ProjectColumns
-            columns={columns.map((c) => ({ ...c, tasks })) || []}
+            columns={columns.map((c) => ({
+              ...c,
+              tasks: tasksByColumn[c._id] || [],
+            }))}
             topOffset={headerHeight}
             withActions={canEditProject}
           />

@@ -51,10 +51,21 @@ export const Dropdown = styled.ul<{
 `;
 
 export const Option = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 12px;
   font-size: 14px;
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.backgroundSecondary};
   }
+`;
+
+export const ColorDot = styled.span<{ color: string }>`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: ${({ color }) => color};
+  flex-shrink: 0;
 `;

@@ -34,12 +34,13 @@ type UserWithRole = { email: string; role: Role };
 type Member = string | UserWithRole;
 
 interface Props {
-  value: Member[];
+  value?: Member[];
   users: UserListItem[];
-  onChange: (value: Member[]) => void;
+  onChange: (value: UserBase[] | Member[]) => void;
   withActions?: boolean;
   editableRoles?: boolean;
   availableRoles?: UserListItem["role"][];
+  viewMode?: boolean;
 }
 
 const UserList = ({
@@ -49,6 +50,7 @@ const UserList = ({
   withActions = true,
   editableRoles = false,
   availableRoles = ["member", "editor", "viewer"],
+  viewMode = false,
 }: Props) => {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(selectUser);
@@ -65,7 +67,48 @@ const UserList = ({
     new: theme.roleNew,
   };
 
-  const isExtended = typeof value[0] === "object" && value[0] !== null;
+  const handleRemoveInViewMode = (emailToRemove: string) => {
+    const updated = users.filter(
+      (user) => user.email.toLowerCase() !== emailToRemove.toLowerCase()
+    );
+    onChange(updated);
+  };
+
+  const renderUserListInViewMode = () => {
+    return users.length ? (
+      <ListContainer>
+        {users.map((user) => {
+          return (
+            <MemberRow key={user._id}>
+              {user.avatar ? (
+                <Avatar src={user.avatar} alt={user.name} />
+              ) : (
+                <AvatarPlaceholder />
+              )}
+
+              <MemberInfo>
+                <Name>{user.name}</Name>
+                <Email>{user.email}</Email>
+              </MemberInfo>
+
+              <RemoveButton
+                type="button"
+                onClick={() => handleRemoveInViewMode(user.email)}
+              >
+                {t("Forms.common.remove")}
+              </RemoveButton>
+            </MemberRow>
+          );
+        })}
+      </ListContainer>
+    ) : null;
+  };
+
+  if (!value || (!Array.isArray(value) && viewMode)) {
+    return renderUserListInViewMode();
+  }
+
+  const isExtended = typeof value?.[0] === "object" && value[0] !== null;
 
   const getEmail = (item: Member) =>
     typeof item === "string" ? item : item.email;
@@ -94,71 +137,6 @@ const UserList = ({
       (v) => getEmail(v).toLowerCase() !== emailToRemove.toLowerCase()
     );
     onChange(updated);
-  };
-
-  const handleAddMembers = async () => {
-    if (pendingEmails.length === 0) {
-      toast.info(t("Forms.common.nobodyToAdd") as string);
-      return;
-    }
-
-    const existingEmails = value.map(getEmail);
-    const uniqueToAdd = pendingEmails.filter(
-      (email) => !existingEmails.includes(email)
-    );
-
-    if (uniqueToAdd.length === 0) {
-      toast.info(t("Forms.common.allAlreadyAdded") as string);
-      setPendingEmails([]);
-      return;
-    }
-
-    try {
-      const resolved: UserBase[] = await dispatch(
-        resolveUsersByEmail(uniqueToAdd)
-      ).unwrap();
-
-      const resolvedEmails = resolved.map((user) => user.email);
-      const unresolvedEmails = uniqueToAdd.filter(
-        (email) => !resolvedEmails.includes(email)
-      );
-
-      if (unresolvedEmails.length > 0) {
-        toast.warn(
-          t("Forms.common.someUsersNotFound", {
-            count: unresolvedEmails.length,
-            all: uniqueToAdd.length,
-          }) as string
-        );
-      }
-
-      const enriched: UserListItem[] = resolved.map((user) => ({
-        ...user,
-        role: "new" as const,
-      }));
-
-      setLocalUsers((prev) => [...prev, ...enriched]);
-
-      const added: Member[] = isExtended
-        ? resolved.map((u) => {
-            const previous =
-              users.find((user) => user.email === u.email) ||
-              localUsers.find((user) => user.email === u.email);
-
-            const role: Role =
-              previous?.role && previous.role !== "new"
-                ? previous.role
-                : "viewer";
-
-            return { email: u.email, role };
-          })
-        : resolved.map((u) => u.email);
-
-      onChange([...value, ...added]);
-      setPendingEmails([]);
-    } catch (error) {
-      toast.error(t("Forms.common.fetchUsersFailed") as string);
-    }
   };
 
   const displayedUsers: UserListItem[] = value.map((entry) => {
@@ -235,6 +213,71 @@ const UserList = ({
         })}
       </ListContainer>
     );
+  };
+
+  const handleAddMembers = async () => {
+    if (pendingEmails.length === 0) {
+      toast.info(t("Forms.common.nobodyToAdd") as string);
+      return;
+    }
+
+    const existingEmails = value.map(getEmail);
+    const uniqueToAdd = pendingEmails.filter(
+      (email) => !existingEmails.includes(email)
+    );
+
+    if (uniqueToAdd.length === 0) {
+      toast.info(t("Forms.common.allAlreadyAdded") as string);
+      setPendingEmails([]);
+      return;
+    }
+
+    try {
+      const resolved: UserBase[] = await dispatch(
+        resolveUsersByEmail(uniqueToAdd)
+      ).unwrap();
+
+      const resolvedEmails = resolved.map((user) => user.email);
+      const unresolvedEmails = uniqueToAdd.filter(
+        (email) => !resolvedEmails.includes(email)
+      );
+
+      if (unresolvedEmails.length > 0) {
+        toast.warn(
+          t("Forms.common.someUsersNotFound", {
+            count: unresolvedEmails.length,
+            all: uniqueToAdd.length,
+          }) as string
+        );
+      }
+
+      const enriched: UserListItem[] = resolved.map((user) => ({
+        ...user,
+        role: "new" as const,
+      }));
+
+      setLocalUsers((prev) => [...prev, ...enriched]);
+
+      const added: Member[] = isExtended
+        ? resolved.map((u) => {
+            const previous =
+              users.find((user) => user.email === u.email) ||
+              localUsers.find((user) => user.email === u.email);
+
+            const role: Role =
+              previous?.role && previous.role !== "new"
+                ? previous.role
+                : "viewer";
+
+            return { email: u.email, role };
+          })
+        : resolved.map((u) => u.email);
+
+      onChange([...value, ...added]);
+      setPendingEmails([]);
+    } catch (error) {
+      toast.error(t("Forms.common.fetchUsersFailed") as string);
+    }
   };
 
   const renderAddSection = () => (

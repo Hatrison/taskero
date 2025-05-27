@@ -6,6 +6,12 @@
       "editor": "Editor",
       "member": "Member",
       "new": "New"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
     }
   },
   "LandingPage": {
@@ -212,6 +218,20 @@
     "deleteProject": {
       "success": "Project deleted successfully",
       "failed": "Failed to delete project"
+    },
+    "createTask": {
+      "title": "Task title",
+      "titlePlaceholder": "Enter task title",
+      "description": "Task description (optional)",
+      "descriptionPlaceholder": "Enter description (optional)",
+      "deadline": "Task deadline (optional)",
+      "priority": "Priority",
+      "assignedTo": "Assigned to",
+      "assigneePlaceholder": "Search for users",
+      "searchFailed": "Failed to search for users",
+      "dueDate": "Due date (optional)",
+      "success": "Task created successfully",
+      "failed": "Failed to create task"
     }
   }
 }

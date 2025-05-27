@@ -4,7 +4,7 @@ export interface Task {
   _id: string;
   title: string;
   description?: string;
-  status: string;
+  status?: string;
   project: string;
   column: string;
   assignedTo: string[];
@@ -22,7 +22,7 @@ export interface TasksState {
 export interface CreateTaskPayload {
   title: string;
   description?: string;
-  status: string;
+  status?: string;
   project: string;
   column: string;
   assignedTo?: string[];

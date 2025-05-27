@@ -5,6 +5,7 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 `;
 
 export const ModalHeader = styled.div`
@@ -46,6 +47,7 @@ export const ModalTitle = styled.h2`
 
 export const ChildrenWrapper = styled.div`
   padding: 24px;
+  overflow: auto;
 `;
 
 export const ModalActions = styled.div`

@@ -10,6 +10,7 @@ import {
 
 import { setColumns } from "@/redux/columns/columnsSlice";
 import { setTasks } from "@/redux/tasks/tasksSlice";
+import { UserBase } from "../user/user.types";
 
 export const fetchMyProjects = createAsyncThunk<Project[], void>(
   "projects/fetchMy",
@@ -103,6 +104,23 @@ export const updateProjectMembers = createAsyncThunk<
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
       error.response?.data?.message || "Failed to update members"
+    );
+  }
+});
+
+export const searchProjectMembers = createAsyncThunk<
+  UserBase[],
+  { projectId: string; query: string }
+>("projects/searchMembers", async ({ projectId, query }, thunkAPI) => {
+  try {
+    const { data } = await instance.post(
+      `/api/projects/${projectId}/search-members`,
+      { query }
+    );
+    return data;
+  } catch (error: any) {
+    return thunkAPI.rejectWithValue(
+      error.response?.data?.message || "Failed to search members"
     );
   }
 });
