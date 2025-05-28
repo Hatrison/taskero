@@ -5,6 +5,7 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+  height: 100%;
 `;
 
 export const LoaderContainer = styled.div`

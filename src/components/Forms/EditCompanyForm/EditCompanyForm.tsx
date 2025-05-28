@@ -7,6 +7,7 @@ import { fetchCompanyById, updateCompany } from "@/redux/companies/operations";
 import { Company } from "@/redux/companies/companies.types";
 import Loader from "@/components/Loader";
 import ImageUploadField from "@/components/ImageUploadField";
+import { FormikSubmitObserver } from "@/components/Modal";
 import {
   StyledForm,
   InputContainer,
@@ -84,29 +85,33 @@ const EditCompanyForm = ({ handlerCloseModal, formName, companyId }: Props) => {
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
-        <StyledForm id={formName}>
-          <InputContainer>
-            <Label>{t("Forms.editCompany.name")}</Label>
-            <Input
-              name="name"
-              placeholder={t("Forms.editCompany.namePlaceholder")}
-              $hasError={touched.name && !!errors.name}
-            />
-            {touched.name && errors.name && (
-              <ErrorText>{errors.name}</ErrorText>
-            )}
-          </InputContainer>
+        <>
+          <FormikSubmitObserver />
 
-          <InputContainer>
-            <Label>{t("Forms.editCompany.logo")}</Label>
-            <ImageUploadField
-              name="logo"
-              placeholderText={t("Forms.common.dragOrClick")}
-              buttonText={t("Forms.common.chooseFile")}
-              initialPreview={company.logo}
-            />
-          </InputContainer>
-        </StyledForm>
+          <StyledForm id={formName}>
+            <InputContainer>
+              <Label>{t("Forms.editCompany.name")}</Label>
+              <Input
+                name="name"
+                placeholder={t("Forms.editCompany.namePlaceholder")}
+                $hasError={touched.name && !!errors.name}
+              />
+              {touched.name && errors.name && (
+                <ErrorText>{errors.name}</ErrorText>
+              )}
+            </InputContainer>
+
+            <InputContainer>
+              <Label>{t("Forms.editCompany.logo")}</Label>
+              <ImageUploadField
+                name="logo"
+                placeholderText={t("Forms.common.dragOrClick")}
+                buttonText={t("Forms.common.chooseFile")}
+                initialPreview={company.logo}
+              />
+            </InputContainer>
+          </StyledForm>
+        </>
       )}
     </Formik>
   );

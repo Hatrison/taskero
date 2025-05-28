@@ -50,7 +50,7 @@ const Header = ({ onSidebarToggle }: Props) => {
             onChange={(c) => dispatch(setCurrentCompany(c))}
             getLabel={(c) => c.name}
             getKey={(c) => c._id}
-            placeholder={t("header.selectCompany")}
+            placeholder={t("Header.selectCompany")}
           />
         </SelectWrapper>
       </LeftGroup>

@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "@/hooks";
 import { createCompany } from "@/redux/companies/operations";
 import ImageUploadField from "@/components/ImageUploadField";
+import { FormikSubmitObserver } from "@/components/Modal";
+import { CreateCompanySchema } from "./CreateCompanySchema";
 import {
   StyledForm,
   InputContainer,
@@ -11,7 +13,6 @@ import {
   Input,
   ErrorText,
 } from "@/styles/form/Form.styled";
-import { CreateCompanySchema } from "./CreateCompanySchema";
 
 type Props = {
   handlerCloseModal: () => void;
@@ -55,28 +56,32 @@ const CreateCompanyForm = ({ handlerCloseModal, formName }: Props) => {
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
-        <StyledForm id={formName}>
-          <InputContainer>
-            <Label>{t("Forms.createCompany.name")}</Label>
-            <Input
-              name="name"
-              placeholder={t("Forms.createCompany.namePlaceholder")}
-              $hasError={touched.name && !!errors.name}
-            />
-            {touched.name && errors.name && (
-              <ErrorText>{errors.name}</ErrorText>
-            )}
-          </InputContainer>
+        <>
+          <FormikSubmitObserver />
 
-          <InputContainer>
-            <Label>{t("Forms.createCompany.logo")}</Label>
-            <ImageUploadField
-              name="logo"
-              placeholderText={t("Forms.common.dragOrClick")}
-              buttonText={t("Forms.common.chooseFile")}
-            />
-          </InputContainer>
-        </StyledForm>
+          <StyledForm id={formName}>
+            <InputContainer>
+              <Label>{t("Forms.createCompany.name")}</Label>
+              <Input
+                name="name"
+                placeholder={t("Forms.createCompany.namePlaceholder")}
+                $hasError={touched.name && !!errors.name}
+              />
+              {touched.name && errors.name && (
+                <ErrorText>{errors.name}</ErrorText>
+              )}
+            </InputContainer>
+
+            <InputContainer>
+              <Label>{t("Forms.createCompany.logo")}</Label>
+              <ImageUploadField
+                name="logo"
+                placeholderText={t("Forms.common.dragOrClick")}
+                buttonText={t("Forms.common.chooseFile")}
+              />
+            </InputContainer>
+          </StyledForm>
+        </>
       )}
     </Formik>
   );

@@ -1,4 +1,8 @@
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "styled-components";
+import Loader from "@/components/Loader";
+import { ModalSubmitContext } from "../ModalSubmitContext";
 import {
   CancelButtonModal,
   SubmitButtonModal,
@@ -31,35 +35,49 @@ const ModalLayout = ({
   withActions = true,
   children,
 }: Props) => {
+  const [modalSubmitting, setModalSubmitting] = useState(false);
+  const ctxValue = useMemo(() => ({ setModalSubmitting }), []);
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
-    <LayoutWrapper>
-      <ModalHeader>
-        <ModalTitle>{title}</ModalTitle>
-        <CloseButton onClick={handlerCloseModal}>
-          <MyCloseIcon />
-        </CloseButton>
-      </ModalHeader>
-      <ChildrenWrapper>{children}</ChildrenWrapper>
-      {withActions && (
-        <ModalActions>
-          {deleteAction && (
-            <DeleteButtonModal type="button" onClick={() => deleteAction()}>
-              {t("Modals.common.delete")}
-            </DeleteButtonModal>
-          )}
-          <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
-            <CancelButtonModal type="button" onClick={handlerCloseModal}>
-              {t("Modals.common.cancel")}
-            </CancelButtonModal>
-            <SubmitButtonModal type="submit" form={formName}>
-              {t("Modals.common.save")}
-            </SubmitButtonModal>
-          </div>
-        </ModalActions>
-      )}
-    </LayoutWrapper>
+    <ModalSubmitContext.Provider value={ctxValue}>
+      <LayoutWrapper>
+        <ModalHeader>
+          <ModalTitle>{title}</ModalTitle>
+          <CloseButton onClick={handlerCloseModal}>
+            <MyCloseIcon />
+          </CloseButton>
+        </ModalHeader>
+        <ChildrenWrapper>{children}</ChildrenWrapper>
+        {withActions && (
+          <ModalActions>
+            {deleteAction && (
+              <DeleteButtonModal type="button" onClick={() => deleteAction()}>
+                {t("Modals.common.delete")}
+              </DeleteButtonModal>
+            )}
+            <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+              <CancelButtonModal type="button" onClick={handlerCloseModal}>
+                {t("Modals.common.cancel")}
+              </CancelButtonModal>
+              <SubmitButtonModal
+                type="submit"
+                form={formName}
+                disabled={modalSubmitting}
+              >
+                <span className="btn-text">{t("Modals.common.save")}</span>
+                {modalSubmitting && (
+                  <div className="btn-loader">
+                    <Loader size="16px" color={theme.buttonText} />
+                  </div>
+                )}
+              </SubmitButtonModal>
+            </div>
+          </ModalActions>
+        )}
+      </LayoutWrapper>
+    </ModalSubmitContext.Provider>
   );
 };
 

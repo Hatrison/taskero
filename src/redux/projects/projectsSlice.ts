@@ -62,9 +62,7 @@ const projectsSlice = createSlice({
           fetchMyProjects.pending,
           fetchProjectById.pending,
           createProject.pending,
-          updateProject.pending,
-          deleteProject.pending,
-          updateProjectMembers.pending
+          deleteProject.pending
         ),
         (state) => {
           state.loading = true;
@@ -76,9 +74,7 @@ const projectsSlice = createSlice({
           fetchMyProjects.rejected,
           fetchProjectById.rejected,
           createProject.rejected,
-          updateProject.rejected,
-          deleteProject.rejected,
-          updateProjectMembers.rejected
+          deleteProject.rejected
         ),
         (state, action) => {
           state.loading = false;
@@ -90,9 +86,7 @@ const projectsSlice = createSlice({
           fetchMyProjects.fulfilled,
           fetchProjectById.fulfilled,
           createProject.fulfilled,
-          updateProject.fulfilled,
-          deleteProject.fulfilled,
-          updateProjectMembers.fulfilled
+          deleteProject.fulfilled
         ),
         (state) => {
           state.loading = false;

@@ -123,6 +123,9 @@ export const ForgotLink = styled(Link)`
 `;
 
 export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px;
   background-color: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.buttonText};
@@ -139,6 +142,10 @@ export const SubmitButton = styled.button`
 `;
 
 export const SubmitButtonModal = styled.button`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
   background-color: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.buttonText};
@@ -151,6 +158,24 @@ export const SubmitButtonModal = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.primaryHover};
+  }
+
+  .btn-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .btn-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: ${({ theme }) => theme.primary};
   }
 `;
 

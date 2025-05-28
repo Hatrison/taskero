@@ -6,6 +6,7 @@ import { selectCurrentCompany } from "@/redux/companies/selectors";
 import { createProject } from "@/redux/projects/operations";
 import { ProjectRole } from "@/redux/projects/projects.types";
 import { selectUser } from "@/redux/user/selectors";
+import { FormikSubmitObserver } from "@/components/Modal";
 import { CreateProjectSchema } from "./createProjectSchema";
 import {
   StyledForm,
@@ -65,39 +66,43 @@ const CreateProjectForm = ({ handlerCloseModal, formName }: Props) => {
       onSubmit={handleSubmit}
     >
       {({ values, errors, touched, handleChange, handleBlur }) => (
-        <StyledForm id={formName}>
-          <InputContainer>
-            <Label>{t("Forms.createProject.name")}</Label>
-            <Input
-              name="name"
-              placeholder={t("Forms.createProject.namePlaceholder")}
-              $hasError={touched.name && !!errors.name}
-            />
-            {touched.name && errors.name && (
-              <ErrorText>{errors.name}</ErrorText>
-            )}
-          </InputContainer>
+        <>
+          <FormikSubmitObserver />
 
-          <InputContainer>
-            <Label>{t("Forms.createProject.description")}</Label>
-            <Textarea
-              name="description"
-              placeholder={t("Forms.createProject.descriptionPlaceholder")}
-              value={values.description}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              $hasError={touched.description && !!errors.description}
-            />
-            {touched.description && errors.description && (
-              <ErrorText>{errors.description}</ErrorText>
-            )}
-          </InputContainer>
+          <StyledForm id={formName}>
+            <InputContainer>
+              <Label>{t("Forms.createProject.name")}</Label>
+              <Input
+                name="name"
+                placeholder={t("Forms.createProject.namePlaceholder")}
+                $hasError={touched.name && !!errors.name}
+              />
+              {touched.name && errors.name && (
+                <ErrorText>{errors.name}</ErrorText>
+              )}
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.createProject.deadline")}</Label>
-            <Input name="deadline" type="date" />
-          </InputContainer>
-        </StyledForm>
+            <InputContainer>
+              <Label>{t("Forms.createProject.description")}</Label>
+              <Textarea
+                name="description"
+                placeholder={t("Forms.createProject.descriptionPlaceholder")}
+                value={values.description}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                $hasError={touched.description && !!errors.description}
+              />
+              {touched.description && errors.description && (
+                <ErrorText>{errors.description}</ErrorText>
+              )}
+            </InputContainer>
+
+            <InputContainer>
+              <Label>{t("Forms.createProject.deadline")}</Label>
+              <Input name="deadline" type="date" />
+            </InputContainer>
+          </StyledForm>
+        </>
       )}
     </Formik>
   );

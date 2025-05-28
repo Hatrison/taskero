@@ -10,6 +10,7 @@ import { UserBase } from "@/redux/user/user.types";
 import { TaskPriority } from "@/redux/tasks/tasks.types";
 import CustomSelect from "@/components/CustomSelect";
 import AssigneeList from "@/components/AssigneeList";
+import { FormikSubmitObserver } from "@/components/Modal";
 import { createTaskSchema } from "./CreateTaskSchema";
 import {
   StyledForm,
@@ -81,66 +82,70 @@ const CreateTaskForm = ({ handlerCloseModal, formName, columnId }: Props) => {
       onSubmit={handleSubmit}
     >
       {({ values, errors, touched, handleChange, handleBlur }) => (
-        <StyledForm id={formName}>
-          <InputContainer>
-            <Label>{t("Forms.createTask.title")}</Label>
-            <Input
-              name="title"
-              placeholder={t("Forms.createTask.titlePlaceholder")}
-              $hasError={touched.title && !!errors.title}
-            />
-            {touched.title && errors.title && (
-              <ErrorText>{errors.title}</ErrorText>
-            )}
-          </InputContainer>
+        <>
+          <FormikSubmitObserver />
 
-          <InputContainer>
-            <Label>{t("Forms.createTask.description")}</Label>
-            <Textarea
-              name="description"
-              placeholder={t("Forms.createTask.descriptionPlaceholder")}
-              value={values.description}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              $hasError={touched.description && !!errors.description}
-            />
-            {touched.description && errors.description && (
-              <ErrorText>{errors.description}</ErrorText>
-            )}
-          </InputContainer>
+          <StyledForm id={formName}>
+            <InputContainer>
+              <Label>{t("Forms.createTask.title")}</Label>
+              <Input
+                name="title"
+                placeholder={t("Forms.createTask.titlePlaceholder")}
+                $hasError={touched.title && !!errors.title}
+              />
+              {touched.title && errors.title && (
+                <ErrorText>{errors.title}</ErrorText>
+              )}
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.createTask.deadline")}</Label>
-            <Input name="deadline" type="date" />
-          </InputContainer>
+            <InputContainer>
+              <Label>{t("Forms.createTask.description")}</Label>
+              <Textarea
+                name="description"
+                placeholder={t("Forms.createTask.descriptionPlaceholder")}
+                value={values.description}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                $hasError={touched.description && !!errors.description}
+              />
+              {touched.description && errors.description && (
+                <ErrorText>{errors.description}</ErrorText>
+              )}
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.createTask.priority")}</Label>
-            <CustomSelect
-              options={["low", "medium", "high", "critical"]}
-              value={values.priority as TaskPriority}
-              onChange={(value) => {
-                handleChange({
-                  target: { name: "priority", value },
-                });
-              }}
-              getLabel={(p) => t(`Common.priority.${p}`)}
-              getKey={(p) => p}
-              getColor={(p) => priorityColors[p as TaskPriority]}
-              placeholder={t("Forms.createTask.priority")}
-            />
-          </InputContainer>
+            <InputContainer>
+              <Label>{t("Forms.createTask.deadline")}</Label>
+              <Input name="deadline" type="date" />
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.createTask.assignedTo")}</Label>
-            <AssigneeList
-              value={assignees}
-              onChange={setAssignees}
-              placeholder={t("Forms.createTask.assigneePlaceholder")}
-              withActions
-            />
-          </InputContainer>
-        </StyledForm>
+            <InputContainer>
+              <Label>{t("Forms.createTask.priority")}</Label>
+              <CustomSelect
+                options={["low", "medium", "high", "critical"]}
+                value={values.priority as TaskPriority}
+                onChange={(value) => {
+                  handleChange({
+                    target: { name: "priority", value },
+                  });
+                }}
+                getLabel={(p) => t(`Common.priority.${p}`)}
+                getKey={(p) => p}
+                getColor={(p) => priorityColors[p as TaskPriority]}
+                placeholder={t("Forms.createTask.priority")}
+              />
+            </InputContainer>
+
+            <InputContainer>
+              <Label>{t("Forms.createTask.assignedTo")}</Label>
+              <AssigneeList
+                value={assignees}
+                onChange={setAssignees}
+                placeholder={t("Forms.createTask.assigneePlaceholder")}
+                withActions
+              />
+            </InputContainer>
+          </StyledForm>
+        </>
       )}
     </Formik>
   );

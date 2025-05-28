@@ -67,9 +67,7 @@ const companiesSlice = createSlice({
         isAnyOf(
           fetchMyCompanies.pending,
           createCompany.pending,
-          updateCompany.pending,
-          deleteCompany.pending,
-          updateMembers.pending
+          deleteCompany.pending
         ),
         (state) => {
           state.loading = true;
@@ -80,9 +78,7 @@ const companiesSlice = createSlice({
         isAnyOf(
           fetchMyCompanies.rejected,
           createCompany.rejected,
-          updateCompany.rejected,
-          deleteCompany.rejected,
-          updateMembers.rejected
+          deleteCompany.rejected
         ),
         (state, action) => {
           state.loading = false;
@@ -93,9 +89,7 @@ const companiesSlice = createSlice({
         isAnyOf(
           fetchMyCompanies.fulfilled,
           createCompany.fulfilled,
-          updateCompany.fulfilled,
-          deleteCompany.fulfilled,
-          updateMembers.fulfilled
+          deleteCompany.fulfilled
         ),
         (state) => {
           state.loading = false;

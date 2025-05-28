@@ -6,6 +6,7 @@ import { updateProjectMembers } from "@/redux/projects/operations";
 import { selectCurrentProject } from "@/redux/projects/selectors";
 import Loader from "@/components/Loader";
 import UserList from "@/components/UserList";
+import { FormikSubmitObserver } from "@/components/Modal";
 import { StyledForm } from "@/styles/form/Form.styled";
 import { LoadContainer } from "./EditProjectMembersForm.styled";
 import { EditProjectMembersSchema } from "./EditProjectMembersSchema";
@@ -73,16 +74,20 @@ const EditProjectMembersForm = ({
     >
       {({ values, setFieldValue }) => {
         return (
-          <StyledForm id={formName}>
-            <UserList
-              value={values.members}
-              users={companyMembersWithRoles}
-              onChange={(updated) => setFieldValue("members", updated)}
-              withActions={withActions}
-              editableRoles
-              availableRoles={["owner", "editor", "viewer"]}
-            />
-          </StyledForm>
+          <>
+            <FormikSubmitObserver />
+
+            <StyledForm id={formName}>
+              <UserList
+                value={values.members}
+                users={companyMembersWithRoles}
+                onChange={(updated) => setFieldValue("members", updated)}
+                withActions={withActions}
+                editableRoles
+                availableRoles={["owner", "editor", "viewer"]}
+              />
+            </StyledForm>
+          </>
         );
       }}
     </Formik>

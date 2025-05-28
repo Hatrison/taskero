@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 48px;
+  padding: 24px;
+  height: 100%;
 `;
 
 export const LoaderContainer = styled.div`

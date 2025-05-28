@@ -103,8 +103,5 @@ export const InputContainer = styled(FormInputContainer)`
 `;
 
 export const SubmitButton = styled(FormSubmitButton)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-width: 70px;
 `;
