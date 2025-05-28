@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[680],{2680:(e,r,t)=>{t.r(r),t.d(r,{default:()=>g});var o=t(5554),n=t(3892),i=t(5043),a=t(5180),l=t(4262),s=t(9867),d=t(2115),c=t(5200),p=t(899);const h=p.Ik().shape({name:p.Yj().required("Full name is required"),email:p.Yj().email("Invalid email").required("Email is required"),password:p.Yj().min(6,"Minimum 6 characters").required("Password is required"),terms:p.zM().oneOf([!0],"You must accept the terms")});var u=t(4961),m=t(7711),x=t(579);const b={name:"",email:"",password:"",terms:!1},y=()=>{const e=(0,s.jL)(),[r,t]=(0,i.useState)(!1),o=(0,a.Zp)(),{t:p}=(0,u.B)();return(0,x.jsx)(m.mO,{children:(0,x.jsx)(n.l1,{initialValues:b,validationSchema:h,onSubmit:async(r,t)=>{try{const{terms:n,...i}=r;await e((0,l.DY)(i)).unwrap(),t.resetForm(),o("/",{replace:!0})}catch{d.oR.error("Registration failed. Please try again.")}},children:e=>{let{values:o,handleChange:n,handleSubmit:i,touched:a,errors:l}=e;return(0,x.jsxs)(m.q,{onSubmit:i,children:[(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"name",children:p("Auth.fullName")}),(0,x.jsx)(m.pd,{id:"name",name:"name",type:"text",placeholder:p("Auth.fullNamePlaceholder"),$hasError:a.name&&!!l.name}),a.name&&l.name&&(0,x.jsx)(m.yn,{children:l.name})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"email",children:p("Auth.email")}),(0,x.jsx)(m.pd,{id:"email",name:"email",type:"email",placeholder:p("Auth.emailPlaceholder"),$hasError:a.email&&!!l.email}),a.email&&l.email&&(0,x.jsx)(m.yn,{children:l.email})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.JU,{htmlFor:"password",children:p("Auth.password")}),(0,x.jsxs)(m.oi,{children:[(0,x.jsx)(m.pd,{id:"password",name:"password",type:r?"text":"password",placeholder:p("Auth.passwordPlaceholder"),$hasError:a.password&&!!l.password}),(0,x.jsx)(m.K_,{type:"button",onClick:()=>t((e=>!e)),children:r?(0,x.jsx)(c._NO,{size:18}):(0,x.jsx)(c.Vap,{size:18})})]}),a.password&&l.password&&(0,x.jsx)(m.yn,{children:l.password})]}),(0,x.jsxs)(m.A0,{children:[(0,x.jsx)(m.Gg,{children:(0,x.jsxs)(m.ZD,{children:[(0,x.jsx)("input",{type:"checkbox",name:"terms",checked:o.terms,onChange:n}),(0,x.jsx)("span",{id:"custom-checkbox"}),(0,x.jsxs)("p",{children:[p("Auth.agree")," ",(0,x.jsx)(m.oX,{to:"/terms",children:p("Auth.terms")})]})]})}),a.terms&&l.terms&&(0,x.jsx)(m.yn,{children:l.terms})]}),(0,x.jsx)(m.b7,{type:"submit",children:p("Auth.createAccount")})]})}})})},g=()=>(0,x.jsx)(o.A,{children:(0,x.jsx)(y,{})})},5554:(e,r,t)=>{t.d(r,{A:()=>$});var o=t(4961),n=t(3168),i=t(3875),a=t(279),l=t(6058),s=t(5464),d=t(5180);const c=s.Ay.div`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[20],{20:(e,r,t)=>{t.r(r),t.d(r,{default:()=>y});var o=t(5554),n=t(3892),i=t(5043),a=t(899);const l=a.Ik().shape({email:a.Yj().email("Invalid email").required("Required"),password:a.Yj().min(6,"Minimum 6 characters").matches(/[a-z]/,"Must include lowercase").matches(/[A-Z]/,"Must include uppercase").matches(/[0-9]/,"Must include number").required("Required")});var s=t(9867),d=t(4262),c=t(2115),p=t(4961),u=t(5200),h=t(7711),m=t(579);const x={email:"",password:"",remember:!0},b=()=>{const e=(0,s.jL)(),[r,t]=(0,i.useState)(!1),{t:o}=(0,p.B)();return(0,m.jsx)(h.mO,{children:(0,m.jsx)(n.l1,{initialValues:x,onSubmit:async(r,t)=>{try{await e((0,d.Lx)(r)).unwrap(),t.resetForm()}catch{c.oR.error("Invalid email or password")}},validationSchema:l,children:e=>{let{values:n,handleChange:i,handleSubmit:a,touched:l,errors:s}=e;return(0,m.jsxs)(h.q,{onSubmit:a,children:[(0,m.jsxs)(h.A0,{children:[(0,m.jsx)(h.JU,{htmlFor:"email",children:o("Auth.email")}),(0,m.jsx)(h.pd,{id:"email",name:"email",type:"email",placeholder:o("Auth.emailPlaceholder"),$hasError:l.email&&!!s.email}),l.email&&s.email&&(0,m.jsx)(h.yn,{children:s.email})]}),(0,m.jsxs)(h.A0,{children:[(0,m.jsx)(h.JU,{htmlFor:"password",children:o("Auth.password")}),(0,m.jsxs)(h.oi,{children:[(0,m.jsx)(h.pd,{id:"password",name:"password",type:r?"text":"password",placeholder:o("Auth.passwordPlaceholder"),$hasError:l.password&&!!s.password}),(0,m.jsx)(h.K_,{onClick:()=>t((e=>!e)),type:"button",children:r?(0,m.jsx)(u._NO,{size:18}):(0,m.jsx)(u.Vap,{size:18})})]}),l.password&&s.password&&(0,m.jsx)(h.yn,{children:s.password})]}),(0,m.jsxs)(h.Gg,{children:[(0,m.jsxs)(h.ZD,{children:[(0,m.jsx)("input",{type:"checkbox",name:"remember",checked:n.remember,onChange:i}),(0,m.jsx)("span",{}),o("Auth.rememberMe")]}),(0,m.jsx)(h.ql,{to:"/password",children:o("Auth.forgotPassword")})]}),(0,m.jsx)(h.b7,{type:"submit",children:o("Auth.signin")})]})}})})},y=()=>(0,m.jsx)(o.A,{children:(0,m.jsx)(b,{})})},5554:(e,r,t)=>{t.d(r,{A:()=>$});var o=t(4961),n=t(3168),i=t(3875),a=t(279),l=t(6058),s=t(5464),d=t(5180);const c=s.Ay.div`
   min-height: 100vh;
   background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   display: flex;
@@ -15,11 +15,11 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-`,h=s.Ay.div`
+`,u=s.Ay.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`,u=s.Ay.div`
+`,h=s.Ay.div`
   display: flex;
   border-bottom: 1px solid ${e=>{let{theme:r}=e;return r.borderColor}};
 `,m=(0,s.Ay)(d.k2)`
@@ -74,7 +74,7 @@
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.backgroundSecondary}};
   }
-`;var f=t(579);const $=e=>{let{children:r}=e;const{t:t}=(0,o.B)();return(0,f.jsx)(c,{children:(0,f.jsxs)(p,{children:[(0,f.jsxs)(h,{children:[(0,f.jsx)(n.A,{}),(0,f.jsxs)("div",{style:{display:"flex",gap:"8px"},children:[(0,f.jsx)(i.A,{}),(0,f.jsx)(a.A,{})]})]}),(0,f.jsxs)(u,{children:[(0,f.jsx)(m,{to:"/login",children:t("Auth.login")}),(0,f.jsx)(m,{to:"/register",children:t("Auth.register")})]}),r,(0,f.jsxs)(x,{children:[(0,f.jsx)(b,{}),(0,f.jsx)(y,{children:t("Auth.orWith")}),(0,f.jsx)(b,{})]}),(0,f.jsxs)(g,{type:"button",children:[(0,f.jsx)(l.F4b,{size:20}),t("Auth.continueWithGoogle")]})]})})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,GX:()=>y,Gg:()=>u,JU:()=>d,K_:()=>h,N3:()=>f,TM:()=>A,ZD:()=>m,b7:()=>b,mO:()=>a,oX:()=>j,oi:()=>p,pd:()=>c,q:()=>l,ql:()=>x,sF:()=>g,yn:()=>$});var o=t(5464),n=t(3892),i=t(5180);const a=o.Ay.div`
+`;var f=t(579);const $=e=>{let{children:r}=e;const{t:t}=(0,o.B)();return(0,f.jsx)(c,{children:(0,f.jsxs)(p,{children:[(0,f.jsxs)(u,{children:[(0,f.jsx)(n.A,{}),(0,f.jsxs)("div",{style:{display:"flex",gap:"8px"},children:[(0,f.jsx)(i.A,{}),(0,f.jsx)(a.A,{})]})]}),(0,f.jsxs)(h,{children:[(0,f.jsx)(m,{to:"/login",children:t("Auth.login")}),(0,f.jsx)(m,{to:"/register",children:t("Auth.register")})]}),r,(0,f.jsxs)(x,{children:[(0,f.jsx)(b,{}),(0,f.jsx)(y,{children:t("Auth.orWith")}),(0,f.jsx)(b,{})]}),(0,f.jsxs)(g,{type:"button",children:[(0,f.jsx)(l.F4b,{size:20}),t("Auth.continueWithGoogle")]})]})})}},7711:(e,r,t)=>{t.d(r,{A0:()=>s,GX:()=>y,Gg:()=>h,JU:()=>d,K_:()=>u,N3:()=>f,TM:()=>w,ZD:()=>m,b7:()=>b,mO:()=>a,oX:()=>j,oi:()=>p,pd:()=>c,q:()=>l,ql:()=>x,sF:()=>g,yn:()=>$});var o=t(5464),n=t(3892),i=t(5180);const a=o.Ay.div`
   width: 100%;
 `,l=(0,o.Ay)(n.lV)`
   display: flex;
@@ -109,7 +109,7 @@
   }
 `,p=o.Ay.div`
   position: relative;
-`,h=o.Ay.button`
+`,u=o.Ay.button`
   position: absolute;
   display: flex;
   align-items: center;
@@ -121,7 +121,7 @@
   border: none;
   cursor: pointer;
   color: ${e=>{let{theme:r}=e;return r.secondaryText}};
-`,u=o.Ay.div`
+`,h=o.Ay.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,6 +175,9 @@
     color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
 `,b=o.Ay.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px;
   background-color: ${e=>{let{theme:r}=e;return r.primary}};
   color: ${e=>{let{theme:r}=e;return r.buttonText}};
@@ -189,6 +192,10 @@
     background-color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
 `,y=o.Ay.button`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
   background-color: ${e=>{let{theme:r}=e;return r.primary}};
   color: ${e=>{let{theme:r}=e;return r.buttonText}};
@@ -201,6 +208,24 @@
 
   &:hover {
     background-color: ${e=>{let{theme:r}=e;return r.primaryHover}};
+  }
+
+  .btn-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .btn-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: ${e=>{let{theme:r}=e;return r.primary}};
   }
 `,g=o.Ay.button`
   padding: 8px 16px;
@@ -245,9 +270,9 @@
   &:hover {
     color: ${e=>{let{theme:r}=e;return r.primaryHover}};
   }
-`,A=(0,o.Ay)(c).attrs({as:"textarea"})`
+`,w=(0,o.Ay)(c).attrs({as:"textarea"})`
   resize: none;
   height: 150px;
   overflow-y: auto;
 `}}]);
-//# sourceMappingURL=680.cb1c728c.chunk.js.map
+//# sourceMappingURL=20.f36cb386.chunk.js.map
