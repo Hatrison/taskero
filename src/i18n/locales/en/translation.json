@@ -253,6 +253,14 @@
     "deleteTask": {
       "success": "Task deleted successfully",
       "failed": "Failed to delete task"
+    },
+    "comments": {
+      "title": "Comments",
+      "editPlaceholder": "Edit comment…",
+      "addPlaceholder": "Add a comment…",
+      "save": "Save",
+      "post": "Post",
+      "fetchFailed": "Failed to load comments"
     }
   }
 }

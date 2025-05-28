@@ -18,6 +18,7 @@ import {
   Textarea,
 } from "@/styles/form/Form.styled";
 import { LoadContainer } from "./EditTaskForm.styled";
+import CommentsSection from "@/components/CommentsSection";
 
 type Props = {
   task: Task;
@@ -99,97 +100,100 @@ const EditTaskForm = ({
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={EditTaskSchema}
-      onSubmit={handleSubmit}
-      enableReinitialize
-    >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        setFieldValue,
-      }) => (
-        <StyledForm id={formName}>
-          <InputContainer>
-            <Label>{t("Forms.editTask.title")}</Label>
-            <Input
-              name="title"
-              placeholder={t("Forms.editTask.titlePlaceholder")}
-              $hasError={touched.title && !!errors.title}
-              disabled={!withActions}
-            />
-            {touched.title && errors.title && (
-              <ErrorText>{errors.title}</ErrorText>
-            )}
-          </InputContainer>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={EditTaskSchema}
+        onSubmit={handleSubmit}
+        enableReinitialize
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          setFieldValue,
+        }) => (
+          <StyledForm id={formName}>
+            <InputContainer>
+              <Label>{t("Forms.editTask.title")}</Label>
+              <Input
+                name="title"
+                placeholder={t("Forms.editTask.titlePlaceholder")}
+                $hasError={touched.title && !!errors.title}
+                disabled={!withActions}
+              />
+              {touched.title && errors.title && (
+                <ErrorText>{errors.title}</ErrorText>
+              )}
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.editTask.description")}</Label>
-            <Textarea
-              name="description"
-              placeholder={t("Forms.editTask.descriptionPlaceholder")}
-              value={values.description}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              $hasError={touched.description && !!errors.description}
-              disabled={!withActions}
-            />
-            {touched.description && errors.description && (
-              <ErrorText>{errors.description}</ErrorText>
-            )}
-          </InputContainer>
+            <InputContainer>
+              <Label>{t("Forms.editTask.description")}</Label>
+              <Textarea
+                name="description"
+                placeholder={t("Forms.editTask.descriptionPlaceholder")}
+                value={values.description}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                $hasError={touched.description && !!errors.description}
+                disabled={!withActions}
+              />
+              {touched.description && errors.description && (
+                <ErrorText>{errors.description}</ErrorText>
+              )}
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.editTask.priority")}</Label>
-            <CustomSelect
-              options={["low", "medium", "high", "critical"]}
-              value={values.priority}
-              onChange={(val) => setFieldValue("priority", val)}
-              getLabel={(p) => t(`Common.priority.${p}`)}
-              getKey={(p) => p}
-              getColor={(p) => priorityColors[p as TaskPriority]}
-              placeholder={t("Forms.editTask.priority")}
-              disabled={!withActions}
-            />
-          </InputContainer>
+            <InputContainer>
+              <Label>{t("Forms.editTask.priority")}</Label>
+              <CustomSelect
+                options={["low", "medium", "high", "critical"]}
+                value={values.priority}
+                onChange={(val) => setFieldValue("priority", val)}
+                getLabel={(p) => t(`Common.priority.${p}`)}
+                getKey={(p) => p}
+                getColor={(p) => priorityColors[p as TaskPriority]}
+                placeholder={t("Forms.editTask.priority")}
+                disabled={!withActions}
+              />
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.editTask.assignedTo")}</Label>
-            <AssigneeList
-              value={values.assignedTo}
-              onChange={(newValue) => setFieldValue("assignedTo", newValue)}
-              placeholder={t("Forms.editTask.assigneePlaceholder")}
-              withActions={withActions}
-            />
-          </InputContainer>
+            <InputContainer>
+              <Label>{t("Forms.editTask.assignedTo")}</Label>
+              <AssigneeList
+                value={values.assignedTo}
+                onChange={(newValue) => setFieldValue("assignedTo", newValue)}
+                placeholder={t("Forms.editTask.assigneePlaceholder")}
+                withActions={withActions}
+              />
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.editTask.deadline")}</Label>
-            <Input
-              name="deadline"
-              type="date"
-              value={values.deadline}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              disabled={!withActions}
-            />
-          </InputContainer>
+            <InputContainer>
+              <Label>{t("Forms.editTask.deadline")}</Label>
+              <Input
+                name="deadline"
+                type="date"
+                value={values.deadline}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                disabled={!withActions}
+              />
+            </InputContainer>
 
-          <InputContainer>
-            <Label>{t("Forms.editTask.attachments")}</Label>
-            <AttachmentList
-              files={values.attachments}
-              editable={withActions}
-              onChange={(updated) => setFieldValue("attachments", updated)}
-            />
-          </InputContainer>
-        </StyledForm>
-      )}
-    </Formik>
+            <InputContainer>
+              <Label>{t("Forms.editTask.attachments")}</Label>
+              <AttachmentList
+                files={values.attachments}
+                editable={withActions}
+                onChange={(updated) => setFieldValue("attachments", updated)}
+              />
+            </InputContainer>
+          </StyledForm>
+        )}
+      </Formik>
+      <CommentsSection taskId={task._id} />
+    </>
   );
 };
 
