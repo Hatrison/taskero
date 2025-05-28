@@ -5,7 +5,7 @@ export const EditTaskSchema = yup.object({
     .string()
     .min(2, "Title must be at least 2 characters")
     .max(200, "Title must be at most 200 characters")
-    .optional(),
+    .required(),
 
   description: yup
     .string()
