@@ -56,7 +56,8 @@ export const theme = {
     roleTextColor: "#ffffff",
 
     // Shadows and Effects
-    shadow: "0px 4px 16px 0px rgba(17, 17, 17, 0.1)",
+    shadow:
+      "0px 1px 2px 0px rgba(0, 0, 0, 0.10), 0px 0px 0px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0px rgba(0, 0, 0, 0.00);",
 
     // Buttons
     buttonText: "#ffffff",
@@ -131,7 +132,8 @@ export const theme = {
     roleTextColor: "#ffffff",
 
     // Shadows and Effects
-    shadow: "0px 4px 16px 0px rgba(0, 0, 0, 0.2)",
+    shadow:
+      "0px 1px 2px 0px rgba(0, 0, 0, 0.10), 0px 0px 0px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0px rgba(0, 0, 0, 0.00);",
 
     // Buttons
     buttonText: "#ffffff",

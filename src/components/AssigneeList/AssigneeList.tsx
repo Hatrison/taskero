@@ -12,6 +12,7 @@ import {
   Dropdown,
   Option,
 } from "@/components/CustomSelect/CustomSelect.styled";
+import { SearchInput } from "./AssigneeList.styled";
 
 type Props = {
   value: UserBase[];
@@ -101,19 +102,12 @@ const AssigneeList = ({
   return (
     <>
       <Wrapper>
-        <input
+        <SearchInput
           ref={inputRef}
           value={query}
           placeholder={placeholder}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => results.length && setOpen(true)}
-          style={{
-            width: "100%",
-            padding: "8px 12px",
-            border: "1px solid #ccc",
-            borderRadius: "6px",
-            fontSize: "14px",
-          }}
         />
         {open &&
           createPortal(

@@ -6,7 +6,15 @@ import { FiEdit3, FiTrash2, FiCheck, FiX, FiPlus } from "react-icons/fi";
 import { useAppDispatch } from "@/hooks";
 import { deleteColumn, updateColumn } from "@/redux/columns/operations";
 import { ColumnWithTasks } from "@/redux/columns/columns.types";
-import CreateTaskModal from "../Modals/CreateTaskModal";
+import TaskCard from "@/components/TaskCard";
+import CreateTaskModal from "@/components/Modals/CreateTaskModal";
+import Loader from "@/components/Loader";
+import {
+  Draggable,
+  Droppable,
+  DraggableProvided,
+  DroppableProvided,
+} from "@hello-pangea/dnd";
 import {
   Wrapper,
   Header,
@@ -50,6 +58,16 @@ const ColumnCard = ({
           <AddButton>
             <FiPlus size={16} /> {t("Project.columns.addColumn")}
           </AddButton>
+        </Placeholder>
+      </Wrapper>
+    );
+  }
+
+  if (!column) {
+    return (
+      <Wrapper isEmpty>
+        <Placeholder loading>
+          <Loader size="60px" color="#3e85f3" />
         </Placeholder>
       </Wrapper>
     );
@@ -159,11 +177,26 @@ const ColumnCard = ({
           )}
         </Header>
 
-        <Tasks>
-          {column?.tasks.map((task) => (
-            <div key={task._id}>{task.title}</div>
-          ))}
-        </Tasks>
+        <Droppable droppableId={column._id} type="task">
+          {(provided: DroppableProvided) => (
+            <Tasks ref={provided.innerRef} {...provided.droppableProps}>
+              {column?.tasks.map((task, index) => (
+                <Draggable draggableId={task._id} index={index} key={task._id}>
+                  {(provided: DraggableProvided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <TaskCard task={task} />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </Tasks>
+          )}
+        </Droppable>
 
         {withActions && (
           <AddButton type="button" onClick={() => toggleCreateTaskModal()}>

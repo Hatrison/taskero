@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { selectCurrentProject } from "@/redux/projects/selectors";
 import { createColumn, reorderColumns } from "@/redux/columns/operations";
 import { ColumnWithTasks } from "@/redux/columns/columns.types";
+import { updateTask } from "@/redux/tasks/operations";
 import ColumnCard from "@/components/ColumnCard";
 import {
   DragDropContext,
@@ -59,39 +60,70 @@ const ProjectColumns = ({
     }
   };
 
-  const handleDragEnd = (result: DropResult) => {
-    if (!isEditMode) return;
-    if (!result.destination) return;
+  const handleDragEnd = async (result: DropResult) => {
+    const { source, destination, draggableId, type } = result;
 
-    const { source, destination } = result;
-    if (source.index === destination.index) return;
+    if (!destination) return;
 
-    const sortedColumns = getSortedColumns();
+    if (type === "column") {
+      if (!isEditMode || source.index === destination.index) return;
 
-    const reordered = [...sortedColumns];
-    const [moved] = reordered.splice(source.index, 1);
-    reordered.splice(destination.index, 0, moved);
+      const sortedColumns = getSortedColumns();
+      const reordered = [...sortedColumns];
+      const [moved] = reordered.splice(source.index, 1);
+      reordered.splice(destination.index, 0, moved);
 
-    const updatedColumns = reordered.map((col, index) => ({
-      ...col,
-      order: index,
-    }));
+      const updatedColumns = reordered.map((col, index) => ({
+        id: col._id,
+        order: index,
+      }));
 
-    try {
-      dispatch(
-        reorderColumns({
-          columns: updatedColumns.map((col) => ({
-            id: col._id,
-            order: col.order,
-          })),
-        })
+      try {
+        await dispatch(reorderColumns({ columns: updatedColumns }));
+      } catch (error) {
+        toast.error(
+          `${t("Project.columns.reorderFailed")}: ${
+            error instanceof Error ? error.message : String(error)
+          }`
+        );
+      }
+
+      return;
+    }
+
+    if (type === "task") {
+      if (
+        source.droppableId === destination.droppableId &&
+        source.index === destination.index
+      )
+        return;
+
+      const sourceColumn = columns.find(
+        (col) => col._id === source.droppableId
       );
-    } catch (error) {
-      toast.error(
-        `${t("Project.columns.reorderFailed")}: ${
-          error instanceof Error ? error.message : String(error)
-        }`
-      );
+      const movedTask = sourceColumn?.tasks.find((t) => t._id === draggableId);
+
+      if (!movedTask) return;
+
+      try {
+        const formData = new FormData();
+        formData.append("column", destination.droppableId);
+
+        await dispatch(
+          updateTask({
+            id: draggableId,
+            formData: formData,
+          })
+        );
+      } catch (error) {
+        toast.error(
+          `${t("Project.columns.moveTaskFailed")}: ${
+            error instanceof Error ? error.message : String(error)
+          }`
+        );
+      }
+
+      return;
     }
   };
 
@@ -111,8 +143,8 @@ const ProjectColumns = ({
         </EditOrderButton>
       )}
 
-      {isEditMode ? (
-        <DragDropContext onDragEnd={handleDragEnd}>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        {isEditMode ? (
           <Droppable droppableId="columns" direction="horizontal" type="column">
             {(provided) => (
               <ColumnsRow ref={provided.innerRef} {...provided.droppableProps}>
@@ -141,25 +173,26 @@ const ProjectColumns = ({
               </ColumnsRow>
             )}
           </Droppable>
-        </DragDropContext>
-      ) : (
-        <ColumnsRow>
-          {getSortedColumns().map((column) => (
-            <ColumnCard
-              key={column._id}
-              column={column}
-              withActions={withActions}
-            />
-          ))}
-        </ColumnsRow>
-      )}
-      {isEditMode && (
-        <ColumnCard
-          isEmpty
-          withActions={withActions}
-          onClickEmpty={() => handleAddColumn()}
-        />
-      )}
+        ) : (
+          <ColumnsRow>
+            {getSortedColumns().map((column) => (
+              <ColumnCard
+                key={column._id}
+                column={column}
+                withActions={withActions}
+              />
+            ))}
+          </ColumnsRow>
+        )}
+
+        {isEditMode && (
+          <ColumnCard
+            isEmpty
+            withActions={withActions}
+            onClickEmpty={handleAddColumn}
+          />
+        )}
+      </DragDropContext>
     </Wrapper>
   );
 };

@@ -4,7 +4,7 @@ export const ListContainer = styled.div`
   max-height: 240px;
   overflow-y: auto;
   border: 1px solid ${({ theme }) => theme.borderColor};
-  border-radius: 8px;
+  border-radius: 4px;
 `;
 
 export const MemberRow = styled.div`

@@ -14,7 +14,7 @@ export const Wrapper = styled.div<{ isEmpty?: boolean }>`
   cursor: default;
 `;
 
-export const Placeholder = styled.div`
+export const Placeholder = styled.div<{ loading?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@ export const Placeholder = styled.div`
   padding: 16px;
   font-size: 16px;
   text-align: center;
-  cursor: pointer;
+  cursor: ${({ loading }) => (loading ? "default" : "pointer")};
 `;
 
 export const AddButton = styled.button`
@@ -63,6 +63,7 @@ export const TitleInput = styled.input`
   font-weight: 600;
   width: 100%;
   background-color: transparent;
+  color: ${({ theme }) => theme.primaryText};
   border: none;
   padding: 0px;
 

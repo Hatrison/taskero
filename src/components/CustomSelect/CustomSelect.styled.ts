@@ -21,6 +21,10 @@ export const Trigger = styled.button`
   height: 100%;
   cursor: pointer;
   overflow: hidden;
+
+  &[disabled] {
+    cursor: default;
+  }
 `;
 
 export const Label = styled.span`

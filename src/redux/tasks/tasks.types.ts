@@ -1,3 +1,5 @@
+import { UserBase } from "../user/user.types";
+
 export type TaskPriority = "low" | "medium" | "high" | "critical";
 
 export interface Task {
@@ -7,7 +9,7 @@ export interface Task {
   status?: string;
   project: string;
   column: string;
-  assignedTo: string[];
+  assignedTo: UserBase[];
   priority: TaskPriority;
   attachments: string[];
   deadline?: string;

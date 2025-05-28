@@ -18,6 +18,7 @@ type Props<T> = {
   getKey: (item: T) => string;
   getColor?: (item: T) => string;
   placeholder?: string;
+  disabled?: boolean;
 };
 
 const CustomSelect = <T,>({
@@ -28,6 +29,7 @@ const CustomSelect = <T,>({
   getKey,
   getColor,
   placeholder = "Select...",
+  disabled = false,
 }: Props<T>) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -70,18 +72,23 @@ const CustomSelect = <T,>({
       <Trigger
         type="button"
         ref={triggerRef}
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => {
+          if (!disabled) setOpen((prev) => !prev);
+        }}
         title={value ? getLabel(value) : ""}
+        disabled={disabled}
       >
         {value && getColor && <ColorDot color={getColor(value)} />}
         <Label>{value ? getLabel(value) : placeholder}</Label>
-        <FiChevronDown
-          size={16}
-          style={{
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            transition: "transform 0.2s",
-          }}
-        />
+        {!disabled && (
+          <FiChevronDown
+            size={16}
+            style={{
+              transform: open ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.2s",
+            }}
+          />
+        )}
       </Trigger>
 
       {open &&

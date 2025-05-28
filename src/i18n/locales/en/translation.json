@@ -151,6 +151,9 @@
     },
     "createTask": {
       "title": "Create Task"
+    },
+    "editTask": {
+      "title": "Edit Task"
     }
   },
   "Forms": {
@@ -232,6 +235,23 @@
       "dueDate": "Due date (optional)",
       "success": "Task created successfully",
       "failed": "Failed to create task"
+    },
+    "editTask": {
+      "title": "Task title",
+      "titlePlaceholder": "Enter task title",
+      "description": "Task description (optional)",
+      "descriptionPlaceholder": "Enter description (optional)",
+      "priority": "Priority",
+      "assignedTo": "Assigned to",
+      "assigneePlaceholder": "Search for users",
+      "deadline": "Deadline (optional)",
+      "attachments": "Attachments",
+      "success": "Task updated successfully",
+      "failed": "Failed to update task"
+    },
+    "deleteTask": {
+      "success": "Task deleted successfully",
+      "failed": "Failed to delete task"
     }
   }
 }
