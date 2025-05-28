@@ -29,6 +29,7 @@ const ImageUploadField = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [field, meta, helpers] = useField(name);
   const [preview, setPreview] = useState<string | null>(null);
+  const [dragActive, setDragActive] = useState(false);
 
   useEffect(() => {
     if (!field.value && initialPreview) {
@@ -41,18 +42,35 @@ const ImageUploadField = ({
     setPreview(URL.createObjectURL(file));
   };
 
+  const onDragEnter = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragActive(true);
+  };
+  const onDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragActive(false);
+  };
+  const onDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+  const onDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragActive(false);
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      handleFileChange(file);
+    }
+  };
+
   return (
     <>
       <FileDropZone
         onClick={() => fileInputRef.current?.click()}
-        onDrop={(e) => {
-          e.preventDefault();
-          const file = e.dataTransfer.files[0];
-          if (file) {
-            handleFileChange(file);
-          }
-        }}
-        onDragOver={(e) => e.preventDefault()}
+        isDragActive={dragActive}
+        onDragEnter={onDragEnter}
+        onDragLeave={onDragLeave}
+        onDragOver={onDragOver}
+        onDrop={onDrop}
       >
         {preview ? (
           <PreviewImage src={preview} alt="Preview" />

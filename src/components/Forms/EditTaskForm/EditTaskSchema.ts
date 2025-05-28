@@ -21,5 +21,13 @@ export const EditTaskSchema = yup.object({
 
   deadline: yup.date().nullable().optional(),
 
-  attachments: yup.array().of(yup.string().url()).optional(),
+  attachments: yup
+    .array()
+    .of(
+      yup.object({
+        url: yup.string().required(),
+        file: yup.mixed().notRequired(),
+      })
+    )
+    .optional(),
 });

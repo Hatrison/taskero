@@ -246,6 +246,7 @@
       "assigneePlaceholder": "Search for users",
       "deadline": "Deadline (optional)",
       "attachments": "Attachments",
+      "dragOrClick": "Drag and drop files here or click to upload attachments",
       "success": "Task updated successfully",
       "failed": "Failed to update task"
     },

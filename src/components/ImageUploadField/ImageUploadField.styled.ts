@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-export const FileDropZone = styled.div`
-  border: 2px dashed ${({ theme }) => theme.borderColor};
+export const FileDropZone = styled.div<{ isDragActive: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${({ theme, isDragActive }) =>
+    isDragActive ? theme.background : theme.backgroundSecondary};
+  border: 2px dashed
+    ${({ theme, isDragActive }) =>
+      isDragActive ? theme.primary : theme.borderColor};
   border-radius: 8px;
   padding: 32px 24px;
   text-align: center;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.backgroundSecondary};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 12px;
+  transition: background-color ${({ theme }) => theme.animation},
+    border-color ${({ theme }) => theme.animation};
 `;
 
 export const UploadText = styled.div`

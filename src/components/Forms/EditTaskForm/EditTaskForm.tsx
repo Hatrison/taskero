@@ -5,7 +5,7 @@ import { useAppDispatch } from "@/hooks";
 import { updateTask } from "@/redux/tasks/operations";
 import CustomSelect from "@/components/CustomSelect";
 import AssigneeList from "@/components/AssigneeList";
-// import AttachmentList from "@/components/AttachmentList";
+import AttachmentList, { Attachment } from "@/components/AttachmentList";
 import Loader from "@/components/Loader";
 import { EditTaskSchema } from "./EditTaskSchema";
 import { Task, TaskPriority } from "@/redux/tasks/tasks.types";
@@ -42,7 +42,9 @@ const EditTaskForm = ({
     priority: task.priority || "medium",
     assignedTo: task.assignedTo || [],
     deadline: task.deadline?.slice(0, 10) || "",
-    attachments: task.attachments || [],
+    attachments: (task.attachments || []).map((url) => ({
+      url,
+    })) as Attachment[],
   };
 
   const priorityColors: Record<TaskPriority, string> = {
@@ -64,7 +66,16 @@ const EditTaskForm = ({
       const assignedToIds = values.assignedTo.map((user) => user._id);
       formData.append("assignedTo", JSON.stringify(assignedToIds));
 
-      formData.append("attachments", JSON.stringify(values.attachments));
+      const existingUrls = values.attachments
+        .filter((a) => !a.file)
+        .map((a) => a.url);
+      formData.append("attachments", JSON.stringify(existingUrls));
+
+      values.attachments
+        .filter((a) => a.file)
+        .forEach((a) => {
+          formData.append("files", a.file!);
+        });
 
       await dispatch(updateTask({ id: task._id, formData })).unwrap();
 
@@ -170,11 +181,11 @@ const EditTaskForm = ({
 
           <InputContainer>
             <Label>{t("Forms.editTask.attachments")}</Label>
-            {/* <AttachmentList
+            <AttachmentList
               files={values.attachments}
               editable={withActions}
               onChange={(updated) => setFieldValue("attachments", updated)}
-            /> */}
+            />
           </InputContainer>
         </StyledForm>
       )}
