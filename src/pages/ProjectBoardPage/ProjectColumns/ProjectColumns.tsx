@@ -78,15 +78,11 @@ const ProjectColumns = ({
         order: index,
       }));
 
-      try {
-        await dispatch(reorderColumns({ columns: updatedColumns }));
-      } catch (error) {
-        toast.error(
-          `${t("Project.columns.reorderFailed")}: ${
-            error instanceof Error ? error.message : String(error)
-          }`
-        );
-      }
+      dispatch(reorderColumns({ columns: updatedColumns }))
+        .unwrap()
+        .catch((err) => {
+          toast.error(`${t("Project.columns.reorderFailed")}: ${err.message}`);
+        });
 
       return;
     }
@@ -105,23 +101,14 @@ const ProjectColumns = ({
 
       if (!movedTask) return;
 
-      try {
-        const formData = new FormData();
-        formData.append("column", destination.droppableId);
+      const formData = new FormData();
+      formData.append("column", destination.droppableId);
 
-        await dispatch(
-          updateTask({
-            id: draggableId,
-            formData: formData,
-          })
-        );
-      } catch (error) {
-        toast.error(
-          `${t("Project.columns.moveTaskFailed")}: ${
-            error instanceof Error ? error.message : String(error)
-          }`
-        );
-      }
+      dispatch(updateTask({ id: result.draggableId, formData }))
+        .unwrap()
+        .catch((err) => {
+          toast.error(`${t("Project.columns.moveTaskFailed")}: ${err.message}`);
+        });
 
       return;
     }
@@ -144,7 +131,7 @@ const ProjectColumns = ({
       )}
 
       <DragDropContext onDragEnd={handleDragEnd}>
-        {isEditMode ? (
+        {isEditMode && withActions ? (
           <Droppable droppableId="columns" direction="horizontal" type="column">
             {(provided) => (
               <ColumnsRow ref={provided.innerRef} {...provided.droppableProps}>

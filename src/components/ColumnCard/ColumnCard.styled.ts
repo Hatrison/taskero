@@ -5,7 +5,7 @@ export const Wrapper = styled.div<{ isEmpty?: boolean }>`
   flex-direction: column;
   gap: 16px;
   width: 290px;
-  min-height: 100%;
+  height: 100%;
   padding: ${({ isEmpty }) => (isEmpty ? "0" : "16px")};
   color: ${({ theme }) => theme.secondaryText};
   background-color: ${({ theme }) => theme.backgroundSecondary};
@@ -97,5 +97,8 @@ export const ControlButton = styled.button<{ hoverColor?: string }>`
 export const Tasks = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
   gap: 8px;
+  overflow-y: auto;
+  min-height: 100px;
 `;

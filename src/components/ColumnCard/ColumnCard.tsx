@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useTheme } from "styled-components";
@@ -35,6 +35,13 @@ type Props = {
   onClickEmpty?: () => void;
 };
 
+const priorityMap: Record<string, number> = {
+  critical: 3,
+  high: 2,
+  medium: 1,
+  low: 0,
+};
+
 const ColumnCard = ({
   column,
   isEmpty,
@@ -48,6 +55,15 @@ const ColumnCard = ({
   const [isCreateTaskModalOpen, setIsCreateTaskModalOpen] = useState(false);
   const { t } = useTranslation();
   const theme = useTheme();
+
+  const sortedTasks = useMemo(() => {
+    if (!column?.tasks) return [];
+    return [...column.tasks].sort((a, b) => {
+      const pa = priorityMap[a.priority] ?? 0;
+      const pb = priorityMap[b.priority] ?? 0;
+      return pb - pa;
+    });
+  }, [column?.tasks]);
 
   if (isEmpty) {
     if (!withActions) return null;
@@ -177,31 +193,37 @@ const ColumnCard = ({
           )}
         </Header>
 
-        <Droppable droppableId={column._id} type="task">
-          {(provided: DroppableProvided) => (
-            <Tasks ref={provided.innerRef} {...provided.droppableProps}>
-              {column?.tasks.map((task, index) => (
-                <Draggable draggableId={task._id} index={index} key={task._id}>
-                  {(provided: DraggableProvided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <TaskCard task={task} />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </Tasks>
-          )}
-        </Droppable>
-
-        {withActions && (
-          <AddButton type="button" onClick={() => toggleCreateTaskModal()}>
-            <FiPlus size={16} /> {t("Project.columns.addTask")}
-          </AddButton>
+        {withActions ? (
+          <Droppable droppableId={column._id} type="task">
+            {(provided: DroppableProvided) => (
+              <Tasks ref={provided.innerRef} {...provided.droppableProps}>
+                {sortedTasks.map((task, index) => (
+                  <Draggable
+                    draggableId={task._id}
+                    index={index}
+                    key={task._id}
+                  >
+                    {(provided: DraggableProvided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <TaskCard task={task} withActions={withActions} />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </Tasks>
+            )}
+          </Droppable>
+        ) : (
+          <Tasks>
+            {sortedTasks.map((task) => (
+              <TaskCard key={task._id} task={task} withActions={withActions} />
+            ))}
+          </Tasks>
         )}
       </Wrapper>
 

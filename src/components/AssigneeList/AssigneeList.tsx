@@ -18,12 +18,14 @@ type Props = {
   value: UserBase[];
   onChange: (updated: UserBase[]) => void;
   placeholder?: string;
+  withActions?: boolean;
 };
 
 const AssigneeList = ({
   value,
   onChange,
   placeholder = "Search...",
+  withActions = false,
 }: Props) => {
   const dispatch = useAppDispatch();
   const project = useAppSelector(selectCurrentProject);
@@ -101,34 +103,36 @@ const AssigneeList = ({
 
   return (
     <>
-      <Wrapper>
-        <SearchInput
-          ref={inputRef}
-          value={query}
-          placeholder={placeholder}
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => results.length && setOpen(true)}
-        />
-        {open &&
-          createPortal(
-            <Dropdown
-              ref={dropdownRef}
-              $top={position.top}
-              $left={position.left}
-              $width={position.width}
-            >
-              {results.map((user) => (
-                <Option key={user._id} onClick={() => handleSelect(user)}>
-                  {user.name} ({user.email})
-                </Option>
-              ))}
-            </Dropdown>,
-            document.body
-          )}
-      </Wrapper>
+      {withActions && (
+        <Wrapper>
+          <SearchInput
+            ref={inputRef}
+            value={query}
+            placeholder={placeholder}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => results.length && setOpen(true)}
+          />
+          {open &&
+            createPortal(
+              <Dropdown
+                ref={dropdownRef}
+                $top={position.top}
+                $left={position.left}
+                $width={position.width}
+              >
+                {results.map((user) => (
+                  <Option key={user._id} onClick={() => handleSelect(user)}>
+                    {user.name} ({user.email})
+                  </Option>
+                ))}
+              </Dropdown>,
+              document.body
+            )}
+        </Wrapper>
+      )}
       <UserList
         users={value}
-        withActions={true}
+        withActions={withActions}
         onChange={(updatedUsers) => onChange(updatedUsers as UserBase[])}
         viewMode
       />

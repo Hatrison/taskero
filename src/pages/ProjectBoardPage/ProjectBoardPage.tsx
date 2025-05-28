@@ -36,6 +36,7 @@ const ProjectBoardPage = () => {
   const [isEditMembersModalOpen, setIsEditMembersModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [canEditProject, setCanEditProject] = useState(false);
+  const [canEditBoard, setCanEditBoard] = useState(false);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -64,9 +65,19 @@ const ProjectBoardPage = () => {
         ?.filter((member) => member.role === "owner")
         .map((member) => member.user._id) || [];
 
+    const editors =
+      project?.members
+        ?.filter((member) => member.role === "editor")
+        .map((member) => member.user._id) || [];
+
     const isCurrentUserOwner = owners.includes(currentUser._id);
+
+    const isCurrentUserEditor = editors.includes(currentUser._id);
+
     setCanEditProject(isCurrentUserOwner);
+    setCanEditBoard(isCurrentUserOwner || isCurrentUserEditor);
   }, [currentUser, project]);
+
   const handleDelete = async () => {
     if (!projectId || !project) return;
 
@@ -126,7 +137,7 @@ const ProjectBoardPage = () => {
               tasks: tasksByColumn[c._id] || [],
             }))}
             topOffset={headerHeight}
-            withActions={canEditProject}
+            withActions={canEditBoard}
           />
         </BoardContainer>
       )}

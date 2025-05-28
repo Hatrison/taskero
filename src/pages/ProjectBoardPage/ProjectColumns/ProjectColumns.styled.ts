@@ -41,6 +41,7 @@ export const EditOrderButton = styled.button<{ topOffset: number }>`
 
 export const ColumnsRow = styled.div`
   display: flex;
+  align-items: stretch;
   height: 100%;
   gap: 24px;
 `;

@@ -137,6 +137,7 @@ const CreateTaskForm = ({ handlerCloseModal, formName, columnId }: Props) => {
               value={assignees}
               onChange={setAssignees}
               placeholder={t("Forms.createTask.assigneePlaceholder")}
+              withActions
             />
           </InputContainer>
         </StyledForm>

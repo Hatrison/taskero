@@ -91,12 +91,14 @@ const UserList = ({
                 <Email>{user.email}</Email>
               </MemberInfo>
 
-              <RemoveButton
-                type="button"
-                onClick={() => handleRemoveInViewMode(user.email)}
-              >
-                {t("Forms.common.remove")}
-              </RemoveButton>
+              {withActions && (
+                <RemoveButton
+                  type="button"
+                  onClick={() => handleRemoveInViewMode(user.email)}
+                >
+                  {t("Forms.common.remove")}
+                </RemoveButton>
+              )}
             </MemberRow>
           );
         })}

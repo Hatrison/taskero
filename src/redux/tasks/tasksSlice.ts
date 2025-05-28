@@ -8,7 +8,11 @@ import {
 } from "./operations";
 import { TasksState, Task } from "./tasks.types";
 
-const initialState: TasksState = {
+type ExtendedTasksState = TasksState & {
+  _snapshot?: Record<string, string>;
+};
+
+const initialState: ExtendedTasksState = {
   items: [],
   loading: false,
   error: null,
@@ -39,13 +43,39 @@ const tasksSlice = createSlice({
       .addCase(createTask.fulfilled, (state, action) => {
         state.items.push(action.payload);
       })
-      .addCase(updateTask.fulfilled, (state, action) => {
-        const updated = action.payload;
-        const index = state.items.findIndex((t) => t._id === updated._id);
-        if (index !== -1) state.items[index] = updated;
-      })
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.items = state.items.filter((t) => t._id !== action.payload);
+      })
+      .addCase(updateTask.pending, (state, action) => {
+        const { id, formData } = action.meta.arg;
+        const task = state.items.find((t) => t._id === id);
+        if (task) {
+          state._snapshot = state._snapshot || {};
+          state._snapshot[id] = task.column;
+          const newCol = formData.get("column");
+          if (typeof newCol === "string") {
+            task.column = newCol;
+          }
+        }
+      })
+      .addCase(updateTask.fulfilled, (state, action) => {
+        const updated = action.payload;
+        const idx = state.items.findIndex((t) => t._id === updated._id);
+        if (idx !== -1) state.items[idx] = updated;
+        if (state._snapshot) {
+          delete state._snapshot[updated._id];
+        }
+      })
+      .addCase(updateTask.rejected, (state, action) => {
+        const id = action.meta.arg.id;
+        const oldCol = state._snapshot?.[id];
+        if (oldCol) {
+          const task = state.items.find((t) => t._id === id);
+          if (task) task.column = oldCol;
+        }
+        if (state._snapshot) {
+          delete state._snapshot[id];
+        }
       })
       .addMatcher(
         isAnyOf(

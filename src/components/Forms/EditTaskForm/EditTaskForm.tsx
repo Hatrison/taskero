@@ -152,6 +152,7 @@ const EditTaskForm = ({
               value={values.assignedTo}
               onChange={(newValue) => setFieldValue("assignedTo", newValue)}
               placeholder={t("Forms.editTask.assigneePlaceholder")}
+              withActions={withActions}
             />
           </InputContainer>
 

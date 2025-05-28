@@ -17,9 +17,10 @@ import {
 
 type Props = {
   task: Task;
+  withActions?: boolean;
 };
 
-const TaskCard = ({ task }: Props) => {
+const TaskCard = ({ task, withActions = false }: Props) => {
   const { title, deadline, priority, assignedTo } = task;
   const dispatch = useAppDispatch();
   const [isEditTaskModalOpen, setIsEditTaskModalOpen] = useState(false);
@@ -67,7 +68,7 @@ const TaskCard = ({ task }: Props) => {
           task={task}
           handlerCloseModal={toggleEditTaskModal}
           deleteAction={handleDeleteTask}
-          withActions
+          withActions={withActions}
         />
       )}
     </>

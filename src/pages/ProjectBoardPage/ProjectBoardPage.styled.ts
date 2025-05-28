@@ -20,6 +20,7 @@ export const LoadContainer = styled.div`
 export const BoardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
+  flex: 1 1 auto;
   background-color: ${({ theme }) => theme.background};
+  overflow: hidden;
 `;

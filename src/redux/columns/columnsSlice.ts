@@ -8,7 +8,16 @@ import {
 } from "./operations";
 import { Column, ColumnsState } from "./columns.types";
 
-const initialState: ColumnsState = {
+interface ReorderSnapshot {
+  id: string;
+  order: number;
+}
+
+type ColumnsSliceState = ColumnsState & {
+  _snapshot?: ReorderSnapshot[];
+};
+
+const initialState: ColumnsSliceState = {
   items: [],
   loading: false,
   error: null,
@@ -38,11 +47,29 @@ const columnsSlice = createSlice({
         const index = state.items.findIndex((c) => c._id === updated._id);
         if (index !== -1) state.items[index] = updated;
       })
-      .addCase(reorderColumns.fulfilled, (state, action) => {
-        state.items = action.payload;
-      })
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.items = state.items.filter((c) => c._id !== action.payload);
+      })
+      .addCase(reorderColumns.pending, (state, action) => {
+        state._snapshot = state.items.map((c) => ({
+          id: c._id,
+          order: c.order,
+        }));
+        action.meta.arg.columns.forEach(({ id, order }) => {
+          const col = state.items.find((c) => c._id === id);
+          if (col) col.order = order;
+        });
+      })
+      .addCase(reorderColumns.fulfilled, (state, action) => {
+        state.items = action.payload;
+        delete state._snapshot;
+      })
+      .addCase(reorderColumns.rejected, (state) => {
+        state._snapshot?.forEach(({ id, order }) => {
+          const col = state.items.find((c) => c._id === id);
+          if (col) col.order = order;
+        });
+        delete state._snapshot;
       })
       .addMatcher(
         isAnyOf(
