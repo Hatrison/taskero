@@ -3,6 +3,7 @@ import { fetchCurrentUser, updateUser } from "./operations";
 import { TUserState } from "./user.types";
 
 const initialState: TUserState = {
+  _id: "",
   name: "",
   email: "",
   avatar: "",

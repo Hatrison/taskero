@@ -6,6 +6,8 @@ import PrivateRoute from "@/components/Route/PrivateRoute";
 import RestrictedRoute from "@/components/Route/RestrictedRoute";
 import { useAppSelector } from "@/hooks";
 import { selectIsLoggedIn } from "@/redux/auth/selectors";
+import { LoadContainer } from "@/components/Loader/Loader.styled";
+import Loader from "@/components/Loader";
 
 const LandingPage = lazy(() => import("@/pages/LandingPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
@@ -20,7 +22,13 @@ const Router = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <LoadContainer>
+          <Loader />
+        </LoadContainer>
+      }
+    >
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route element={isLoggedIn ? <MainLayout /> : <LandingPage />}>

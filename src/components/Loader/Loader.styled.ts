@@ -20,3 +20,12 @@ export const LoaderSpinner = styled.div<{
   border-radius: 50%;
   animation: ${spin} 1s linear infinite;
 `;
+
+export const LoadContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: ${({ theme }) => theme.background};
+`;

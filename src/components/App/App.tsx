@@ -1,26 +1,16 @@
-import Loader from "@/components/Loader";
-import { ToastContainer } from "react-toastify";
-import { useEffect } from "react";
-
-import Theme from "@/components/Theme";
-import GlobalStyle from "@/components/Theme/GlobalStyle.styled";
-import { useAppDispatch, useAppSelector } from "@/hooks";
-import { fetchCurrentUser } from "@/redux/user/operations";
-import { selectIsRefreshing } from "@/redux/auth/selectors";
-
 import Router from "@/routes";
+import { ToastContainer } from "react-toastify";
+import { useAppSelector } from "@/hooks";
+import { selectIsRefreshing } from "@/redux/auth/selectors";
+import GlobalStyle from "@/components/Theme/GlobalStyle.styled";
+import Loader from "@/components/Loader";
 import { LoadContainer } from "./App.styled";
 
 const App = () => {
-  const dispatch = useAppDispatch();
   const isRefreshing = useAppSelector(selectIsRefreshing);
 
-  useEffect(() => {
-    dispatch(fetchCurrentUser());
-  }, [dispatch]);
-
   return (
-    <Theme>
+    <>
       {isRefreshing ? (
         <LoadContainer>
           <Loader size="60px" color="#3e85f3" />
@@ -30,7 +20,7 @@ const App = () => {
       )}
       <GlobalStyle />
       <ToastContainer autoClose={3000} />
-    </Theme>
+    </>
   );
 };
 
