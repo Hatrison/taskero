@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[669],{4669:(e,r,o)=>{o.r(r),o.d(r,{default:()=>se});var n=o(5043),t=o(4961),a=o(9867),l=o(377),i=o(5939),s=o(551),d=o(5464),c=o(2115),m=o(3289),p=o(5601),u=o(3367),h=o(9593),x=o(7784),g=o(3892),y=o(184);const f=d.Ay.div`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[669],{4669:(e,r,o)=>{o.r(r),o.d(r,{default:()=>se});var n=o(5043),t=o(4961),a=o(9867),l=o(377),i=o(2246),s=o(551),d=o(5464),c=o(2115),m=o(3289),p=o(5601),u=o(3367),h=o(9593),x=o(7784),g=o(3892),y=o(184);const f=d.Ay.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -200,4 +200,4 @@
     grid-template-columns: 1fr;
   }
 `,se=()=>{const[e,r]=(0,n.useState)(""),[o,d]=(0,n.useState)("name"),[c,m]=(0,n.useState)(!1),p=(0,a.GV)(l.Yl),u=(0,a.GV)(l.EB),{t:h}=(0,t.B)(),x=()=>{m((e=>!e))},g=(0,n.useMemo)((()=>u.filter((r=>r.name.toLowerCase().includes(e.toLowerCase()))).sort(((e,r)=>"name"===o?e.name.localeCompare(r.name):"date"===o?new Date(r.createdAt).getTime()-new Date(e.createdAt).getTime():0))),[u,e,o]);return(0,$.jsx)(X,{children:p?(0,$.jsx)(Z,{children:(0,$.jsx)(i.A,{size:"48px",color:"#3e85f3"})}):(0,$.jsxs)($.Fragment,{children:[(0,$.jsxs)(ee,{children:[(0,$.jsxs)(re,{children:[(0,$.jsx)(oe,{children:h("Companies.title")}),(0,$.jsx)(ne,{onClick:()=>x(),children:h("Companies.create")})]}),(0,$.jsxs)(te,{children:[(0,$.jsx)(ae,{type:"text",placeholder:h("Companies.searchPlaceholder"),value:e,onChange:e=>r(e.target.value)}),(0,$.jsx)(le,{children:(0,$.jsx)(s.A,{options:["name","date"],value:o,onChange:d,getLabel:e=>h(`Companies.filters.${e}`),getKey:e=>e})})]})]}),(0,$.jsx)(ie,{children:g.map((e=>(0,$.jsx)(_,{company:e},e._id)))}),c&&(0,$.jsx)(W,{handlerCloseModal:x})]})})}}}]);
-//# sourceMappingURL=669.a33f6c7c.chunk.js.map
+//# sourceMappingURL=669.9eb10faa.chunk.js.map
