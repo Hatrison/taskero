@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[412],{8320:(e,t,n)=>{n.r(t),n.d(t,{default:()=>je});var r=n(5043),i=n(9657),o=n(3168),a=n(4961),d=n(5180),l=n(5464);const s=l.Ay.header`
+"use strict";(self.webpackChunktaskero=self.webpackChunktaskero||[]).push([[414],{6119:(e,t,n)=>{n.d(t,{ej:()=>r});const r=e=>e.reviews.items},9122:(e,t,n)=>{n.r(t),n.d(t,{default:()=>je});var r=n(5043),i=n(9657),o=n(3168),a=n(4961),d=n(5180),l=n(5464);const s=l.Ay.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,7 +153,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-`,N=l.Ay.section`
+`,B=l.Ay.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,11 +165,11 @@
   @media screen and (min-width: 1280px) {
     padding: 80px 36px;
   }
-`,B=l.Ay.h2`
+`,N=l.Ay.h2`
   font-size: 28px;
   font-weight: 700;
   color: ${e=>{let{theme:t}=e;return t.primaryText}};
-`,_=e=>{let{title:t,backgroundColor:n,id:r,children:i}=e;return(0,v.jsxs)(N,{$background:n,id:r,children:[(0,v.jsx)(B,{children:t}),i]})},K=()=>{const{t:e}=(0,a.B)(),t=(0,l.DP)();return(0,v.jsx)(_,{title:e("LandingPage.KeyFeatures.title"),backgroundColor:t.backgroundSecondary,id:"features",children:(0,v.jsxs)(F,{children:[(0,v.jsx)(H,{icon:y.ND1,title:e("LandingPage.KeyFeatures.feature1.title"),description:e("LandingPage.KeyFeatures.feature1.description")}),(0,v.jsx)(H,{icon:y.cfS,title:e("LandingPage.KeyFeatures.feature2.title"),description:e("LandingPage.KeyFeatures.feature2.description")}),(0,v.jsx)(H,{icon:S.qN5,title:e("LandingPage.KeyFeatures.feature3.title"),description:e("LandingPage.KeyFeatures.feature3.description")})]})})},D=l.Ay.div`
+`,_=e=>{let{title:t,backgroundColor:n,id:r,children:i}=e;return(0,v.jsxs)(B,{$background:n,id:r,children:[(0,v.jsx)(N,{children:t}),i]})},K=()=>{const{t:e}=(0,a.B)(),t=(0,l.DP)();return(0,v.jsx)(_,{title:e("LandingPage.KeyFeatures.title"),backgroundColor:t.backgroundSecondary,id:"features",children:(0,v.jsxs)(F,{children:[(0,v.jsx)(H,{icon:y.ND1,title:e("LandingPage.KeyFeatures.feature1.title"),description:e("LandingPage.KeyFeatures.feature1.description")}),(0,v.jsx)(H,{icon:y.cfS,title:e("LandingPage.KeyFeatures.feature2.title"),description:e("LandingPage.KeyFeatures.feature2.description")}),(0,v.jsx)(H,{icon:S.qN5,title:e("LandingPage.KeyFeatures.feature3.title"),description:e("LandingPage.KeyFeatures.feature3.description")})]})})},D=l.Ay.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -314,7 +314,7 @@
   height: auto;
   display: block;
   max-width: 600px;
-`,te=n.p+"static/media/landing-page_how-it-works.862b4b7820da6013fee8.png",ne=()=>{const{t:e}=(0,a.B)(),t=e("LandingPage.HowItWorks.steps",{returnObjects:!0});return(0,v.jsx)(_,{id:"how-it-works",title:e("LandingPage.HowItWorks.title"),children:(0,v.jsxs)(U,{children:[(0,v.jsx)(V,{children:t.map(((e,t)=>(0,v.jsxs)(Y,{children:[(0,v.jsx)(J,{children:t+1}),(0,v.jsxs)(Q,{children:[(0,v.jsx)(X,{children:e.title}),(0,v.jsx)(Z,{children:e.description})]})]},t)))}),(0,v.jsx)(ee,{src:te,alt:"How it works"})]})})};var re=n(184),ie=n(9867),oe=n(2699);const ae=e=>e.reviews.items;var de=n(2382);const le=(0,l.Ay)(de.A)`
+`,te=n.p+"static/media/landing-page_how-it-works.862b4b7820da6013fee8.png",ne=()=>{const{t:e}=(0,a.B)(),t=e("LandingPage.HowItWorks.steps",{returnObjects:!0});return(0,v.jsx)(_,{id:"how-it-works",title:e("LandingPage.HowItWorks.title"),children:(0,v.jsxs)(U,{children:[(0,v.jsx)(V,{children:t.map(((e,t)=>(0,v.jsxs)(Y,{children:[(0,v.jsx)(J,{children:t+1}),(0,v.jsxs)(Q,{children:[(0,v.jsx)(X,{children:e.title}),(0,v.jsx)(Z,{children:e.description})]})]},t)))}),(0,v.jsx)(ee,{src:te,alt:"How it works"})]})})};var re=n(184),ie=n(9867),oe=n(2699),ae=n(6119),de=n(2382);const le=(0,l.Ay)(de.A)`
   width: 100%;
 
   .slick-slide {
@@ -359,7 +359,7 @@
 `,he=l.Ay.p`
   font-size: 18px;
   color: ${e=>{let{theme:t}=e;return t.primaryText}};
-`,me=()=>{const e=(0,ie.jL)(),t=(0,ie.GV)(ae),{t:n}=(0,a.B)(),i=(0,l.DP)();(0,r.useEffect)((()=>{e((0,oe.M)())}),[e]);const o=e=>{let{rating:t}=e;return(0,v.jsx)("div",{style:{display:"flex",gap:"4px"},children:Array.from({length:5},((e,n)=>n<t?(0,v.jsx)(re.gt3,{size:16,color:i.starColor},n):(0,v.jsx)(re.wei,{size:16,color:i.starColorInactive},n)))})};return(0,v.jsx)(_,{id:"reviews",title:n("LandingPage.Reviews.title"),backgroundColor:i.backgroundSecondary,children:(0,v.jsx)(le,{dots:!0,arrows:!1,infinite:!0,autoplay:!0,speed:500,autoplaySpeed:6e3,slidesToShow:1,slidesToScroll:1,adaptiveHeight:!0,children:t.map((e=>(0,v.jsxs)(se,{children:[(0,v.jsxs)(ce,{children:[(0,v.jsx)(xe,{src:e.user.avatar,alt:e.user.name}),(0,v.jsxs)(pe,{children:[(0,v.jsx)(ge,{children:e.user.name}),(0,v.jsx)(o,{rating:e.rating})]})]}),(0,v.jsx)(he,{children:e.text})]},e._id)))})})},ue=l.Ay.footer`
+`,me=()=>{const e=(0,ie.jL)(),t=(0,ie.GV)(ae.ej),{t:n}=(0,a.B)(),i=(0,l.DP)();(0,r.useEffect)((()=>{e((0,oe.MB)())}),[e]);const o=e=>{let{rating:t}=e;return(0,v.jsx)("div",{style:{display:"flex",gap:"4px"},children:Array.from({length:5},((e,n)=>n<t?(0,v.jsx)(re.gt3,{size:16,color:i.starColor},n):(0,v.jsx)(re.wei,{size:16,color:i.starColorInactive},n)))})};return(0,v.jsx)(_,{id:"reviews",title:n("LandingPage.Reviews.title"),backgroundColor:i.backgroundSecondary,children:(0,v.jsx)(le,{dots:!0,arrows:!1,infinite:!0,autoplay:!0,speed:500,autoplaySpeed:6e3,slidesToShow:1,slidesToScroll:1,adaptiveHeight:!0,children:t.map((e=>(0,v.jsxs)(se,{children:[(0,v.jsxs)(ce,{children:[(0,v.jsx)(xe,{src:e.user.avatar,alt:e.user.name}),(0,v.jsxs)(pe,{children:[(0,v.jsx)(ge,{children:e.user.name}),(0,v.jsx)(o,{rating:e.rating})]})]}),(0,v.jsx)(he,{children:e.text})]},e._id)))})})},ue=l.Ay.footer`
   padding: 24px;
   background-color: ${e=>{let{theme:t}=e;return t.backgroundSecondary}};
   border-top: 1px solid ${e=>{let{theme:t}=e;return t.borderColor}};
@@ -378,4 +378,4 @@
   color: ${e=>{let{theme:t}=e;return t.secondaryText}};
   text-align: center;
 `,fe=()=>{const{t:e}=(0,a.B)(),t=(new Date).getFullYear();return(0,v.jsxs)(ue,{children:[(0,v.jsx)(o.A,{}),(0,v.jsx)(ye,{children:e("LandingPage.Footer.copyright",{year:t})})]})},je=()=>(0,v.jsxs)(v.Fragment,{children:[(0,v.jsx)(P,{}),(0,v.jsx)(R,{}),(0,v.jsx)(K,{}),(0,v.jsx)(ne,{}),(0,v.jsx)(me,{}),(0,v.jsx)(fe,{})]})}}]);
-//# sourceMappingURL=412.32ab38f0.chunk.js.map
+//# sourceMappingURL=414.3ca98a51.chunk.js.map
