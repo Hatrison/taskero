@@ -51,9 +51,35 @@ export const ChildrenWrapper = styled.div`
 
 export const ModalActions = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   padding: 24px;
   border-top: 1px solid ${({ theme }) => theme.borderColor};
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+export const MainControls = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 8px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    & button {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    margin-left: auto;
+  }
 `;

@@ -9,7 +9,9 @@ export const ListContainer = styled.div`
 
 export const MemberRow = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 12px;
   padding: 12px 16px;
   font-size: 15px;
@@ -19,6 +21,19 @@ export const MemberRow = styled.div`
   &:last-child {
     border-bottom: none;
   }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 `;
 
 export const Avatar = styled.img`
@@ -68,6 +83,14 @@ export const RoleBadge = styled.span<{ color: string }>`
   padding: 2px 6px;
   border-radius: 4px;
   white-space: nowrap;
+`;
+
+export const ControlsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
 `;
 
 export const SelectContainer = styled.div`

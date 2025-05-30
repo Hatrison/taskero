@@ -16,6 +16,7 @@ import {
   ChildrenWrapper,
   ModalActions,
   MyCloseIcon,
+  MainControls,
 } from "./ModalLayout.styled";
 
 type Props = {
@@ -57,7 +58,7 @@ const ModalLayout = ({
                 {t("Modals.common.delete")}
               </DeleteButtonModal>
             )}
-            <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+            <MainControls>
               <CancelButtonModal type="button" onClick={handlerCloseModal}>
                 {t("Modals.common.cancel")}
               </CancelButtonModal>
@@ -73,7 +74,7 @@ const ModalLayout = ({
                   </div>
                 )}
               </SubmitButtonModal>
-            </div>
+            </MainControls>
           </ModalActions>
         )}
       </LayoutWrapper>

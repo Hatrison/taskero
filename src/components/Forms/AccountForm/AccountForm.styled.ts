@@ -12,6 +12,7 @@ export const AvatarWrapper = styled.div`
   position: relative;
   width: 96px;
   height: 96px;
+  flex-shrink: 0;
 `;
 
 export const AvatarImage = styled.img`

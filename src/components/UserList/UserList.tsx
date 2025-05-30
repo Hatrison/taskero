@@ -20,6 +20,8 @@ import {
   RoleBadge,
   RemoveButton,
   SelectContainer,
+  InfoWrapper,
+  ControlsWrapper,
 } from "./UserList.styled";
 
 type Role = "owner" | "member" | "editor" | "viewer" | "new";
@@ -169,26 +171,28 @@ const UserList = ({
         {displayedUsers.map((user) => {
           return (
             <MemberRow key={user._id}>
-              {user.avatar ? (
-                <Avatar src={user.avatar} alt={user.name} />
-              ) : (
-                <AvatarPlaceholder />
-              )}
+              <InfoWrapper>
+                {user.avatar ? (
+                  <Avatar src={user.avatar} alt={user.name} />
+                ) : (
+                  <AvatarPlaceholder />
+                )}
 
-              <MemberInfo>
-                <Name>
-                  {user.name}
-                  {user.displayRole && (
-                    <RoleBadge color={roleColors[user.displayRole]}>
-                      {t(`Common.roles.${user.displayRole}`)}
-                    </RoleBadge>
-                  )}
-                </Name>
-                <Email>{user.email}</Email>
-              </MemberInfo>
+                <MemberInfo>
+                  <Name>
+                    {user.name}
+                    {user.displayRole && (
+                      <RoleBadge color={roleColors[user.displayRole]}>
+                        {t(`Common.roles.${user.displayRole}`)}
+                      </RoleBadge>
+                    )}
+                  </Name>
+                  <Email>{user.email}</Email>
+                </MemberInfo>
+              </InfoWrapper>
 
               {withActions && user._id !== currentUser?._id && (
-                <>
+                <ControlsWrapper>
                   {isExtended && canChangeRole && (
                     <SelectContainer>
                       <CustomSelect
@@ -208,7 +212,7 @@ const UserList = ({
                   >
                     {t("Forms.common.remove")}
                   </RemoveButton>
-                </>
+                </ControlsWrapper>
               )}
             </MemberRow>
           );
