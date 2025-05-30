@@ -126,7 +126,8 @@
     }
   },
   "Account": {
-    "title": "Account Settings"
+    "title": "Account Settings",
+    "leaveFeedback": "Leave Feedback"
   },
   "Modals": {
     "common": {
@@ -157,6 +158,9 @@
     },
     "editTask": {
       "title": "Edit Task"
+    },
+    "feedback": {
+      "title": "Feedback"
     }
   },
   "Forms": {
@@ -280,6 +284,23 @@
       "email": "Email",
       "saveChanges": "Save Changes",
       "updateFailed": "Failed to update account"
+    },
+    "feedback": {
+      "rating": "Rating",
+      "text": "Review Text",
+      "placeholder": "Write your review..."
+    },
+    "createReview": {
+      "success": "Review created successfully",
+      "failed": "Failed to create review"
+    },
+    "updateReview": {
+      "success": "Review updated successfully",
+      "failed": "Failed to update review"
+    },
+    "deleteReview": {
+      "success": "Review deleted successfully",
+      "failed": "Failed to delete review"
     }
   }
 }

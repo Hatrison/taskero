@@ -18,3 +18,14 @@ export type ReviewsState = {
   isLoading: boolean;
   error: string | null;
 };
+
+export type CreateReviewPayload = {
+  rating: number;
+  text: string;
+};
+
+export type UpdateReviewPayload = {
+  id: string;
+  rating?: number;
+  text?: string;
+};

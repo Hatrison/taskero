@@ -27,3 +27,24 @@ export const FormWrapper = styled.div`
   padding: 24px;
   box-shadow: ${({ theme }) => theme.shadow};
 `;
+
+export const FeedbackButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 12px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.buttonText};
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color ${({ theme }) => theme.animation};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primaryHover};
+  }
+`;

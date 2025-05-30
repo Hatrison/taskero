@@ -23,7 +23,7 @@ type Props = {
   handlerCloseModal: () => void;
   title: string;
   formName: string;
-  deleteAction?: () => void;
+  deleteAction?: (() => void) | null;
   withActions?: boolean;
   children: React.ReactNode;
 };
