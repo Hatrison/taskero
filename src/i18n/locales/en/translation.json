@@ -125,6 +125,9 @@
       "deleteFailed": "Failed to delete column"
     }
   },
+  "Account": {
+    "title": "Account Settings"
+  },
   "Modals": {
     "common": {
       "delete": "Delete",
@@ -261,6 +264,22 @@
       "save": "Save",
       "post": "Post",
       "fetchFailed": "Failed to load comments"
+    },
+    "account": {
+      "changePassword": "Change Password",
+      "currentPassword": "Current Password",
+      "currentPasswordPlaceholder": "Enter your current password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "confirmNewPassword": "Confirm New Password",
+      "confirmNewPasswordPlaceholder": "Re-enter your new password",
+      "changePasswordSuccess": "Password changed successfully",
+      "changePasswordFailed": "Failed to change password",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "saveChanges": "Save Changes",
+      "updateFailed": "Failed to update account"
     }
   }
 }

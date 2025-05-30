@@ -37,7 +37,7 @@ const CreateCompanyForm = ({ handlerCloseModal, formName }: Props) => {
     }
 
     try {
-      await dispatch(createCompany(formData));
+      await dispatch(createCompany(formData)).unwrap();
       toast.success(t("Forms.createCompany.success") as string);
       handlerCloseModal();
     } catch (error) {

@@ -125,6 +125,9 @@
       "deleteFailed": "Не вдалося видалити стовпець"
     }
   },
+  "Account": {
+    "title": "Мій акаунт"
+  },
   "Modals": {
     "common": {
       "delete": "Видалити",
@@ -261,6 +264,22 @@
       "save": "Зберегти",
       "post": "Опублікувати",
       "fetchFailed": "Не вдалося завантажити коментарі"
+    },
+    "account": {
+      "changePassword": "Змінити пароль",
+      "currentPassword": "Поточний пароль",
+      "currentPasswordPlaceholder": "Введіть свій поточний пароль",
+      "newPassword": "Новий пароль",
+      "newPasswordPlaceholder": "Введіть свій новий пароль",
+      "confirmNewPassword": "Підтвердіть новий пароль",
+      "confirmNewPasswordPlaceholder": "Повторно введіть свій новий пароль",
+      "changePasswordSuccess": "Пароль успішно змінено",
+      "changePasswordFailed": "Не вдалося змінити пароль",
+      "fullName": "Повне ім'я",
+      "fullNamePlaceholder": "Введіть своє повне ім'я",
+      "email": "Електронна пошта",
+      "saveChanges": "Зберегти зміни",
+      "updateFailed": "Не вдалося оновити обліковий запис"
     }
   }
 }

@@ -20,7 +20,9 @@ export const registerUser = createAsyncThunk(
 
       return res.data;
     } catch (err: any) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(
+        err.response?.data?.message || err.message
+      );
     }
   }
 );
@@ -45,7 +47,9 @@ export const loginUser = createAsyncThunk(
 
       return res.data;
     } catch (err: any) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(
+        err.response?.data?.message || err.message
+      );
     }
   }
 );
@@ -59,7 +63,9 @@ export const logoutUser = createAsyncThunk(
       localStorage.removeItem("accessToken");
       thunkAPI.dispatch(clearCurrentCompany());
     } catch (err: any) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(
+        err.response?.data?.message || err.message
+      );
     }
   }
 );

@@ -14,6 +14,9 @@ export interface UserBase {
   avatar?: string;
 }
 
-export type TUserUpdatePayload = Partial<
-  Pick<TUserState, "name" | "avatar" | "theme" | "language">
->;
+export type TUserUpdatePayload = FormData;
+
+export interface ChangePasswordPayload {
+  currentPassword: string;
+  newPassword: string;
+}
