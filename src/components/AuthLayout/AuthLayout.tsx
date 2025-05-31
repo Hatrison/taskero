@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import Logo from "@/components/Logo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
-import { FcGoogle } from "react-icons/fc";
 import {
   Wrapper,
   Card,
@@ -12,8 +11,8 @@ import {
   Divider,
   DividerLine,
   DividerText,
-  GoogleButton,
 } from "./AuthLayout.styled";
+import GoogleLoginButton from "./GoogleLoginButton";
 
 type Props = {
   children: React.ReactNode;
@@ -46,10 +45,7 @@ const AuthLayout = ({ children }: Props) => {
           <DividerLine />
         </Divider>
 
-        <GoogleButton type="button">
-          <FcGoogle size={20} />
-          {t("Auth.continueWithGoogle")}
-        </GoogleButton>
+        <GoogleLoginButton />
       </Card>
     </Wrapper>
   );

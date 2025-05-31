@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUser, logoutUser } from "./operations";
+import { googleLogin, loginUser, logoutUser } from "./operations";
 import { fetchCurrentUser } from "@/redux/user/operations";
 
 type AuthState = {
@@ -26,6 +26,10 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(loginUser.fulfilled, (state, action) => {
+        state.accessToken = action.payload.accessToken;
+        state.isLoggedIn = true;
+      })
+      .addCase(googleLogin.fulfilled, (state, action) => {
         state.accessToken = action.payload.accessToken;
         state.isLoggedIn = true;
       })

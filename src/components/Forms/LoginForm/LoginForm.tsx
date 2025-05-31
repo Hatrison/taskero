@@ -17,7 +17,7 @@ import {
   SubmitButton,
   CheckboxRow,
   CustomCheckbox,
-  ForgotLink,
+  //ForgotLink,
   ErrorText,
 } from "@/styles/form/Form.styled";
 
@@ -98,7 +98,7 @@ const LoginForm = () => {
                 {t("Auth.rememberMe")}
               </CustomCheckbox>
 
-              <ForgotLink to="/password">{t("Auth.forgotPassword")}</ForgotLink>
+              {/* <ForgotLink to="/password">{t("Auth.forgotPassword")}</ForgotLink> */}
             </CheckboxRow>
 
             <SubmitButton type="submit">{t("Auth.signin")}</SubmitButton>

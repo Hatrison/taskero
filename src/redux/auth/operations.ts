@@ -69,3 +69,24 @@ export const logoutUser = createAsyncThunk(
     }
   }
 );
+
+export const googleLogin = createAsyncThunk<
+  TAuthResponse,
+  { idToken: string },
+  { rejectValue: string }
+>("auth/googleLogin", async ({ idToken }, thunkAPI) => {
+  try {
+    const res = await instance.post("/api/auth/google", {
+      idToken,
+    });
+    const { accessToken, user } = res.data;
+
+    setAuthHeader(accessToken);
+    localStorage.setItem("accessToken", accessToken);
+
+    await thunkAPI.dispatch(addUserData(user));
+    return res.data;
+  } catch (err: any) {
+    return thunkAPI.rejectWithValue(err.response?.data?.message || err.message);
+  }
+});
