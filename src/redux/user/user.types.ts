@@ -14,7 +14,14 @@ export interface UserBase {
   avatar?: string;
 }
 
-export type TUserUpdatePayload = FormData;
+export type TUserUpdatePayload =
+  | FormData
+  | {
+      theme: "light" | "dark";
+    }
+  | {
+      language: string;
+    };
 
 export interface ChangePasswordPayload {
   currentPassword: string;
