@@ -35,7 +35,7 @@ type UserWithRole = { email: string; role: Role };
 
 type Member = string | UserWithRole;
 
-interface Props {
+type Props = {
   value?: Member[];
   users: UserListItem[];
   onChange: (value: UserBase[] | Member[]) => void;
@@ -43,7 +43,7 @@ interface Props {
   editableRoles?: boolean;
   availableRoles?: UserListItem["role"][];
   viewMode?: boolean;
-}
+};
 
 const UserList = ({
   value,

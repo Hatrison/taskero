@@ -12,12 +12,12 @@ import {
 } from "./ImageUploadField.styled";
 import { ErrorText } from "@/styles/form/Form.styled";
 
-interface Props {
+type Props = {
   name: string;
   placeholderText: string;
   buttonText: string;
   initialPreview?: string | null;
-}
+};
 
 const ImageUploadField = ({
   name,

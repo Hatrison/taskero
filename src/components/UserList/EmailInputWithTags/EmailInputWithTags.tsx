@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { Input, RemoveBtn, Tag, Wrapper } from "./EmailInputWithTags.styled";
 
-interface Props {
+type Props = {
   pending: string[];
   onPendingChange: (emails: string[]) => void;
   placeholder?: string;
-}
+};
 
 const isValidEmail = (email: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

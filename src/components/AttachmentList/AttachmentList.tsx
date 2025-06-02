@@ -16,7 +16,7 @@ export interface Attachment {
   file?: File;
 }
 
-interface Props {
+type Props = {
   files: Attachment[];
   editable?: boolean;
   onChange: (files: Attachment[]) => void;

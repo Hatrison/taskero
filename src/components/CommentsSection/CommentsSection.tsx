@@ -38,10 +38,10 @@ import {
   ControlButton,
 } from "./CommentsSection.styled";
 
-interface Props {
+type Props = {
   taskId: string;
   withActions?: boolean;
-}
+};
 
 interface FormValues {
   text: string;

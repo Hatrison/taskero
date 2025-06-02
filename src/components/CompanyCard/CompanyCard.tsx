@@ -21,9 +21,9 @@ import {
 } from "./CompanyCard.styled";
 import { HiDotsVertical, HiUserGroup } from "react-icons/hi";
 
-interface Props {
+type Props = {
   company: Company;
-}
+};
 
 const CompanyCard = ({ company }: Props) => {
   const dispatch = useAppDispatch();
